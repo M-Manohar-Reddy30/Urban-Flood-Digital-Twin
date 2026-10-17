@@ -40,3 +40,10 @@ This is not an official municipal boundary.
 - Slope alone cannot determine flood risk.
 - The results must be validated and combined with rainfall, drainage,
   land cover, and other reliable data before flood-risk conclusions are made.
+
+## Grid alignment validation
+- DEM and slope dimensions match: 715 × 591 pixels.
+- Both use EPSG:32643 (WGS 84 / UTM zone 43N).
+- Both have approximately 30.27 m pixel spacing.
+- This confirms grid alignment for the current processed rasters.
+- Alignment alone does not establish elevation accuracy or flood-prediction accuracy.
