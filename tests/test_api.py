@@ -34,3 +34,11 @@ def test_flood_evidence_summary():
 
     data = response.json()
     assert data["total_records"] == 9
+
+
+def test_gis_boundary():
+    response = client.get("/api/v1/gis/boundary")
+    assert response.status_code == 200
+
+    boundary = response.json()
+    assert boundary["type"] in {"Feature", "FeatureCollection"}
