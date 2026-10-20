@@ -3,6 +3,7 @@ from fastapi.middleware.cors import CORSMiddleware
 
 from backend.app.api.gis import router as gis_router
 from backend.app.api.evidence import router as evidence_router
+from backend.app.api.rainfall import router as rainfall_router
 
 app = FastAPI(
     title="Ballari Urban Flood Digital Twin API",
@@ -25,6 +26,7 @@ app.add_middleware(
 app.include_router(gis_router)
 
 app.include_router(evidence_router)
+app.include_router(rainfall_router)
 
 @app.get("/")
 def root():

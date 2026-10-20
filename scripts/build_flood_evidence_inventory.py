@@ -21,7 +21,7 @@ records = [
         "geographic_scope": "district",
         "source_document": "Ballari District Disaster Management Plan 2025-26 & 2026-27",
         "source_section": "District past flood assessment and analysis",
-        "source_page": "40",
+        "source_page": "45",
         "verification_status": "transcribed_not_independently_verified",
         "notes": "Confirm location coordinates and whether it lies inside the city boundary.",
     },
@@ -37,7 +37,7 @@ records = [
         "geographic_scope": "district",
         "source_document": "Ballari District Disaster Management Plan 2025-26 & 2026-27",
         "source_section": "District past flood assessment and analysis",
-        "source_page": "40",
+        "source_page": "45",
         "verification_status": "transcribed_not_independently_verified",
         "notes": "Outside the city model unless verified otherwise.",
     },
@@ -53,7 +53,7 @@ records = [
         "geographic_scope": "district",
         "source_document": "Ballari District Disaster Management Plan 2025-26 & 2026-27",
         "source_section": "District past flood assessment and analysis",
-        "source_page": "40",
+        "source_page": "45",
         "verification_status": "transcribed_not_independently_verified",
         "notes": "Do not use as a Ballari city flood label.",
     },
@@ -69,7 +69,7 @@ records = [
         "geographic_scope": "district",
         "source_document": "Ballari District Disaster Management Plan 2025-26 & 2026-27",
         "source_section": "District past flood assessment and analysis",
-        "source_page": "40",
+        "source_page": "45",
         "verification_status": "location_requires_verification",
         "notes": "The report does not provide exact coordinates in the extracted caption.",
     },
@@ -85,9 +85,9 @@ records = [
         "geographic_scope": "district",
         "source_document": "Ballari District Disaster Management Plan 2025-26 & 2026-27",
         "source_section": "Table 2.10: vulnerable villages and population",
-        "source_page": "42",
-        "verification_status": "table_columns_require_verification",
-        "notes": "Population column alignment must be checked against the original PDF.",
+        "source_page": "47",
+        "verification_status": "table_column_alignment_verified",
+        "notes": "Value transcribed from the village population column in Table 2.10. Source table reports flood-vulnerable villages; this value is not a flood-affected population count or a verified Ballari city statistic. Underlying source figures have not been independently validated.",
     },
     {
         "record_id": "DDMP-2025-002",
@@ -101,9 +101,9 @@ records = [
         "geographic_scope": "district",
         "source_document": "Ballari District Disaster Management Plan 2025-26 & 2026-27",
         "source_section": "Table 2.10: vulnerable villages and population",
-        "source_page": "42",
-        "verification_status": "table_columns_require_verification",
-        "notes": "Not a confirmed Ballari city population or flood label.",
+        "source_page": "47",
+        "verification_status": "table_column_alignment_verified",
+        "notes": "Value transcribed from the village population column in Table 2.10. Source table reports flood-vulnerable villages; this value is not a flood-affected population count or a verified Ballari city statistic. Underlying source figures have not been independently validated.",
     },
 
     {
@@ -158,12 +158,52 @@ records = [
 
 OUTPUT.parent.mkdir(parents=True, exist_ok=True)
 
-# Add explicit spatial-verification fields to every record.
+# Preserve direct source traceability.
+DDMP_URL = ""
+DECCAN_HERALD_URL = "https://www.deccanherald.com/india/karnataka/rain-exposes-civic-body-s-shoddy-infra-in-ballari-4030856"
+
+for record in records:
+    if record["source_document"].startswith("Ballari District Disaster"):
+        record["source_url"] = DDMP_URL
+    else:
+        record["source_url"] = DECCAN_HERALD_URL
+
+# Keep incident coordinates separate from landmark coordinates.
 for record in records:
     record["latitude"] = ""
     record["longitude"] = ""
     record["inside_city_boundary"] = "not_checked"
     record["spatial_verification_status"] = "missing_incident_coordinates"
+
+    record["landmark_latitude"] = ""
+    record["landmark_longitude"] = ""
+    record["landmark_coordinate_source"] = ""
+    record["landmark_spatial_status"] = "not_checked"
+
+# Candidate landmark coordinates only; never treat these as floodwater points.
+for record in records:
+    if record["record_id"] == "DH-2026-001":
+        record["landmark_latitude"] = "15.137672"
+        record["landmark_longitude"] = "76.929557"
+        record["landmark_coordinate_source"] = (
+            "Mappls listing for Sharada Tutorials at Kolmi Chowk; "
+            "candidate coordinates; exact listing URL not yet verified"
+        )
+        record["landmark_spatial_status"] = (
+            "candidate_landmark_inside_boundary_incident_location_unverified"
+        )
+
+    elif record["record_id"] == "DH-2026-003":
+        record["landmark_latitude"] = "15.155818"
+        record["landmark_longitude"] = "76.898437"
+        record["landmark_coordinate_source"] = (
+            "LatLong listing for Vijayanagar Institute of Medical Science "
+            "Hospital, Ballari; candidate landmark; exact point not "
+            "independently confirmed"
+        )
+        record["landmark_spatial_status"] = (
+            "candidate_landmark_inside_boundary_incident_location_unverified"
+        )
 
 fieldnames = list(records[0].keys())
 
