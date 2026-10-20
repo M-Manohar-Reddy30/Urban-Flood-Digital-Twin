@@ -180,7 +180,52 @@ function App() {
   }
 
   useEffect(() => {
-    void loadDashboard()
+    let cancelled = false
+
+    async function loadInitialDashboard() {
+      try {
+        const [healthRes, gisRes, evidenceRes, boundaryRes] = await Promise.all([
+          fetch(`${API}/health`),
+          fetch(`${API}/api/v1/gis/summary`),
+          fetch(`${API}/api/v1/evidence/summary`),
+          fetch(`${API}/api/v1/gis/boundary`),
+        ])
+
+        if (!healthRes.ok) throw new Error('The backend health check failed.')
+        if (!gisRes.ok) throw new Error('Could not load GIS summary.')
+        if (!evidenceRes.ok) throw new Error('Could not load flood evidence.')
+        if (!boundaryRes.ok) throw new Error('Could not load the municipal boundary.')
+
+        const [gisData, evidenceData, boundaryData] = await Promise.all([
+          gisRes.json() as Promise<GisSummary>,
+          evidenceRes.json() as Promise<EvidenceResponse>,
+          boundaryRes.json() as Promise<GeoJSONType>,
+        ])
+
+        if (cancelled) return
+
+        setGis(gisData)
+        setEvidence(evidenceData)
+        setBoundary(boundaryData)
+        setApiStatus('online')
+        setLastUpdated(new Date().toLocaleTimeString('en-IN'))
+      } catch (err) {
+        if (cancelled) return
+
+        setApiStatus('offline')
+        setError(
+          err instanceof Error
+            ? `${err.message} Make sure the FastAPI server is running on port 8000.`
+            : 'Unable to connect to the backend.',
+        )
+      }
+    }
+
+    void loadInitialDashboard()
+
+    return () => {
+      cancelled = true
+    }
   }, [])
 
   useEffect(() => {
