@@ -207,3 +207,406 @@
   .sidebar > .nav-item { gap: 6px; font-size: 10px; padding: 8px 6px; }
   .map-side { grid-template-columns: 1fr; }.map-frame { height: 300px; }.rainfall-card { flex-wrap: wrap; }.rainfall-metric { border-left: 0; padding-left: 0; width: 100%; }.hero-meta { flex-direction: column; gap: 9px; }
 }
+
+/* FLOODTWIN LIGHT THEME */
+:root {
+  --bg: #f8fafc;
+  --sidebar: #ffffff;
+  --panel: #ffffff;
+  --panel-2: #f8fafc;
+  --border: #e2e8f0;
+  --muted: #64748b;
+  --text: #172033;
+  --cyan: #0284c7;
+  --blue: #2563eb;
+  --green: #059669;
+  --mono: 'DM Mono', monospace;
+  --display: 'Space Grotesk', sans-serif;
+}
+
+body,
+#root,
+.app-shell {
+  background: #f8fafc;
+  color: #172033;
+}
+
+.sidebar {
+  background: #ffffff;
+  border-right-color: #e2e8f0;
+  box-shadow: 4px 0 20px rgba(15, 23, 42, 0.025);
+}
+
+.brand-mark {
+  background: linear-gradient(135deg, #0284c7, #0369a1);
+  color: #ffffff;
+  box-shadow: 0 4px 12px rgba(2, 132, 199, 0.18);
+}
+
+.brand strong,
+.breadcrumb strong {
+  color: #172033;
+}
+
+.brand small,
+.side-label,
+.sidebar-foot {
+  color: #64748b;
+}
+
+.nav-item {
+  color: #475569;
+}
+
+.nav-item:hover {
+  background: #f1f5f9;
+  color: #0f172a;
+}
+
+.nav-item.selected {
+  color: #0369a1;
+  background: #eff8ff;
+  border-color: #bae6fd;
+}
+
+.nav-item.selected svg,
+.heading-icon,
+.footer-brand svg {
+  color: #0284c7;
+}
+
+.study-card {
+  background: #f8fafc;
+  border-color: #e2e8f0;
+}
+
+.study-card strong {
+  color: #172033;
+}
+
+.study-card small,
+.stat-detail,
+.section-subtitle,
+.updated-label,
+.evidence-count {
+  color: #64748b;
+}
+
+.sidebar-note {
+  color: #0f766e;
+}
+
+.topbar {
+  border-bottom-color: #e2e8f0;
+}
+
+.breadcrumb,
+.status-pill {
+  color: #64748b;
+}
+
+.breadcrumb span {
+  color: #94a3b8;
+}
+
+.status-pill {
+  background: #ffffff;
+  border-color: #e2e8f0;
+}
+
+.status-pill.online .status-dot {
+  background: #10b981;
+  box-shadow: 0 0 7px #10b98155;
+}
+
+.refresh-btn {
+  color: #334155;
+  background: #ffffff;
+  border-color: #cbd5e1;
+}
+
+.refresh-btn:hover {
+  border-color: #0284c7;
+  background: #f0f9ff;
+}
+
+.hero {
+  border-color: #dbeafe;
+  background:
+    radial-gradient(ellipse at 82% 55%, #bae6fd66, transparent 38%),
+    linear-gradient(115deg, #ffffff, #f0f9ff 70%, #ecfeff);
+  box-shadow: 0 8px 30px rgba(15, 23, 42, 0.035);
+}
+
+.hero:after {
+  opacity: 0.22;
+  background-image:
+    linear-gradient(#93c5fd33 1px, transparent 1px),
+    linear-gradient(90deg, #93c5fd33 1px, transparent 1px);
+}
+
+.eyebrow {
+  color: #0369a1;
+}
+
+.eyebrow-line {
+  background: #0284c7;
+}
+
+.hero h1 {
+  color: #172033;
+}
+
+.hero h1 span {
+  color: #0284c7;
+}
+
+.hero p {
+  color: #475569;
+}
+
+.hero-meta {
+  color: #475569;
+}
+
+.hero-meta svg {
+  color: #0284c7;
+}
+
+.art-ring {
+  border-color: #7dd3fc77;
+}
+
+.ring-one {
+  box-shadow: 0 0 35px #38bdf81c, inset 0 0 30px #38bdf81a;
+}
+
+.ring-two {
+  border-color: #0284c755;
+}
+
+.art-core {
+  border-color: #38bdf8;
+  color: #0369a1;
+  background: linear-gradient(135deg, #e0f2fe, #ffffff);
+  box-shadow: 0 8px 30px #0284c71c;
+}
+
+.art-tag {
+  border-color: #bae6fd;
+  background: #ffffffdd;
+  color: #0369a1;
+}
+
+.stat-card,
+.panel-card,
+.rainfall-card,
+.landcover-card,
+.evidence-panel {
+  background: #ffffff;
+  border-color: #e2e8f0;
+  box-shadow: 0 4px 16px rgba(15, 23, 42, 0.025);
+}
+
+.stat-top,
+.panel-title,
+.range-item > div:first-child,
+.cover-label {
+  color: #64748b;
+}
+
+.stat-icon,
+.rainfall-symbol {
+  background: #e0f2fe;
+  color: #0284c7;
+}
+
+.stat-value,
+.panel-value,
+.data-row strong,
+.range-item strong,
+.cover-label strong,
+.evidence-event strong {
+  color: #172033;
+}
+
+.stat-unit {
+  color: #475569;
+}
+
+.map-switch {
+  background: #ffffff;
+  border-color: #e2e8f0;
+}
+
+.map-switch button {
+  color: #475569;
+}
+
+.map-switch button.active {
+  background: #e0f2fe;
+  color: #0369a1;
+}
+
+.map-frame {
+  background: #f1f5f9;
+  border-color: #cbd5e1;
+  box-shadow: 0 4px 18px rgba(15, 23, 42, 0.04);
+}
+
+.leaflet-map {
+  background: #f1f5f9;
+}
+
+.map-legend,
+.map-coordinates {
+  background: #ffffffed;
+  border-color: #cbd5e1;
+  color: #334155;
+  box-shadow: 0 2px 8px #0f172a12;
+}
+
+.map-coordinates {
+  color: #475569;
+}
+
+.map-placeholder,
+.map-placeholder span,
+.panel-card p,
+.data-row,
+.rainfall-content p,
+.cover-label,
+.empty-inline,
+.section-subtitle {
+  color: #64748b;
+}
+
+.panel-title svg,
+.map-placeholder svg,
+.empty-inline svg {
+  color: #0284c7;
+}
+
+.mini-divider {
+  border-color: #e2e8f0;
+}
+
+.range-track,
+.cover-track {
+  background: #e2e8f0;
+}
+
+.range-track span {
+  background: linear-gradient(90deg, #0284c7, #38bdf8);
+}
+
+.slope-track span {
+  background: linear-gradient(90deg, #059669, #34d399);
+}
+
+.data-tag {
+  border-color: #bae6fd;
+  background: #f0f9ff;
+  color: #0369a1;
+}
+
+.rainfall-metric {
+  border-left-color: #e2e8f0;
+}
+
+.rainfall-metric span {
+  color: #64748b;
+}
+
+.rainfall-metric strong {
+  color: #b45309;
+}
+
+.notice-row {
+  color: #92400e;
+}
+
+.evidence-header {
+  background: #f1f5f9;
+  border-bottom-color: #e2e8f0;
+  color: #475569;
+}
+
+.evidence-row {
+  border-bottom-color: #e2e8f0;
+}
+
+.event-icon {
+  background: #e0f2fe;
+  color: #0284c7;
+}
+
+.evidence-event small,
+.event-date {
+  color: #64748b;
+}
+
+.verification-tag.unverified {
+  color: #92400e;
+  background: #fffbeb;
+  border-color: #fcd34d;
+}
+
+.verification-tag.verified {
+  color: #065f46;
+  background: #ecfdf5;
+  border-color: #a7f3d0;
+}
+
+.evidence-foot {
+  color: #92400e;
+  background: #fffbeb;
+  border-top: 1px solid #fde68a;
+}
+
+.empty-state {
+  color: #64748b;
+}
+
+.empty-state strong {
+  color: #172033;
+}
+
+.empty-state svg {
+  color: #0284c7;
+}
+
+.error-banner {
+  border-color: #fecaca;
+  color: #991b1b;
+  background: #fef2f2;
+}
+
+.error-banner button {
+  color: #991b1b;
+  border-color: #fca5a5;
+}
+
+.footer {
+  border-top-color: #e2e8f0;
+  color: #64748b;
+}
+
+.footer-brand {
+  color: #334155;
+}
+
+.footer-brand span {
+  color: #94a3b8;
+}
+
+.footer a {
+  color: #0369a1;
+}
+
+@media (max-width: 760px) {
+  .sidebar {
+    background: #ffffff;
+    border-bottom-color: #e2e8f0;
+  }
+}

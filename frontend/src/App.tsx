@@ -19,8 +19,8 @@ type GisSummary = {
   dataset?: string
   feature_count?: number
   coordinate_reference_system?: string
-  elevation?: { min?: number; max?: number; mean?: number }
-  slope?: { min?: number; max?: number; mean?: number }
+  elevation_m?: { min?: number; max?: number; mean?: number }
+  slope_degrees?: { min?: number; max?: number; mean?: number }
   landcover_class_counts?: Record<string, number>
   note?: string
   [key: string]: unknown
@@ -152,8 +152,8 @@ function App() {
   }, [])
 
   const records = Array.isArray(evidence?.records) ? evidence.records : []
-  const elevation = (gis?.elevation ?? {}) as Record<string, unknown>
-  const slope = (gis?.slope ?? {}) as Record<string, unknown>
+  const elevation = (gis?.elevation_m ?? {}) as Record<string, unknown>
+  const slope = (gis?.slope_degrees ?? {}) as Record<string, unknown>
   const landcover = gis?.landcover_class_counts ?? {}
 
   const boundaryStyle = {
