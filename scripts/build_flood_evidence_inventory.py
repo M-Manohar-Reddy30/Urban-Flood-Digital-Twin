@@ -159,7 +159,7 @@ records = [
 OUTPUT.parent.mkdir(parents=True, exist_ok=True)
 
 # Preserve direct source traceability.
-DDMP_URL = ""
+DDMP_URL = "https://cdn.s3waas.gov.in/s37c590f01490190db0ed02a5070e20f01/uploads/2025/09/17573977807748.pdf"
 DECCAN_HERALD_URL = "https://www.deccanherald.com/india/karnataka/rain-exposes-civic-body-s-shoddy-infra-in-ballari-4030856"
 
 for record in records:
