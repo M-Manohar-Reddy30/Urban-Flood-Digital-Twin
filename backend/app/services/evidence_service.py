@@ -16,6 +16,9 @@ def get_evidence_summary() -> dict:
         "total_records": len(records),
         "record_types": _count_by(records, "record_type"),
         "verification_statuses": _count_by(
+            records, "verification_status"
+        ),
+        "spatial_verification_statuses": _count_by(
             records, "spatial_verification_status"
         ),
         "records": records,
