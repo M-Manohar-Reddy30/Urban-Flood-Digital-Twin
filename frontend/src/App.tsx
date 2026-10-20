@@ -76,6 +76,17 @@ type EvidenceResponse = {
   [key: string]: unknown
 }
 
+
+type DrainageProperties = {
+  source_id?: string | number
+  category?: string
+  dr_code?: string
+  status?: string
+  clipped_length_km?: number
+  [key: string]: unknown
+}
+
+
 function FitBoundary({ boundary }: { boundary: GeoJSONType | null }) {
   const map = useMap()
 
@@ -132,6 +143,17 @@ function App() {
   const [gis, setGis] = useState<GisSummary | null>(null)
   const [evidence, setEvidence] = useState<EvidenceResponse | null>(null)
   const [boundary, setBoundary] = useState<GeoJSONType | null>(null)
+
+  const [drainage, setDrainage] = useState<GeoJSONType | null>(null)
+  const [drainageError, setDrainageError] = useState('')
+  const [visibleDrainage, setVisibleDrainage] = useState({
+    Drain: true,
+    Stream: true,
+    River: true,
+  })
+  const [selectedDrainage, setSelectedDrainage] =
+    useState<DrainageProperties | null>(null)
+
   const [rainfall, setRainfall] = useState<RainfallResponse | null>(null)
   const [rainfallError, setRainfallError] = useState('')
   const [apiStatus, setApiStatus] = useState<'loading' | 'online' | 'offline'>('loading')
@@ -219,6 +241,43 @@ function App() {
     }
 
     void loadInitialDashboard()
+
+    return () => {
+      cancelled = true
+    }
+  }, [])
+
+  useEffect(() => {
+    let cancelled = false
+
+    async function loadDrainage() {
+      try {
+        const response = await fetch(`${API}/api/v1/gis/drainage`)
+
+        if (!response.ok) {
+          throw new Error(`Drainage API returned HTTP ${response.status}`)
+        }
+
+        const data = await response.json() as GeoJSONType
+
+        if (cancelled) return
+
+        if (data.type !== 'FeatureCollection') {
+          throw new Error('The drainage response is not a FeatureCollection.')
+        }
+
+        setDrainage(data)
+        setDrainageError('')
+      } catch (err) {
+        if (cancelled) return
+
+        setDrainageError(
+          err instanceof Error ? err.message : 'Unable to load drainage data.',
+        )
+      }
+    }
+
+    void loadDrainage()
 
     return () => {
       cancelled = true
@@ -369,6 +428,25 @@ function App() {
               <button className={activeLayer === 'street' ? 'active' : ''} onClick={() => setActiveLayer('street')}>Street</button>
               <button className={activeLayer === 'terrain' ? 'active' : ''} onClick={() => setActiveLayer('terrain')}>Terrain</button>
             </div>
+            <div className="drainage-filters">
+              <strong>Drainage layers</strong>
+
+              {(['Drain', 'Stream', 'River'] as const).map((category) => (
+                <label key={category}>
+                  <input
+                    type="checkbox"
+                    checked={visibleDrainage[category]}
+                    onChange={(event) =>
+                      setVisibleDrainage((current) => ({
+                        ...current,
+                        [category]: event.target.checked,
+                      }))
+                    }
+                  />
+                  {category}
+                </label>
+              ))}
+            </div>
           </div>
 
           <div className="map-layout">
@@ -389,8 +467,46 @@ function App() {
                       ? 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
                       : 'https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png'}
                   />
-                  <GeoJSON data={boundary} style={() => boundaryStyle} />
-                  <FitBoundary boundary={boundary} />
+
+                <GeoJSON data={boundary} style={() => boundaryStyle} />
+
+                {drainage && (
+                  <GeoJSON
+                    key="ballari-drainage"
+                    data={drainage}
+                    filter={(feature) => {
+                      const category = String(feature.properties?.category ?? '')
+                      return Boolean(
+                        visibleDrainage[category as keyof typeof visibleDrainage],
+                      )
+                    }}
+                    style={(feature) => {
+                      const category = String(feature?.properties?.category ?? '')
+
+                      const colors: Record<string, string> = {
+                        Drain: '#38bdf8',
+                        Stream: '#34d399',
+                        River: '#f59e0b',
+                      }
+
+                      return {
+                        color: colors[category] ?? '#e879f9',
+                        weight: category === 'River' ? 3 : category === 'Stream' ? 2 : 1.5,
+                        opacity: 0.9,
+                      }
+                    }}
+                    onEachFeature={(feature, layer) => {
+                      layer.on('click', () => {
+                        setSelectedDrainage(
+                          feature.properties as DrainageProperties,
+                        )
+                      })
+                    }}
+                  />
+                )}
+
+                <FitBoundary boundary={boundary} />
+
                 </MapContainer>
               ) : (
                 <div className="map-placeholder">
@@ -425,6 +541,48 @@ function App() {
                   <div className="range-track slope-track"><span style={{ width: '34%' }} /></div>
                 </div>
                 <p className="small-note">Terrain values describe topography; they are not flood-risk scores.</p>
+              </div>
+              <div className="panel-card">
+                <div className="panel-title">
+                  <Waves size={17} /> Drainage feature details
+                </div>
+
+                {drainageError ? (
+                  <p>{drainageError}</p>
+                ) : selectedDrainage ? (
+                  <>
+                    <div className="panel-value">
+                      {String(selectedDrainage.category ?? 'Unclassified')}
+                    </div>
+                    <div className="data-row">
+                      <span>Source ID</span>
+                      <strong>{String(selectedDrainage.source_id ?? '—')}</strong>
+                    </div>
+                    <div className="data-row">
+                      <span>Source code</span>
+                      <strong>{String(selectedDrainage.dr_code ?? '—')}</strong>
+                    </div>
+                    <div className="data-row">
+                      <span>Clipped length</span>
+                      <strong>
+                        {typeof selectedDrainage.clipped_length_km === 'number'
+                          ? `${selectedDrainage.clipped_length_km.toFixed(3)} km`
+                          : '—'}
+                      </strong>
+                    </div>
+                  </>
+                ) : (
+                  <p>
+                    {drainage
+                      ? `${drainage.type === 'FeatureCollection' ? drainage.features.length : 0} drainage features loaded. Click a line on the map to inspect it.`
+                      : 'Loading drainage features…'}
+                  </p>
+                )}
+
+                <p className="small-note">
+                  Source-mapped drainage features clipped to the municipal boundary;
+                  these are not flood-risk predictions.
+                </p>
               </div>
             </div>
           </div>
