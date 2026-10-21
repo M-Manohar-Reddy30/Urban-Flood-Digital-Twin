@@ -489,12 +489,30 @@ function App() {
                         River: '#f59e0b',
                       }
 
+                      const selectedSourceId = selectedDrainage?.source_id
+                      const featureSourceId = feature?.properties?.source_id
+
+                      const isSelected =
+                        selectedSourceId !== undefined &&
+                        selectedSourceId !== null &&
+                        featureSourceId !== undefined &&
+                        featureSourceId !== null &&
+                        String(featureSourceId) === String(selectedSourceId)
+
+                      if (isSelected) {
+                        return {
+                          color: '#ff4dff',
+                          weight: 5,
+                          opacity: 1,
+                        }
+                      }
                       return {
                         color: colors[category] ?? '#e879f9',
                         weight: category === 'River' ? 3 : category === 'Stream' ? 2 : 1.5,
                         opacity: 0.9,
                       }
                     }}
+
                     onEachFeature={(feature, layer) => {
                       layer.on('click', () => {
                         setSelectedDrainage(
