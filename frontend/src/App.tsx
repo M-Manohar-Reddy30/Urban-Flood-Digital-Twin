@@ -2,7 +2,8 @@ import { lazy, Suspense, useEffect, useState } from 'react'
 import {
   Activity, AlertTriangle, ArrowDownRight, CloudRain,
   Database, Layers3, MapPin, RefreshCw, ShieldCheck,
-  Waves, Droplets, Mountain, ExternalLink,
+  Waves, Droplets, Mountain, ExternalLink, Eye, EyeOff,
+  Maximize2,
 } from 'lucide-react'
 import {
   MapContainer, TileLayer, GeoJSON, useMap,
@@ -87,7 +88,13 @@ type DrainageProperties = {
 }
 
 
-function FitBoundary({ boundary }: { boundary: GeoJSONType | null }) {
+function FitBoundary({
+  boundary,
+  resetKey,
+}: {
+  boundary: GeoJSONType | null
+  resetKey: number
+}) {
   const map = useMap()
 
   useEffect(() => {
@@ -95,7 +102,7 @@ function FitBoundary({ boundary }: { boundary: GeoJSONType | null }) {
     const layer = L.geoJSON(boundary)
     const bounds = layer.getBounds()
     if (bounds.isValid()) map.fitBounds(bounds, { padding: [28, 28] })
-  }, [boundary, map])
+  }, [boundary, map, resetKey])
 
   return null
 }
@@ -153,6 +160,32 @@ function App() {
   })
   const [selectedDrainage, setSelectedDrainage] =
     useState<DrainageProperties | null>(null)
+
+  const [showDrainage, setShowDrainage] = useState(true)
+  const [mapResetKey, setMapResetKey] = useState(0)
+
+  const drainageFeatures =
+  drainage?.type === 'FeatureCollection'
+    ? drainage.features
+    : []
+
+  const drainageFeatureCount = drainageFeatures.length
+
+  const drainageTotalLengthKm = drainageFeatures.reduce(
+    (total, feature) => {
+      const length = feature.properties?.clipped_length_km
+
+      return (
+        total +
+        (typeof length === 'number' &&
+        Number.isFinite(length) &&
+        length >= 0
+          ? length
+          : 0)
+      )
+    },
+    0,
+  )
 
   const [rainfall, setRainfall] = useState<RainfallResponse | null>(null)
   const [rainfallError, setRainfallError] = useState('')
@@ -428,26 +461,75 @@ function App() {
               <button className={activeLayer === 'street' ? 'active' : ''} onClick={() => setActiveLayer('street')}>Street</button>
               <button className={activeLayer === 'terrain' ? 'active' : ''} onClick={() => setActiveLayer('terrain')}>Terrain</button>
             </div>
-            <div className="drainage-filters">
-              <strong>Drainage layers</strong>
+            <div className="drainage-toolbar">
+              <button
+                type="button"
+                className="map-control-button"
+                onClick={() => setShowDrainage((current) => !current)}
+                aria-pressed={showDrainage}
+              >
+                {showDrainage ? <Eye size={15} /> : <EyeOff size={15} />}
+                {showDrainage ? 'Hide drainage' : 'Show drainage'}
+              </button>
 
-              {(['Drain', 'Stream', 'River'] as const).map((category) => (
-                <label key={category}>
-                  <input
-                    type="checkbox"
-                    checked={visibleDrainage[category]}
-                    onChange={(event) =>
-                      setVisibleDrainage((current) => ({
-                        ...current,
-                        [category]: event.target.checked,
-                      }))
-                    }
-                  />
-                  {category}
-                </label>
-              ))}
+              <button
+                type="button"
+                className="map-control-button"
+                onClick={() => setMapResetKey((current) => current + 1)}
+              >
+                <Maximize2 size={15} />
+                Reset map
+              </button>
+
+              <div className="drainage-filters">
+                <strong>Drainage layers</strong>
+
+                {(['Drain', 'Stream', 'River'] as const).map((category) => (
+                  <label key={category}>
+                    <input
+                      type="checkbox"
+                      checked={visibleDrainage[category]}
+                      onChange={(event) =>
+                        setVisibleDrainage((current) => ({
+                          ...current,
+                          [category]: event.target.checked,
+                        }))
+                      }
+                    />
+                    {category}
+                  </label>
+                ))}
+              </div>
             </div>
           </div>
+
+          {drainage && (
+              <div
+                className="drainage-summary"
+                aria-label="Drainage dataset summary"
+              >
+                <div className="drainage-stat">
+                  <span>Mapped features</span>
+                  <strong>{drainageFeatureCount.toLocaleString()}</strong>
+                </div>
+
+                <div className="drainage-stat">
+                  <span>Total mapped length</span>
+                  <strong>
+                    {drainageTotalLengthKm.toLocaleString(undefined, {
+                      minimumFractionDigits: 2,
+                      maximumFractionDigits: 2,
+                    })}{' '}
+                    km
+                  </strong>
+                </div>
+
+                <p>
+                  Dataset totals remain unchanged when category filters are used.
+                  Length represents mapped geometry, not drainage capacity.
+                </p>
+              </div>
+            )}
 
           <div className="map-layout">
             <div className="map-frame">
@@ -470,7 +552,7 @@ function App() {
 
                 <GeoJSON data={boundary} style={() => boundaryStyle} />
 
-                {drainage && (
+                {drainage && showDrainage && (
                   <GeoJSON
                     key="ballari-drainage"
                     data={drainage}
@@ -523,7 +605,7 @@ function App() {
                   />
                 )}
 
-                <FitBoundary boundary={boundary} />
+                <FitBoundary boundary={boundary} resetKey={mapResetKey} />
 
                 </MapContainer>
               ) : (
