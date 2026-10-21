@@ -2,7 +2,10 @@ from datetime import date
 
 from fastapi import APIRouter, HTTPException, Query
 
-from backend.app.services.rainfall_service import get_rainfall_data
+from backend.app.services.rainfall_service import (
+    get_rainfall_data,
+    get_rainfall_quality,
+)
 
 router = APIRouter(prefix="/api/v1/rainfall", tags=["Rainfall"])
 
@@ -23,5 +26,14 @@ def rainfall_summary(
         return get_rainfall_data(start_date, end_date)
     except FileNotFoundError as exc:
         raise HTTPException(status_code=500, detail=str(exc)) from exc
+    except ValueError as exc:
+        raise HTTPException(status_code=500, detail=str(exc)) from exc
+@router.get("/quality")
+def rainfall_quality():
+    """Return quality indicators for the complete rainfall dataset."""
+    try:
+        return get_rainfall_quality()
+    except FileNotFoundError as exc:
+        raise HTTPException(status_code=503, detail=str(exc)) from exc
     except ValueError as exc:
         raise HTTPException(status_code=500, detail=str(exc)) from exc
