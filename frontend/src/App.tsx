@@ -54,6 +54,25 @@ type RainfallResponse = {
   }[]
 }
 
+type RainfallQuality = {
+  source: string
+  dataset: string
+  scope: string
+  units: string
+  grid_point_count: number
+  grid_point_note: string
+  row_count: number
+  invalid_dates: number
+  duplicate_date_rows: number
+  missing_calendar_dates: number
+  invalid_rainfall_values: number
+  negative_rainfall_values: number
+  invalid_retrieval_counts: number
+  retrieval_counts_other_than_48: number
+  statuses_other_than_ok: number
+  interpretation: string
+}
+
 type Evidence = {
   event_date?: string
   date?: string
@@ -189,6 +208,9 @@ function App() {
 
   const [rainfall, setRainfall] = useState<RainfallResponse | null>(null)
   const [rainfallError, setRainfallError] = useState('')
+  const [rainfallQuality, setRainfallQuality] =
+  useState<RainfallQuality | null>(null)
+  const [rainfallQualityError, setRainfallQualityError] = useState('')
   const [apiStatus, setApiStatus] = useState<'loading' | 'online' | 'offline'>('loading')
   const [error, setError] = useState('')
   const [lastUpdated, setLastUpdated] = useState('Not yet refreshed')
@@ -338,6 +360,40 @@ function App() {
 
     void loadRainfall()
     return () => { cancelled = true }
+  }, [])
+  useEffect(() => {
+    let cancelled = false
+
+    async function loadRainfallQuality() {
+      try {
+        const response = await fetch(`${API}/api/v1/rainfall/quality`)
+
+        if (!response.ok) {
+          throw new Error(`Rainfall quality API returned HTTP ${response.status}`)
+        }
+
+        const data = await response.json() as RainfallQuality
+
+        if (!cancelled) {
+          setRainfallQuality(data)
+          setRainfallQualityError('')
+        }
+      } catch (err) {
+        if (!cancelled) {
+          setRainfallQualityError(
+            err instanceof Error
+              ? err.message
+              : 'Rainfall quality data could not be loaded.',
+          )
+        }
+      }
+    }
+
+    void loadRainfallQuality()
+
+    return () => {
+      cancelled = true
+    }
   }, [])
 
   const records = Array.isArray(evidence?.records) ? evidence.records : []
@@ -734,6 +790,85 @@ function App() {
                   rainfallError={rainfallError}
                 />
               </Suspense>
+            </div>
+            <div className="rainfall-quality-panel">
+              <div className="rainfall-quality-heading">
+                <Database size={18} />
+                <div>
+                  <h3>Rainfall data quality</h3>
+                  <p>
+                    Automated consistency checks for the supplied dataset
+                  </p>
+                </div>
+              </div>
+
+              {rainfallQualityError ? (
+                <p className="rainfall-quality-error" role="alert">
+                  {rainfallQualityError}
+                </p>
+              ) : rainfallQuality ? (
+                <>
+                  <div className="rainfall-quality-grid">
+                    <div className="rainfall-quality-item">
+                      <span>Dataset records</span>
+                      <strong>
+                        {formatNumber(rainfallQuality.row_count, 0)}
+                      </strong>
+                    </div>
+
+                    <div className="rainfall-quality-item">
+                      <span>Distinct grid points</span>
+                      <strong>
+                        {formatNumber(rainfallQuality.grid_point_count, 0)}
+                      </strong>
+                    </div>
+
+                    <div className="rainfall-quality-item">
+                      <span>Missing calendar dates</span>
+                      <strong>
+                        {formatNumber(rainfallQuality.missing_calendar_dates, 0)}
+                      </strong>
+                    </div>
+
+                    <div className="rainfall-quality-item">
+                      <span>Invalid rainfall values</span>
+                      <strong>
+                        {formatNumber(rainfallQuality.invalid_rainfall_values, 0)}
+                      </strong>
+                    </div>
+
+                    <div className="rainfall-quality-item">
+                      <span>Duplicate date rows</span>
+                      <strong>
+                        {formatNumber(rainfallQuality.duplicate_date_rows, 0)}
+                      </strong>
+                    </div>
+
+                    <div className="rainfall-quality-item">
+                      <span>Retrieval counts other than 48</span>
+                      <strong>
+                        {formatNumber(
+                          rainfallQuality.retrieval_counts_other_than_48,
+                          0,
+                        )}
+                      </strong>
+                    </div>
+                  </div>
+
+                  <div className="rainfall-quality-warning">
+                    <AlertTriangle size={17} />
+                    <p>
+                      {rainfallQuality.grid_point_note}
+                      {' '}
+                      {rainfallQuality.interpretation}
+                    </p>
+                  </div>
+                </>
+              ) : (
+                <p className="rainfall-quality-loading">
+                  Loading rainfall quality indicators…
+                </p>
+              )}
             </div>
             <div className="notice-row">
               <AlertTriangle size={15} />
