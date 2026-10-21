@@ -99,12 +99,84 @@
 .map-switch { display: flex; gap: 3px; padding: 3px; border: 1px solid var(--border); background: #0c1523; border-radius: 7px; }
 .map-switch button { background: transparent; border: 0; padding: 7px 12px; border-radius: 5px; color: #8496ac; font-size: 10px; }
 .map-switch button.active { background: #18364b; color: #7de1f1; }
+
+/* Drainage category filters */
+.drainage-filters {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 12px;
+  padding: 10px 12px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--surface, #ffffff);
+}
+
+.drainage-filters strong {
+  margin-right: 4px;
+  font-size: 11px;
+  color: var(--text, #334155);
+}
+
+.drainage-filters label {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  font-size: 11px;
+  color: var(--text, #475569);
+}
+
+.drainage-filters input {
+  accent-color: #0284c7;
+  cursor: pointer;
+}
 .map-layout { display: grid; grid-template-columns: minmax(0, 1.75fr) minmax(235px, .75fr); gap: 14px; }
 .map-frame { height: 390px; min-width: 0; position: relative; overflow: hidden; border: 1px solid #293b50; border-radius: 10px; background: #0c1927; }
 .leaflet-map { width: 100%; height: 100%; background: #0c1927; }
 .map-legend, .map-coordinates { position: absolute; z-index: 500; bottom: 13px; background: #091421eF; border: 1px solid #34485e; border-radius: 5px; padding: 8px 10px; color: #c0d0e1; font: 9px var(--mono); }
-.map-legend { left: 13px; display: flex; align-items: center; gap: 8px; }
-.legend-line { display: inline-block; width: 18px; border-top: 2px dashed #38bdf8; }
+
+.map-legend {
+  left: 13px;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 9px 12px;
+  max-width: calc(100% - 26px);
+}
+
+.legend-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  white-space: nowrap;
+}
+
+.legend-line {
+  display: inline-block;
+  flex: 0 0 18px;
+  width: 18px;
+  border-top: 3px solid;
+}
+
+.legend-boundary {
+  border-top-style: dashed;
+  border-color: #38bdf8;
+}
+
+.legend-drain {
+  border-color: #38bdf8;
+}
+
+.legend-stream {
+  border-color: #34d399;
+}
+
+.legend-river {
+  border-color: #f59e0b;
+}
+
 .map-coordinates { right: 13px; color: #a0b5ca; }
 .map-placeholder { height: 100%; display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 10px; color: #8aa1ba; text-align: center; padding: 20px; }
 .map-placeholder svg { color: var(--cyan); }.map-placeholder strong { font: 500 16px var(--display); }.map-placeholder span { font-size: 11px; }

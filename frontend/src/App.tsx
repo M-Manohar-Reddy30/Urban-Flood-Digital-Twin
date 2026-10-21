@@ -515,9 +515,24 @@ function App() {
                   <span>Connect the backend to display the study area.</span>
                 </div>
               )}
-              <div className="map-legend">
-                <span className="legend-line" /> Municipal boundary
-              </div>
+                <div className="map-legend">
+                  <div className="legend-item">
+                    <span className="legend-line legend-boundary" />
+                    Boundary
+                  </div>
+                  <div className="legend-item">
+                    <span className="legend-line legend-drain" />
+                    Drain
+                  </div>
+                  <div className="legend-item">
+                    <span className="legend-line legend-stream" />
+                    Stream
+                  </div>
+                  <div className="legend-item">
+                    <span className="legend-line legend-river" />
+                    River
+                  </div>
+                </div>
               <div className="map-coordinates">15.12° N&nbsp; · &nbsp;76.92° E</div>
             </div>
 
