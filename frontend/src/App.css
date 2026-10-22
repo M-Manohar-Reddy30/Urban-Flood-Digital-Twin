@@ -940,3 +940,193 @@ body,
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
+
+/* Data readiness dashboard */
+.readiness-section {
+  min-width: 0;
+}
+
+.readiness-scope {
+  margin: -8px 0 18px;
+  color: #65758b;
+  font-size: 12px;
+  line-height: 1.7;
+}
+
+.readiness-dataset-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+.readiness-card,
+.readiness-panel {
+  min-width: 0;
+  padding: 16px;
+  background: #fff;
+  border: 1px solid #e2eaf3;
+  border-radius: 10px;
+}
+
+.readiness-card-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.readiness-card h3,
+.readiness-panel h3 {
+  margin: 0 0 10px;
+  color: #1e293b;
+  font-size: 13px;
+  line-height: 1.5;
+  text-transform: capitalize;
+}
+
+.readiness-status {
+  flex-shrink: 0;
+  padding: 4px 7px;
+  border-radius: 5px;
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: capitalize;
+}
+
+.status-present {
+  color: #166534;
+  background: #dcfce7;
+}
+
+.status-missing {
+  color: #991b1b;
+  background: #fee2e2;
+}
+
+.readiness-path {
+  margin: 0;
+  color: #65758b;
+  font-size: 10px;
+  line-height: 1.6;
+  overflow-wrap: anywhere;
+}
+
+.readiness-metric {
+  margin: 12px 0 0;
+  color: #65758b;
+  font-size: 11px;
+}
+
+.readiness-metric strong {
+  color: #1769aa;
+  font-size: 19px;
+}
+
+.readiness-detail {
+  margin: 7px 0 0;
+  color: #65758b;
+  font-size: 11px;
+}
+
+.readiness-two-column {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  margin-bottom: 14px;
+}
+
+.readiness-panel > p {
+  margin: 8px 0;
+  color: #526278;
+  font-size: 11px;
+  line-height: 1.7;
+  overflow-wrap: anywhere;
+}
+
+.readiness-panel > p strong {
+  color: #1e293b;
+}
+
+.readiness-raster-row,
+.modelling-status-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px 0;
+  border-top: 1px solid #edf1f6;
+  color: #526278;
+  font-size: 11px;
+  line-height: 1.6;
+}
+
+.readiness-raster-row:first-of-type {
+  margin-top: 12px;
+}
+
+.readiness-raster-row span,
+.modelling-status-row span {
+  min-width: 0;
+  overflow-wrap: anywhere;
+  text-transform: capitalize;
+}
+
+.readiness-raster-row span:last-child {
+  flex-shrink: 0;
+  color: #1769aa;
+  font-weight: 600;
+}
+
+.modelling-panel {
+  margin-top: 0;
+}
+
+.modelling-status-list {
+  margin-top: 12px;
+}
+
+.modelling-status-row strong {
+  max-width: 55%;
+  color: #1769aa;
+  font-size: 11px;
+  text-align: right;
+  overflow-wrap: anywhere;
+  text-transform: capitalize;
+}
+
+.readiness-note {
+  margin-top: 14px !important;
+  padding: 12px;
+  background: #f4f8fc;
+  border: 1px solid #e2eaf3;
+  border-radius: 7px;
+}
+
+@media (max-width: 800px) {
+  .readiness-dataset-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 560px) {
+  .readiness-dataset-grid,
+  .readiness-two-column {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .readiness-card,
+  .readiness-panel {
+    padding: 13px;
+  }
+
+  .modelling-status-row {
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .modelling-status-row strong {
+    max-width: 100%;
+    text-align: left;
+  }
+}

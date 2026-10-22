@@ -73,6 +73,53 @@ type RainfallQuality = {
   interpretation: string
 }
 
+type ReadinessDataset = {
+  status: 'present' | 'missing'
+  path: string
+  rows?: number
+  columns?: number
+  missing_cells?: number
+  duplicate_rows?: number
+}
+
+type ReadinessRaster = {
+  status: 'present' | 'missing'
+  path: string
+  crs?: string
+  width?: number
+  height?: number
+  resolution?: number[]
+  valid_pixels?: number
+  bounds?: number[]
+}
+
+type ReadinessSummary = {
+  project: string
+  report_scope: string
+  datasets: Record<string, ReadinessDataset>
+  quality_checks: Record<string, Record<string, unknown>>
+  rasters: Record<string, ReadinessRaster>
+  raster_alignment: {
+    all_rasters_present: boolean
+    crs_dimensions_resolution_aligned: boolean
+  }
+  flood_evidence: {
+    status: string
+    record_count?: number
+    incident_coordinate_records: number
+    supervised_spatial_labels_ready: boolean
+    note?: string
+  }
+  modelling_readiness: {
+    rainfall: string
+    terrain_and_land_cover: string
+    historical_flood_evidence: string
+    flood_no_flood_training_target: string
+    predictive_model_validation: string
+  }
+  interpretation: string
+}
+
 type Evidence = {
   event_date?: string
   date?: string
@@ -169,6 +216,10 @@ function App() {
   const [gis, setGis] = useState<GisSummary | null>(null)
   const [evidence, setEvidence] = useState<EvidenceResponse | null>(null)
   const [boundary, setBoundary] = useState<GeoJSONType | null>(null)
+
+  const [readiness, setReadiness] =
+  useState<ReadinessSummary | null>(null)
+  const [readinessError, setReadinessError] = useState('')
 
   const [drainage, setDrainage] = useState<GeoJSONType | null>(null)
   const [drainageError, setDrainageError] = useState('')
@@ -361,6 +412,7 @@ function App() {
     void loadRainfall()
     return () => { cancelled = true }
   }, [])
+
   useEffect(() => {
     let cancelled = false
 
@@ -369,7 +421,9 @@ function App() {
         const response = await fetch(`${API}/api/v1/rainfall/quality`)
 
         if (!response.ok) {
-          throw new Error(`Rainfall quality API returned HTTP ${response.status}`)
+          throw new Error(
+            `Rainfall quality API returned HTTP ${response.status}`,
+          )
         }
 
         const data = await response.json() as RainfallQuality
@@ -390,6 +444,43 @@ function App() {
     }
 
     void loadRainfallQuality()
+
+    return () => {
+      cancelled = true
+    }
+  }, [])
+
+  useEffect(() => {
+    let cancelled = false
+
+    async function loadReadiness() {
+      try {
+        const response = await fetch(`${API}/api/v1/readiness/summary`)
+
+        if (!response.ok) {
+          throw new Error(
+            `Readiness API returned HTTP ${response.status}`,
+          )
+        }
+
+        const data = await response.json() as ReadinessSummary
+
+        if (!cancelled) {
+          setReadiness(data)
+          setReadinessError('')
+        }
+      } catch (err) {
+        if (!cancelled) {
+          setReadinessError(
+            err instanceof Error
+              ? err.message
+              : 'Data readiness summary could not be loaded.',
+          )
+        }
+      }
+    }
+
+    void loadReadiness()
 
     return () => {
       cancelled = true
@@ -910,6 +1001,144 @@ function App() {
               <p className="small-note">ESA WorldCover class counts from the processed GIS grid.</p>
             </div>
           </div>
+
+        </section>
+
+        <section className="section-block readiness-section" id="readiness">
+          <div className="section-heading">
+            <div>
+              <div className="eyebrow">DATA & MODEL STATUS</div>
+              <h2>Data readiness</h2>
+              <p className="section-subtitle">
+                Dataset availability, spatial consistency, and current limits on flood modelling.
+              </p>
+            </div>
+            {readiness && (
+              <span className="evidence-count">
+                {Object.values(readiness.datasets).filter(
+                  (dataset) => dataset.status === 'present',
+                ).length} datasets available
+              </span>
+            )}
+          </div>
+
+          {readinessError ? (
+            <div className="empty-inline" role="alert">
+              <p>Data readiness summary could not be loaded: {readinessError}</p>
+            </div>
+          ) : !readiness ? (
+            <div className="empty-inline">
+              Loading data readiness summary…
+            </div>
+          ) : (
+            <>
+              <p className="readiness-scope">{readiness.report_scope}</p>
+
+              <div className="readiness-dataset-grid">
+                {Object.entries(readiness.datasets).map(([name, dataset]) => (
+                  <article className="readiness-card" key={name}>
+                    <div className="readiness-card-top">
+                      <h3>{name.replaceAll('_', ' ')}</h3>
+                      <span
+                        className={
+                          dataset.status === 'present'
+                            ? 'readiness-status status-present'
+                            : 'readiness-status status-missing'
+                        }
+                      >
+                        {dataset.status}
+                      </span>
+                    </div>
+                    <p className="readiness-path">{dataset.path}</p>
+                    {dataset.rows !== undefined && (
+                      <p className="readiness-metric">
+                        <strong>{dataset.rows.toLocaleString()}</strong> rows
+                      </p>
+                    )}
+                    {dataset.missing_cells !== undefined && (
+                      <p className="readiness-detail">
+                        Missing cells: {dataset.missing_cells.toLocaleString()}
+                      </p>
+                    )}
+                    {dataset.duplicate_rows !== undefined && (
+                      <p className="readiness-detail">
+                        Duplicate rows: {dataset.duplicate_rows.toLocaleString()}
+                      </p>
+                    )}
+                  </article>
+                ))}
+              </div>
+
+              <div className="readiness-two-column">
+                <article className="readiness-panel">
+                  <h3>Raster alignment</h3>
+                  <p>
+                    All required rasters present:{' '}
+                    <strong>
+                      {readiness.raster_alignment.all_rasters_present ? 'Yes' : 'No'}
+                    </strong>
+                  </p>
+                  <p>
+                    CRS, dimensions and resolution aligned:{' '}
+                    <strong>
+                      {readiness.raster_alignment.crs_dimensions_resolution_aligned
+                        ? 'Yes'
+                        : 'No'}
+                    </strong>
+                  </p>
+                  {Object.entries(readiness.rasters).map(([name, raster]) => (
+                    <div className="readiness-raster-row" key={name}>
+                      <span>{name.replaceAll('_', ' ')}</span>
+                      <span>
+                        {raster.status === 'present'
+                          ? `${raster.width ?? '?'} × ${raster.height ?? '?'}`
+                          : 'Missing'}
+                      </span>
+                    </div>
+                  ))}
+                </article>
+
+                <article className="readiness-panel">
+                  <h3>Historical flood evidence</h3>
+                  <p>
+                    Records: <strong>{readiness.flood_evidence.record_count ?? 'Not reported'}</strong>
+                  </p>
+                  <p>
+                    Records with incident coordinates:{' '}
+                    <strong>{readiness.flood_evidence.incident_coordinate_records}</strong>
+                  </p>
+                  <p>
+                    Supervised spatial labels ready:{' '}
+                    <strong>
+                      {readiness.flood_evidence.supervised_spatial_labels_ready
+                        ? 'Yes'
+                        : 'No'}
+                    </strong>
+                  </p>
+                  {readiness.flood_evidence.note && (
+                    <p className="readiness-note">
+                      {readiness.flood_evidence.note}
+                    </p>
+                  )}
+                </article>
+              </div>
+
+              <article className="readiness-panel modelling-panel">
+                <h3>Modelling readiness and limitations</h3>
+                <div className="modelling-status-list">
+                  {Object.entries(readiness.modelling_readiness).map(
+                    ([name, status]) => (
+                      <div className="modelling-status-row" key={name}>
+                        <span>{name.replaceAll('_', ' ')}</span>
+                        <strong>{String(status).replaceAll('_', ' ')}</strong>
+                      </div>
+                    ),
+                  )}
+                </div>
+                <p className="readiness-note">{readiness.interpretation}</p>
+              </article>
+            </>
+          )}
         </section>
 
         <section className="section-block" id="evidence">
