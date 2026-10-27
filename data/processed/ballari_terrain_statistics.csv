@@ -1,0 +1,3 @@
+layer,valid_pixels,minimum,maximum,mean,crs,resolution_x_m,resolution_y_m
+elevation_m,97444,421.0061340332031,596.100341796875,454.63800048828125,EPSG:32643,30.0,30.0
+slope_degrees,95246,0.0,39.40665817260742,1.3377330303192139,EPSG:32643,30.0,30.0

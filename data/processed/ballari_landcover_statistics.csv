@@ -1,0 +1,8 @@
+class_code,class_name,pixel_count,percentage
+10,Tree cover,69900,6.5827
+20,Shrubland,117912,11.1041
+30,Grassland,105232,9.91
+40,Cropland,400602,37.7257
+50,Built-up,340793,32.0934
+60,Bare / sparse vegetation,26719,2.5162
+80,Permanent water bodies,722,0.068

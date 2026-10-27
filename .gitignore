@@ -31,3 +31,5 @@ Thumbs.db
 # IDE
 .vscode/
 .idea/
+# Keep safe environment-variable templates in Git
+!*.env.example

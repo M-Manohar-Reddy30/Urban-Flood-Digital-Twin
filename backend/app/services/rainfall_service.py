@@ -1,6 +1,7 @@
 from datetime import date
 from pathlib import Path
 
+import numpy as np
 import pandas as pd
 
 PROJECT_ROOT = Path(__file__).resolve().parents[3]
@@ -14,7 +15,7 @@ RAINFALL_FILE = (
 
 
 def load_rainfall_data() -> pd.DataFrame:
-    """Load and validate the prepared NASA IMERG daily rainfall dataset."""
+    """Load the rainfall CSV and reject invalid or ambiguous observations."""
     if not RAINFALL_FILE.exists():
         raise FileNotFoundError(
             f"Rainfall dataset not found: {RAINFALL_FILE}"
@@ -37,20 +38,66 @@ def load_rainfall_data() -> pd.DataFrame:
             f"Rainfall dataset is missing columns: {sorted(missing)}"
         )
 
-    df["date"] = pd.to_datetime(df["date"], errors="coerce")
-    df["precipitation_mm_per_day"] = pd.to_numeric(
-        df["precipitation_mm_per_day"], errors="coerce"
+    if df.empty:
+        raise ValueError("Rainfall dataset contains no observations.")
+
+    df = df.copy()
+    df["date"] = pd.to_datetime(
+        df["date"], format="%Y-%m-%d", errors="coerce"
     )
 
-    df = df.dropna(subset=["date", "precipitation_mm_per_day"]).copy()
-    df = df.sort_values("date")
+    if df["date"].isna().any():
+        raise ValueError("Rainfall dataset contains invalid dates.")
 
-    if df.empty:
-        raise ValueError("Rainfall dataset contains no valid observations.")
+    if df["date"].duplicated().any():
+        raise ValueError("Rainfall dataset contains duplicate dates.")
 
-    if (df["precipitation_mm_per_day"] < 0).any():
+    numeric_columns = [
+        "latitude",
+        "longitude",
+        "precipitation_mm_per_day",
+        "valid_half_hourly_retrievals",
+    ]
+
+    for column in numeric_columns:
+        df[column] = pd.to_numeric(df[column], errors="coerce")
+
+        if df[column].isna().any():
+            raise ValueError(
+                f"Rainfall dataset contains invalid {column} values."
+            )
+
+        if not np.isfinite(df[column].to_numpy(dtype=float)).all():
+            raise ValueError(
+                f"Rainfall dataset contains non-finite {column} values."
+            )
+
+    if not df["latitude"].between(-90, 90).all():
+        raise ValueError("Rainfall dataset contains invalid latitude values.")
+
+    if not df["longitude"].between(-180, 180).all():
+        raise ValueError("Rainfall dataset contains invalid longitude values.")
+
+    rainfall = df["precipitation_mm_per_day"]
+    if (rainfall < 0).any():
         raise ValueError("Rainfall dataset contains negative precipitation.")
 
+    retrievals = df["valid_half_hourly_retrievals"]
+    if (
+        ((retrievals % 1) != 0).any()
+        or (retrievals < 0).any()
+        or (retrievals > 48).any()
+    ):
+        raise ValueError(
+            "Rainfall dataset contains invalid half-hourly retrieval counts."
+        )
+
+    statuses = df["status"].astype("string").str.strip().str.lower()
+    if statuses.isna().any() or (statuses != "ok").any():
+        raise ValueError("Rainfall dataset contains invalid status values.")
+
+    df["status"] = statuses
+    df = df.sort_values("date").reset_index(drop=True)
     return df
 
 
