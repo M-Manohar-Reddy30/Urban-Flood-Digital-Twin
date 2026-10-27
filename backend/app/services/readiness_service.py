@@ -11,6 +11,7 @@ from scripts.build_data_readiness_report import (
     rainfall_quality_checks,
     station_quality_checks,
     gis_quality_checks,
+    discrepancy_register_checks,
 )
 
 
@@ -116,6 +117,7 @@ def get_readiness_summary() -> dict:
             "bellary_station_rainfall": station_quality_checks(),
             "gis_features": gis_quality_checks(),
         },
+        "rainfall_verification": discrepancy_register_checks(),
         "rasters": raster_data,
         "raster_alignment": {
             "all_rasters_present": all_rasters_present,

@@ -93,11 +93,23 @@ type ReadinessRaster = {
   bounds?: number[]
 }
 
+type RainfallVerification = {
+  status: string
+  missing_columns?: string[]
+  rows?: number
+  unique_source_ids?: number
+  readings_above_threshold?: number
+  unverified_count?: number
+  other_review_status_count?: number
+  missing_nasa_comparisons?: number
+}
+
 type ReadinessSummary = {
   project: string
   report_scope: string
   datasets: Record<string, ReadinessDataset>
   quality_checks: Record<string, Record<string, unknown>>
+  rainfall_verification: RainfallVerification
   rasters: Record<string, ReadinessRaster>
   raster_alignment: {
     all_rasters_present: boolean
@@ -1068,6 +1080,45 @@ function App() {
                   </article>
                 ))}
               </div>
+
+              <article className="readiness-panel rainfall-verification-panel">
+                <h3>Bellary rainfall verification</h3>
+                {readiness.rainfall_verification.status === 'present' ? (
+                  <>
+                    <div className="rainfall-verification-grid">
+                      <div>
+                        <span>Flagged observations</span>
+                        <strong>{readiness.rainfall_verification.readings_above_threshold ?? 'Not reported'}</strong>
+                      </div>
+                      <div>
+                        <span>Awaiting verification</span>
+                        <strong>{readiness.rainfall_verification.unverified_count ?? 'Not reported'}</strong>
+                      </div>
+                      <div>
+                        <span>Missing NASA comparisons</span>
+                        <strong>{readiness.rainfall_verification.missing_nasa_comparisons ?? 'Not reported'}</strong>
+                      </div>
+                    </div>
+                    <p className="readiness-note">
+                      Readings above 100 mm are flagged for investigation; this
+                      screening threshold does not prove that a reading is wrong.
+                      Confirm the station measurement and accumulation convention
+                      with the data provider.
+                    </p>
+                    <p className="readiness-note">
+                      NASA IMERG daily estimates provide contextual comparison,
+                      not station ground truth. A missing comparison does not
+                      mean zero rainfall.
+                    </p>
+                  </>
+                ) : (
+                  <p className="readiness-note">
+                    Rainfall verification register status:{' '}
+                    {readiness.rainfall_verification.status}.
+                    Verification details are currently unavailable.
+                  </p>
+                )}
+              </article>
 
               <div className="readiness-two-column">
                 <article className="readiness-panel">

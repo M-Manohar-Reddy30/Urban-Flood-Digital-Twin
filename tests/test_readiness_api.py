@@ -53,3 +53,19 @@ def test_readiness_summary_reports_raster_alignment():
 
     assert alignment["all_rasters_present"] is True
     assert alignment["crs_dimensions_resolution_aligned"] is True
+
+
+def test_readiness_summary_includes_rainfall_verification_status():
+    response = client.get("/api/v1/readiness/summary")
+
+    assert response.status_code == 200
+    data = response.json()
+    verification = data["rainfall_verification"]
+
+    assert verification["status"] == "present"
+    assert verification["rows"] == 16
+    assert verification["unique_source_ids"] == 16
+    assert verification["readings_above_threshold"] == 16
+    assert verification["unverified_count"] == 16
+    assert verification["other_review_status_count"] == 0
+    assert verification["missing_nasa_comparisons"] == 1
