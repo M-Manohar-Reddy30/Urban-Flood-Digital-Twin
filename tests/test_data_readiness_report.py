@@ -101,3 +101,39 @@ def test_report_includes_quality_checks_and_pixel_counts():
     assert "Valid pixels: 97,444" in report
     assert "Valid pixels: 95,246" in report
     assert "Valid pixels: 97,461" in report
+
+
+def test_discrepancy_register_reports_unverified_observations():
+    from scripts.build_data_readiness_report import discrepancy_register_checks
+
+    result = discrepancy_register_checks()
+
+    assert result["status"] == "present"
+    assert result["rows"] == 16
+    assert result["unique_source_ids"] == 16
+    assert result["readings_above_threshold"] == 16
+    assert result["unverified_count"] == 16
+    assert result["other_review_status_count"] == 0
+    assert result["missing_nasa_comparisons"] == 1
+
+
+def test_discrepancy_register_handles_missing_file(tmp_path):
+    from scripts.build_data_readiness_report import discrepancy_register_checks
+
+    result = discrepancy_register_checks(tmp_path / "missing.csv")
+
+    assert result["status"] == "MISSING"
+    assert result["rows"] == 0
+
+
+def test_report_explains_discrepancy_review_limits():
+    from scripts.build_data_readiness_report import build_report
+
+    report = build_report()
+
+    assert "### Bellary high-value discrepancy register" in report
+    assert "Readings above threshold: 16" in report
+    assert "Unverified count: 16" in report
+    assert "The 100 mm threshold is a screening rule" in report
+    assert "NASA IMERG daily estimates are contextual comparisons" in report
+    assert "Missing NASA comparisons do not mean zero rainfall." in report

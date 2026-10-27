@@ -24,6 +24,11 @@ RASTERS = {
 }
 
 
+DISCREPANCY_REGISTER = (
+    DATA / "processed/rainfall/bellary_high_value_discrepancy_register.csv"
+)
+
+
 def csv_summary(path: Path) -> dict:
     df = pd.read_csv(path)
     return {
@@ -114,6 +119,61 @@ def station_quality_checks() -> dict:
         "negative_rainfall_values": int((rainfall < 0).sum()),
         "high_value_review_flags": int(
             flags.eq("REVIEW_HIGH_VALUE_NOT_AUTOMATICALLY_INVALID").sum()
+        ),
+    }
+
+
+def discrepancy_register_checks(path: Path | None = None) -> dict:
+    """Summarize high-value rainfall observations awaiting source verification."""
+    path = path or DISCREPANCY_REGISTER
+
+    if not path.is_file():
+        return {
+            "status": "MISSING",
+            "missing_columns": [],
+            "rows": 0,
+            "unique_source_ids": 0,
+            "readings_above_threshold": 0,
+            "unverified_count": 0,
+            "other_review_status_count": 0,
+            "missing_nasa_comparisons": 0,
+        }
+
+    df = pd.read_csv(path)
+    required = {
+        "_id",
+        "rainfall_mm",
+        "precipitation_mm_per_day",
+        "review_status",
+    }
+    missing_columns = sorted(required - set(df.columns))
+
+    if missing_columns:
+        return {
+            "status": "INVALID_SCHEMA",
+            "missing_columns": missing_columns,
+            "rows": len(df),
+        }
+
+    rainfall = pd.to_numeric(df["rainfall_mm"], errors="coerce")
+    statuses = df["review_status"].astype(str)
+
+    return {
+        "status": "present",
+        "missing_columns": [],
+        "rows": len(df),
+        "unique_source_ids": int(df["_id"].nunique()),
+        "readings_above_threshold": int((rainfall > 100).sum()),
+        "unverified_count": int(
+            statuses.eq("UNVERIFIED_SOURCE_CONFIRMATION_REQUIRED").sum()
+        ),
+        "other_review_status_count": int(
+            (~statuses.eq("UNVERIFIED_SOURCE_CONFIRMATION_REQUIRED")).sum()
+        ),
+        "missing_nasa_comparisons": int(
+            pd.to_numeric(
+                df["precipitation_mm_per_day"], errors="coerce"
+            ).isna().sum()
         ),
     }
 
@@ -209,6 +269,21 @@ def build_report() -> str:
     lines.extend([
         "- High-value review flags require assessment; they do not automatically",
         "  mean the observations are invalid.",
+        "",
+        "### Bellary high-value discrepancy register",
+        "",
+    ])
+
+    discrepancy_checks = discrepancy_register_checks()
+    for key, value in discrepancy_checks.items():
+        lines.append(f"- {key.replace('_', ' ').capitalize()}: {value}")
+
+    lines.extend([
+        "- The 100 mm threshold is a screening rule, not proof of a faulty reading.",
+        "- Source measurement and rainfall accumulation conventions still require",
+        "  confirmation from the data provider.",
+        "- NASA IMERG daily estimates are contextual comparisons, not station ground truth.",
+        "- Missing NASA comparisons do not mean zero rainfall.",
         "",
         "### GIS features",
         "",
