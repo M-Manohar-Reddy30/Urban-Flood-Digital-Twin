@@ -983,6 +983,43 @@ function App() {
           <RainfallEvaluation api={API} />
         </Suspense>
 
+
+        <section className="section-block" id="terrain-overview">
+          <div className="section-heading">
+            <div>
+              <div className="eyebrow">ENVIRONMENTAL INPUTS</div>
+              <h2>Terrain and drainage overview</h2>
+            </div>
+          </div>
+          <div className="panel-card">
+            <p>
+              Explore elevation, slope, distance to mapped drains and
+              upstream contributing area across 95,246 sampled locations.
+            </p>
+            <figure style={{ margin: 0 }}>
+              <a
+                href={`${import.meta.env.BASE_URL}maps/terrain_drainage_feature_preview.png`}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Open terrain and drainage overview at full size in a new tab"
+              >
+                <img
+                  src={`${import.meta.env.BASE_URL}maps/terrain_drainage_feature_preview.png`}
+                  alt="Four Ballari maps showing elevation, slope, distance to mapped drains and upstream contributing area."
+                  loading="lazy"
+                  style={{ display: 'block', width: '100%', height: 'auto' }}
+                />
+              </a>
+              <figcaption className="small-note">
+                Click the image to open it at full size.
+                These provisional environmental layers are not flood-risk
+                scores or flood-extent predictions. Distance is measured
+                to mapped drains; unmapped drainage may exist.
+              </figcaption>
+            </figure>
+          </div>
+        </section>
+
         <section className="lower-grid">
           <div className="section-block" id="rainfall">
             <div className="section-heading">
