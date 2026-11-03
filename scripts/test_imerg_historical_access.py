@@ -1,3 +1,4 @@
+
 import math
 import re
 import urllib.request
@@ -5,6 +6,7 @@ from datetime import date
 from pathlib import Path
 
 import pandas as pd
+
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -20,13 +22,19 @@ WEIGHTS_FILE = (
     "ballari_imerg_grid_weights.csv"
 )
 
+DATA_DIR = ROOT / "data/processed/rainfall/historical"
+
+GRID_FILE = DATA_DIR / "nasa_imerg_ballari_grid_2002.csv"
+MUNICIPAL_FILE = DATA_DIR / "nasa_imerg_ballari_municipal_2002.csv"
+
 TEST_DATES = [
-    date(2001, 1, 1),
-    date(2010, 8, 19),
-    date(2024, 12, 31),
+    date(2002, 10, 10),
+    date(2002, 10, 12),
 ]
 
+
 def fetch_and_validate_observation(day, cell, token):
+
     filename = (
         f"3B-DAY.MS.MRG.3IMERG.{day:%Y%m%d}"
         "-S000000-E235959.V07B.nc4"
@@ -35,6 +43,7 @@ def fetch_and_validate_observation(day, cell, token):
     lon_index = round(
         (float(cell["longitude"]) + 179.95) / 0.1
     )
+
     lat_index = round(
         (float(cell["latitude"]) + 89.95) / 0.1
     )
@@ -62,7 +71,10 @@ def fetch_and_validate_observation(day, cell, token):
         body = response.read().decode("utf-8")
 
     patterns = {
-        "lat": r"(?m)^precipitation\.lat,\s*([-+0-9.eE]+)\s*$",
+        "lat": (
+            r"(?m)^precipitation\.lat,\s*"
+            r"([-+0-9.eE]+)\s*$"
+        ),
         "lon": (
             r"(?m)^precipitation\.precipitation"
             r"\[.*?\.lon=([-+0-9.eE]+)\],"
@@ -90,10 +102,14 @@ def fetch_and_validate_observation(day, cell, token):
     rainfall = float(matches["rain"].group(1))
     count = float(matches["count"].group(1))
 
-    if not math.isclose(lat, float(cell["latitude"]), abs_tol=0.001):
+    if not math.isclose(
+        lat, float(cell["latitude"]), abs_tol=0.001
+    ):
         raise ValueError("Latitude mismatch")
 
-    if not math.isclose(lon, float(cell["longitude"]), abs_tol=0.001):
+    if not math.isclose(
+        lon, float(cell["longitude"]), abs_tol=0.001
+    ):
         raise ValueError("Longitude mismatch")
 
     if (
@@ -112,45 +128,184 @@ def fetch_and_validate_observation(day, cell, token):
 
 
 def main():
+
     if not TOKEN_FILE.is_file():
         raise SystemExit("Earthdata token not found")
 
     if not WEIGHTS_FILE.is_file():
         raise SystemExit("Spatial weights file not found")
 
-    token = TOKEN_FILE.read_text(encoding="utf-8").strip()
+    if not GRID_FILE.is_file():
+        raise SystemExit("2002 grid CSV not found")
+
+    if not MUNICIPAL_FILE.is_file():
+        raise SystemExit("2001 municipal CSV not found")
+
+    token = TOKEN_FILE.read_text(
+        encoding="utf-8"
+    ).strip()
+
+    if not token:
+        raise SystemExit("Earthdata token is empty")
+
     weights = pd.read_csv(WEIGHTS_FILE)
 
-    print("FOUR-CELL HISTORICAL VERIFICATION")
-    print("=" * 65)
+    saved_grid = pd.read_csv(GRID_FILE)
+    saved_municipal = pd.read_csv(MUNICIPAL_FILE)
+
+    saved_grid["date"] = pd.to_datetime(
+        saved_grid["date"]
+    ).dt.date
+
+    saved_municipal["date"] = pd.to_datetime(
+        saved_municipal["date"]
+    ).dt.date
+
+    if weights["grid_id"].duplicated().any():
+        raise SystemExit("Duplicate grid IDs in weights file")
+
+    if set(saved_grid["status"]) != {"ok"}:
+        raise SystemExit("Grid CSV contains non-OK records")
+
+    if not saved_grid["date"].isin(TEST_DATES).any():
+        raise SystemExit("No requested test dates found in grid CSV")
+
+    print("NASA SOURCE-TO-CSV HISTORICAL VERIFICATION")
+    print("=" * 70)
 
     passed = 0
     failed = 0
 
     for day in TEST_DATES:
+
         print(f"\nDate: {day}")
 
+        nasa_weighted_values = []
+        day_failed = False
+
         for _, cell in weights.iterrows():
+
             try:
-                rainfall, count = fetch_and_validate_observation(day, cell, token)
+
+                rainfall, count = fetch_and_validate_observation(
+                    day, cell, token
+                )
+
+                saved = saved_grid[
+                    (saved_grid["date"] == day)
+                    & (
+                        saved_grid["grid_id"]
+                        == cell["grid_id"]
+                    )
+                ]
+
+                if len(saved) != 1:
+                    raise ValueError(
+                        "Expected exactly one saved grid record"
+                    )
+
+                saved_rain = float(
+                    saved.iloc[0]["precipitation_mm_per_day"]
+                )
+
+                saved_count = int(
+                    saved.iloc[0]["valid_half_hourly_retrievals"]
+                )
+
+                matches = (
+                    math.isclose(
+                        rainfall, saved_rain, abs_tol=1e-6
+                    )
+                    and count == saved_count
+                )
+
+                if not matches:
+                    raise ValueError(
+                        f"NASA={rainfall}/{count}, "
+                        f"saved={saved_rain}/{saved_count}"
+                    )
+
+                nasa_weighted_values.append(
+                    rainfall * float(cell["area_weight"])
+                )
+
                 passed += 1
 
                 print(
                     f"  {cell['grid_id']}: PASS | "
-                    f"{rainfall} mm/day | {count} retrievals"
+                    f"NASA={rainfall} | "
+                    f"Saved={saved_rain} | "
+                    f"Retrievals={count}"
                 )
 
             except Exception as exc:
+
                 failed += 1
+                day_failed = True
+
                 print(
                     f"  {cell['grid_id']}: FAILED | "
                     f"{type(exc).__name__}: {exc}"
                 )
 
-    print("\n" + "=" * 65)
-    print("Successful observations:", passed)
-    print("Failed observations:", failed)
-    print("Expected observations:", len(TEST_DATES) * len(weights))
+        # Verify the municipal weighted rainfall
+        if not day_failed and len(nasa_weighted_values) == len(weights):
+
+            nasa_municipal = sum(nasa_weighted_values)
+
+            saved_row = saved_municipal[
+                saved_municipal["date"] == day
+            ]
+
+            if len(saved_row) == 1:
+
+                saved_value = float(
+                    saved_row.iloc[0]["precipitation_mm_per_day"]
+                )
+
+                if math.isclose(
+                    nasa_municipal,
+                    saved_value,
+                    abs_tol=1e-6,
+                ):
+
+                    print(
+                        f"  MUNICIPAL: PASS | "
+                        f"NASA={nasa_municipal:.6f} | "
+                        f"Saved={saved_value:.6f} mm/day"
+                    )
+
+                else:
+
+                    failed += 1
+
+                    print(
+                        f"  MUNICIPAL: FAILED | "
+                        f"NASA={nasa_municipal:.6f} | "
+                        f"Saved={saved_value:.6f} mm/day"
+                    )
+
+            else:
+
+                failed += 1
+
+                print(
+                    "  MUNICIPAL: FAILED | "
+                    "Missing or duplicate saved record"
+                )
+
+    print("\n" + "=" * 70)
+    print("VERIFICATION SUMMARY")
+    print("=" * 70)
+
+    print("Successful grid observations:", passed)
+    print("Failed comparisons:", failed)
+    print("Expected grid observations:", len(TEST_DATES) * len(weights))
+
+    if failed == 0 and passed == len(TEST_DATES) * len(weights):
+        print("\nRESULT: ALL SOURCE COMPARISONS PASSED")
+    else:
+        print("\nRESULT: VERIFICATION FAILED")
 
 
 if __name__ == "__main__":
