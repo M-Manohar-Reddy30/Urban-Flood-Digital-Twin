@@ -81,6 +81,14 @@ export default function RainfallScenarios({ api }: { api: string }) {
   const [results, setResults] = useState<Result[] | null>(null)
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState('')
+
+  const [comparisonName, setComparisonName] = useState('')
+  const [savedItems, setSavedItems] = useState<
+    { id: string; name: string; created_at: string }[]
+  >([])
+  const [selectedId, setSelectedId] = useState('')
+  const [historyMessage, setHistoryMessage] = useState('')
+
   const active = useRef<AbortController | null>(null)
 
   useEffect(() => () => active.current?.abort(), [])
@@ -92,6 +100,7 @@ export default function RainfallScenarios({ api }: { api: string }) {
       )
     )
     setResults(null)
+    setHistoryMessage('')
     setError('')
   }
 
@@ -101,6 +110,7 @@ export default function RainfallScenarios({ api }: { api: string }) {
     const controller = new AbortController()
     active.current = controller
     setLoading(true)
+    setHistoryMessage('')
     setError('')
     setResults(null)
 
@@ -157,6 +167,109 @@ export default function RainfallScenarios({ api }: { api: string }) {
     }
   }
 
+
+  async function historyAction(action: 'save' | 'list' | 'load') {
+    if (action === 'save' && (!results || !comparisonName.trim())) {
+      setError('Calculate a comparison and enter a name before saving.')
+      return
+    }
+    if (action === 'load' && !selectedId) {
+      setError('Choose a saved comparison first.')
+      return
+    }
+
+    active.current?.abort()
+    const controller = new AbortController()
+    active.current = controller
+    setLoading(true)
+    setError('')
+    setHistoryMessage('')
+
+    try {
+      const base = `${api}/api/v1/scenarios/saved`
+      const url = action === 'load'
+        ? `${base}/${encodeURIComponent(selectedId)}`
+        : base
+      const response = await fetch(url, {
+        method: action === 'save' ? 'POST' : 'GET',
+        signal: controller.signal,
+        ...(action === 'save' && results ? {
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            name: comparisonName.trim(),
+            scenario_a: results[0].inputs,
+            scenario_b: results[1].inputs,
+          }),
+        } : {}),
+      })
+      if (!response.ok) {
+        throw new Error(`History request failed (HTTP ${response.status}).`)
+      }
+      const payload = await response.json()
+      if (controller.signal.aborted) return
+
+      if (action === 'list') {
+        if (
+          !Array.isArray(payload.records) ||
+          !payload.records.every((item: {
+            id?: unknown; name?: unknown; created_at?: unknown
+          } | null) =>
+            item !== null &&
+            typeof item.id === 'string' &&
+            typeof item.name === 'string' &&
+            typeof item.created_at === 'string'
+          )
+        ) {
+          throw new Error('Unexpected history response.')
+        }
+        setSavedItems(payload.records)
+        setSelectedId(payload.records[0]?.id ?? '')
+        setHistoryMessage(
+          payload.records.length
+            ? `Loaded ${payload.records.length} saved comparisons (latest 100).`
+            : 'No saved comparisons yet.'
+        )
+      } else {
+        if (
+          typeof payload.id !== 'string' ||
+          typeof payload.name !== 'string' ||
+          typeof payload.created_at !== 'string' ||
+          payload.method_version !== 'uniform_runoff_fraction_v1' ||
+          !validResult(payload.scenario_a) ||
+          !validResult(payload.scenario_b) ||
+          payload.scenario_a.coverage.sampled_area_km2 !==
+            payload.scenario_b.coverage.sampled_area_km2
+        ) {
+          throw new Error('Unexpected saved comparison.')
+        }
+        const restored: Result[] = [payload.scenario_a, payload.scenario_b]
+        setResults(restored)
+        setDrafts(restored.map((item) => ({
+          rainfall_depth_mm: String(item.inputs.rainfall_depth_mm),
+          duration_hours: String(item.inputs.duration_hours),
+          runoff_fraction: String(item.inputs.runoff_fraction),
+        })))
+        setComparisonName(payload.name)
+        setSelectedId(payload.id)
+        setSavedItems((current) => [
+          { id: payload.id, name: payload.name, created_at: payload.created_at },
+          ...current.filter((item) => item.id !== payload.id),
+        ].slice(0, 100))
+        setHistoryMessage(
+          `${action === 'save' ? 'Saved' : 'Opened saved snapshot'}: ${
+            payload.name
+          } — ${new Date(payload.created_at).toLocaleString()}`
+        )
+      }
+    } catch (err) {
+      if (!controller.signal.aborted) {
+        setError(err instanceof Error ? err.message : 'History request failed.')
+      }
+    } finally {
+      if (!controller.signal.aborted) setLoading(false)
+    }
+  }
+
   const comparisonRows = results ? [
     ['Rainfall depth (mm)', ...results.map((item) => item.inputs.rainfall_depth_mm)],
     ['Duration (hours)', ...results.map((item) => item.inputs.duration_hours)],
@@ -194,6 +307,80 @@ export default function RainfallScenarios({ api }: { api: string }) {
           {' '}A runoff fraction of 0.5 assumes half the rainfall becomes runoff.
           The example values are hypothetical.
         </p>
+
+
+        <fieldset
+          disabled={loading}
+          style={{
+            padding: 16, margin: '16px 0',
+            border: '1px solid #cbd5e1', borderRadius: 10,
+          }}
+        >
+          <legend>Saved comparisons</legend>
+          <div style={{ display: 'flex', flexWrap: 'wrap', gap: 12 }}>
+            <label>
+              Comparison name
+              <input
+                value={comparisonName}
+                maxLength={100}
+                onChange={(event) => setComparisonName(event.target.value)}
+                placeholder="Example: Review demonstration"
+                style={{ display: 'block', padding: 10, marginTop: 6 }}
+              />
+            </label>
+            <button
+              type="button"
+              className="map-control-button"
+              disabled={!results || !comparisonName.trim()}
+              onClick={() => void historyAction('save')}
+            >
+              Save comparison
+            </button>
+            <button
+              type="button"
+              className="map-control-button"
+              onClick={() => void historyAction('list')}
+            >
+              Refresh saved list
+            </button>
+          </div>
+
+          <div style={{
+            display: 'flex', flexWrap: 'wrap', gap: 12, marginTop: 12,
+          }}>
+            <label>
+              Choose a saved comparison
+              <select
+                value={selectedId}
+                onChange={(event) => setSelectedId(event.target.value)}
+                style={{
+                  display: 'block', padding: 10, marginTop: 6,
+                  maxWidth: '100%',
+                }}
+              >
+                <option value="">Select a comparison</option>
+                {savedItems.map((item) => (
+                  <option key={item.id} value={item.id}>
+                    {item.name} — {new Date(item.created_at).toLocaleString()}
+                  </option>
+                ))}
+              </select>
+            </label>
+            <button
+              type="button"
+              className="map-control-button"
+              disabled={!selectedId}
+              onClick={() => void historyAction('load')}
+            >
+              Load saved comparison
+            </button>
+          </div>
+          <p className="small-note">
+            Saved comparisons retain their calculated results.
+            Loading opens that snapshot; Compare scenarios calculates again.
+          </p>
+          {historyMessage && <p role="status">{historyMessage}</p>}
+        </fieldset>
 
         <form onSubmit={compare}>
           <div style={{
@@ -248,7 +435,7 @@ export default function RainfallScenarios({ api }: { api: string }) {
           </button>
         </form>
 
-        {loading && <p role="status">Calculating both scenarios…</p>}
+        {loading && <p role="status">Processing request…</p>}
         {error && <p role="alert">{error} Please retry.</p>}
 
         {results && (
