@@ -12,6 +12,7 @@ import type { GeoJSON as GeoJSONType } from 'geojson'
 import L from 'leaflet'
 import 'leaflet/dist/leaflet.css'
 import './App.css'
+import TerrainInspector from './components/TerrainInspector'
 
 const API = (import.meta.env.VITE_API_BASE_URL || 'http://127.0.0.1:8000').replace(/\/+$/, '')
 
@@ -672,6 +673,9 @@ function App() {
             <div>
               <div className="eyebrow">SPATIAL INTELLIGENCE</div>
               <h2>Municipal boundary explorer</h2>
+              <p className="small-note">
+                Click the map to inspect terrain and drainage values.
+              </p>
             </div>
             <div className="map-switch">
               <button className={activeLayer === 'street' ? 'active' : ''} onClick={() => setActiveLayer('street')}>Street</button>
@@ -881,6 +885,7 @@ function App() {
                   />
                 )}
 
+                <TerrainInspector api={API} />
                 <FitBoundary boundary={boundary} resetKey={mapResetKey} />
 
                 </MapContainer>

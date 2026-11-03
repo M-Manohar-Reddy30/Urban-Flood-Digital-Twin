@@ -60,3 +60,6 @@ def health():
 
 from backend.app.api.model_evaluation import router as model_evaluation_router
 app.include_router(model_evaluation_router)
+
+from backend.app.api.terrain_inspection import router as terrain_inspection_router
+app.include_router(terrain_inspection_router)

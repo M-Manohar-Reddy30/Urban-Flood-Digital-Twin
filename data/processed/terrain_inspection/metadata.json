@@ -1,0 +1,28 @@
+{
+  "status": "exploratory_features_not_flood_predictions",
+  "rows": 95246,
+  "feature_source": "data/processed/susceptibility/ballari_gis_drainage_category_features.csv",
+  "feature_source_sha256": "67f611c0e0ee9fa50be92c6781193bcaaa61e9df47f8542c4a1a96a8fafd88b2",
+  "flow_source": "data/processed/hydrology/flow/d8_trial_5gw0hhqc/ballari_d8_accumulation_cells.tif",
+  "flow_source_sha256": "ce97c32b1fa1e9b008ad97179f97fe4a0c3a9a9acccc4707cabfea31c15228a0",
+  "output_sha256": "9c22a2e716a3f7c8e7be22d1a698a6922ed52b5f562c85929bcfbc5f6c218773",
+  "coordinate_reference_system": "EPSG:32643",
+  "flow_transform": [
+    30.0,
+    0.0,
+    688888.3848188922,
+    0.0,
+    -30.0,
+    1690074.2461442112
+  ],
+  "flow_cell_area_m2": 900.0,
+  "sampling_method": "Value from the hydrology raster cell containing each existing GIS feature point; no interpolation.",
+  "limitations": [
+    "GIS and hydrology grids have different origins.",
+    "Sampled values describe the containing hydrology cell.",
+    "The conditioned DSM and deep breaching cuts remain provisional.",
+    "Contributing area is limited by the modelled DEM coverage.",
+    "Mapped drainage completeness and capacity are not established.",
+    "No flood labels, probabilities or depths were generated."
+  ]
+}
