@@ -1,3 +1,4 @@
+import SpatialRainfallScenario from './components/SpatialRainfallScenario'
 import RainfallExplanation from './components/RainfallExplanation'
 import RainfallScenarios from './components/RainfallScenarios'
 import { lazy, Suspense, useEffect, useState } from 'react'
@@ -593,6 +594,8 @@ function App() {
         <a className="nav-item" href="#rainfall-explanation"><Activity size={18} /> Model Explanation</a>
         <a className="nav-item" href="#rainfall-scenarios"><CloudRain size={18} /> Rainfall Scenarios</a>
 
+        <a className="nav-item" href="#spatial-scenario"><CloudRain size={18} /> Spatial Scenario</a>
+
         <div className="sidebar-bottom">
           <div className="side-label">STUDY AREA</div>
           <div className="study-card">
@@ -997,6 +1000,8 @@ function App() {
         <RainfallExplanation />
 
         <RainfallScenarios api={API} />
+
+        <SpatialRainfallScenario api={API} />
 
         <section className="section-block" id="terrain-overview">
           <div className="section-heading">

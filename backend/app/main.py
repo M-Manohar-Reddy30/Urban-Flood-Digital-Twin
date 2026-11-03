@@ -69,3 +69,6 @@ app.include_router(rainfall_scenarios_router)
 
 from backend.app.api.scenario_history import router as scenario_history_router
 app.include_router(scenario_history_router)
+
+from backend.app.api.spatial_scenarios import router as spatial_scenarios_router
+app.include_router(spatial_scenarios_router)
