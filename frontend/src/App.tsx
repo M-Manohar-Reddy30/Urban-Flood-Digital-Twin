@@ -16,6 +16,7 @@ import './App.css'
 const API = (import.meta.env.VITE_API_BASE_URL || 'http://127.0.0.1:8000').replace(/\/+$/, '')
 
 const RainfallChart = lazy(() => import('./components/RainfallChart'))
+const RainfallEvaluation = lazy(() => import('./components/RainfallEvaluation'))
 
 type GisSummary = {
   city?: string
@@ -242,6 +243,62 @@ function App() {
   })
   const [selectedDrainage, setSelectedDrainage] =
     useState<DrainageProperties | null>(null)
+
+
+  const [derivedDrainage, setDerivedDrainage] =
+    useState<GeoJSONType | null>(null)
+  const [showDerivedDrainage, setShowDerivedDrainage] = useState(false)
+  const [derivedDrainageError, setDerivedDrainageError] = useState('')
+  const [derivedDrainageLoading, setDerivedDrainageLoading] = useState(true)
+  const [derivedDrainageAttempt, setDerivedDrainageAttempt] = useState(0)
+
+  useEffect(() => {
+    const controller = new AbortController()
+
+    async function loadDerivedDrainage() {
+      setDerivedDrainageLoading(true)
+      setDerivedDrainageError('')
+      setDerivedDrainage(null)
+
+      try {
+        const response = await fetch(
+          `${API}/api/v1/gis/derived-drainage`,
+          { signal: controller.signal },
+        )
+        if (!response.ok) {
+          throw new Error(`Derived drainage API returned HTTP ${response.status}.`)
+        }
+
+        const data = await response.json()
+        if (
+          data?.type !== 'FeatureCollection' ||
+          !Array.isArray(data.features) ||
+          data.features.length === 0 ||
+          data.metadata?.status !== 'provisional' ||
+          data.metadata?.threshold_km2 !== 1
+        ) {
+          throw new Error('Unexpected derived drainage response.')
+        }
+
+        if (!controller.signal.aborted) {
+          setDerivedDrainage(data as GeoJSONType)
+        }
+      } catch (err) {
+        if (!controller.signal.aborted) {
+          setDerivedDrainageError(
+            err instanceof Error ? err.message : 'Unable to load derived drainage.',
+          )
+        }
+      } finally {
+        if (!controller.signal.aborted) {
+          setDerivedDrainageLoading(false)
+        }
+      }
+    }
+
+    void loadDerivedDrainage()
+    return () => controller.abort()
+  }, [derivedDrainageAttempt])
 
   const [showDrainage, setShowDrainage] = useState(true)
   const [mapResetKey, setMapResetKey] = useState(0)
@@ -624,6 +681,17 @@ function App() {
               <button
                 type="button"
                 className="map-control-button"
+                disabled={!derivedDrainage || derivedDrainageLoading}
+                aria-pressed={showDerivedDrainage}
+                onClick={() => setShowDerivedDrainage((current) => !current)}
+              >
+                {showDerivedDrainage ? <Eye size={15} /> : <EyeOff size={15} />}
+                Derived drainage — provisional
+              </button>
+
+              <button
+                type="button"
+                className="map-control-button"
                 onClick={() => setShowDrainage((current) => !current)}
                 aria-pressed={showDrainage}
               >
@@ -690,6 +758,39 @@ function App() {
               </div>
             )}
 
+
+          <div className="panel-card" aria-label="Derived drainage information">
+            <strong style={{ color: '#c084fc' }}>
+              Derived drainage — provisional · 1 km² threshold
+            </strong>
+            <p role="status" aria-live="polite">
+              {derivedDrainageLoading
+                ? 'Loading derived drainage…'
+                : derivedDrainageError
+                  ? 'Derived drainage is unavailable.'
+                  : derivedDrainage?.type === 'FeatureCollection'
+                    ? `${derivedDrainage.features.length.toLocaleString()} polygon footprints loaded. Overlay ${showDerivedDrainage ? 'shown' : 'hidden'}.`
+                    : 'No derived drainage loaded.'}
+            </p>
+            {derivedDrainageError && (
+              <div role="alert">
+                <p>{derivedDrainageError}</p>
+                <button
+                  type="button"
+                  className="map-control-button"
+                  onClick={() => setDerivedDrainageAttempt((value) => value + 1)}
+                >
+                  Retry derived drainage
+                </button>
+              </div>
+            )}
+            <p className="small-note">
+              Purple polygons show approximately 30 m drainage-cell footprints
+              derived from the conditioned elevation model. They do not
+              represent channel widths or flood extent.
+            </p>
+          </div>
+
           <div className="map-layout">
             <div className="map-frame">
               {boundary ? (
@@ -710,6 +811,22 @@ function App() {
                   />
 
                 <GeoJSON data={boundary} style={() => boundaryStyle} />
+
+
+                {derivedDrainage && showDerivedDrainage && (
+                  <GeoJSON
+                    key={`derived-drainage-${derivedDrainageAttempt}`}
+                    data={derivedDrainage}
+                    interactive={false}
+                    style={{
+                      color: '#a855f7',
+                      weight: 0.6,
+                      opacity: 0.9,
+                      fillColor: '#a855f7',
+                      fillOpacity: 0.55,
+                    }}
+                  />
+                )}
 
                 {drainage && showDrainage && (
                   <GeoJSON
@@ -861,6 +978,10 @@ function App() {
             </div>
           </div>
         </section>
+
+        <Suspense fallback={<p role="status">Loading rainfall evaluation panel…</p>}>
+          <RainfallEvaluation api={API} />
+        </Suspense>
 
         <section className="lower-grid">
           <div className="section-block" id="rainfall">

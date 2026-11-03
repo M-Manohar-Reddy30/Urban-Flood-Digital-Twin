@@ -33,3 +33,5 @@ Thumbs.db
 .idea/
 # Keep safe environment-variable templates in Git
 !*.env.example
+*.bak
+/logs/

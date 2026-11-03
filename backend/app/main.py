@@ -57,3 +57,6 @@ def health():
         "status": "healthy",
         "service": "urban-flood-digital-twin-api",
     }
+
+from backend.app.api.model_evaluation import router as model_evaluation_router
+app.include_router(model_evaluation_router)

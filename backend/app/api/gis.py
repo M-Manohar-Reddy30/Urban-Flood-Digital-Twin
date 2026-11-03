@@ -192,3 +192,67 @@ def gis_drainage():
         )
 
     return drainage
+
+
+DERIVED_DRAINAGE_FILE = (
+    Path(__file__).resolve().parents[3]
+    / "data/processed/hydrology/web"
+    / "ballari_derived_drainage_1km2.geojson"
+)
+
+
+@router.get("/derived-drainage")
+def gis_derived_drainage():
+    """Return provisional drainage cell footprints, not flood extent."""
+    try:
+        data = json.loads(
+            DERIVED_DRAINAGE_FILE.read_text(encoding="utf-8")
+        )
+    except FileNotFoundError as exc:
+        raise HTTPException(
+            status_code=503,
+            detail="Derived drainage layer is unavailable.",
+        ) from exc
+    except (ValueError, UnicodeError) as exc:
+        raise HTTPException(
+            status_code=500,
+            detail="Derived drainage layer contains invalid JSON.",
+        ) from exc
+    except OSError as exc:
+        raise HTTPException(
+            status_code=503,
+            detail="Derived drainage layer could not be read.",
+        ) from exc
+
+    if not _validate_geojson(
+        data, allowed_geometry_types={"Polygon", "MultiPolygon"}
+    ):
+        raise HTTPException(
+            status_code=500,
+            detail="Derived drainage layer has invalid geometry.",
+        )
+
+    for feature in data.get("features", []):
+        properties = feature.get("properties") or {}
+        if (
+            properties.get("status") != "provisional"
+            or properties.get("threshold_km2") != 1.0
+            or properties.get("representation")
+            != "drainage_raster_cell_footprint"
+        ):
+            raise HTTPException(
+                status_code=500,
+                detail="Derived drainage layer has invalid metadata.",
+            )
+
+    data["metadata"] = {
+        "status": "provisional",
+        "threshold_km2": 1.0,
+        "representation": "drainage_raster_cell_footprint",
+        "note": (
+            "Derived from a conditioned DSM. Polygons represent "
+            "raster-cell footprints, not channel widths, flood "
+            "extent, or validated flood predictions."
+        ),
+    }
+    return data
