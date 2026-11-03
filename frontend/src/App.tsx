@@ -1,3 +1,4 @@
+import FacilitiesMap from './components/FacilitiesMap'
 import SpatialRainfallScenario from './components/SpatialRainfallScenario'
 import RainfallExplanation from './components/RainfallExplanation'
 import RainfallScenarios from './components/RainfallScenarios'
@@ -596,6 +597,8 @@ function App() {
 
         <a className="nav-item" href="#spatial-scenario"><CloudRain size={18} /> Spatial Scenario</a>
 
+        <a className="nav-item" href="#facilities"><MapPin size={18} /> Facilities</a>
+
         <div className="sidebar-bottom">
           <div className="side-label">STUDY AREA</div>
           <div className="study-card">
@@ -1002,6 +1005,8 @@ function App() {
         <RainfallScenarios api={API} />
 
         <SpatialRainfallScenario api={API} />
+
+        <FacilitiesMap />
 
         <section className="section-block" id="terrain-overview">
           <div className="section-heading">

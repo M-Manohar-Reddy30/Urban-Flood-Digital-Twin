@@ -1,0 +1,3218 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "id": "node/3155739558",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.9295174,
+          15.1450669
+        ]
+      },
+      "properties": {
+        "name": "Agastya Ayurveda, 98/1, Soora Complex",
+        "group": "Healthcare",
+        "category": "hospital",
+        "amenity": "hospital",
+        "healthcare": null,
+        "osm_type": "node",
+        "osm_id": 3155739558,
+        "osm_url": "https://www.openstreetmap.org/node/3155739558",
+        "coordinate_method": "mapped_node",
+        "verification_status": "source_mapped_not_field_verified"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/4326427892",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.9089643,
+          15.1536491
+        ]
+      },
+      "properties": {
+        "name": "Sanjay Gandhi Polytechnic",
+        "group": "Education",
+        "category": "school",
+        "amenity": "school",
+        "healthcare": null,
+        "osm_type": "node",
+        "osm_id": 4326427892,
+        "osm_url": "https://www.openstreetmap.org/node/4326427892",
+        "coordinate_method": "mapped_node",
+        "verification_status": "source_mapped_not_field_verified"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/6939482077",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.9411343,
+          15.1544469
+        ]
+      },
+      "properties": {
+        "name": "Dwaraka Hospital",
+        "group": "Healthcare",
+        "category": "hospital",
+        "amenity": "hospital",
+        "healthcare": null,
+        "osm_type": "node",
+        "osm_id": 6939482077,
+        "osm_url": "https://www.openstreetmap.org/node/6939482077",
+        "coordinate_method": "mapped_node",
+        "verification_status": "source_mapped_not_field_verified"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/6944138106",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.9367346,
+          15.1506984
+        ]
+      },
+      "properties": {
+        "name": "M S R Hospital",
+        "group": "Healthcare",
+        "category": "hospital",
+        "amenity": "hospital",
+        "healthcare": null,
+        "osm_type": "node",
+        "osm_id": 6944138106,
+        "osm_url": "https://www.openstreetmap.org/node/6944138106",
+        "coordinate_method": "mapped_node",
+        "verification_status": "source_mapped_not_field_verified"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/6944256054",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.934693,
+          15.1523991
+        ]
+      },
+      "properties": {
+        "name": "Cs Multispeciality Hospital",
+        "group": "Healthcare",
+        "category": "hospital",
+        "amenity": "hospital",
+        "healthcare": null,
+        "osm_type": "node",
+        "osm_id": 6944256054,
+        "osm_url": "https://www.openstreetmap.org/node/6944256054",
+        "coordinate_method": "mapped_node",
+        "verification_status": "source_mapped_not_field_verified"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/6944277959",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.9308762,
+          15.154157
+        ]
+      },
+      "properties": {
+        "name": "Sanjeevini Hospital",
+        "group": "Healthcare",
+        "category": "hospital",
+        "amenity": "hospital",
+        "healthcare": null,
+        "osm_type": "node",
+        "osm_id": 6944277959,
+        "osm_url": "https://www.openstreetmap.org/node/6944277959",
+        "coordinate_method": "mapped_node",
+        "verification_status": "source_mapped_not_field_verified"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/6944400799",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.9291596,
+          15.1439938
+        ]
+      },
+      "properties": {
+        "name": "Bellary Nursing Home",
+        "group": "Healthcare",
+        "category": "clinic",
+        "amenity": "clinic",
+        "healthcare": null,
+        "osm_type": "node",
+        "osm_id": 6944400799,
+        "osm_url": "https://www.openstreetmap.org/node/6944400799",
+        "coordinate_method": "mapped_node",
+        "verification_status": "source_mapped_not_field_verified"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/6944417958",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.9067947,
+          15.1443071
+        ]
+      },
+      "properties": {
+        "name": "Venkat Kamineni Hospital",
+        "group": "Healthcare",
+        "category": "hospital",
+        "amenity": "hospital",
+        "healthcare": null,
+        "osm_type": "node",
+        "osm_id": 6944417958,
+        "osm_url": "https://www.openstreetmap.org/node/6944417958",
+        "coordinate_method": "mapped_node",
+        "verification_status": "source_mapped_not_field_verified"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/6944525578",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.900873,
+          15.1541816
+        ]
+      },
+      "properties": {
+        "name": "St Mary's Hospital",
+        "group": "Healthcare",
+        "category": "hospital",
+        "amenity": "hospital",
+        "healthcare": null,
+        "osm_type": "node",
+        "osm_id": 6944525578,
+        "osm_url": "https://www.openstreetmap.org/node/6944525578",
+        "coordinate_method": "mapped_node",
+        "verification_status": "source_mapped_not_field_verified"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/6944587004",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.9002199,
+          15.155344
+        ]
+      },
+      "properties": {
+        "name": "Aparna Hospital",
+        "group": "Healthcare",
+        "category": "hospital",
+        "amenity": "hospital",
+        "healthcare": null,
+        "osm_type": "node",
+        "osm_id": 6944587004,
+        "osm_url": "https://www.openstreetmap.org/node/6944587004",
+        "coordinate_method": "mapped_node",
+        "verification_status": "source_mapped_not_field_verified"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/6944908376",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.9280572,
+          15.1543964
+        ]
+      },
+      "properties": {
+        "name": "Shakti Nursing Home",
+        "group": "Healthcare",
+        "category": "clinic",
+        "amenity": "clinic",
+        "healthcare": null,
+        "osm_type": "node",
+        "osm_id": 6944908376,
+        "osm_url": "https://www.openstreetmap.org/node/6944908376",
+        "coordinate_method": "mapped_node",
+        "verification_status": "source_mapped_not_field_verified"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/6945078263",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.935904,
+          15.1489687
+        ]
+      },
+      "properties": {
+        "name": "Dr. S. K. Panduranga Rao Hospital",
+        "group": "Healthcare",
+        "category": "hospital",
+        "amenity": "hospital",
+        "healthcare": null,
+        "osm_type": "node",
+        "osm_id": 6945078263,
+        "osm_url": "https://www.openstreetmap.org/node/6945078263",
+        "coordinate_method": "mapped_node",
+        "verification_status": "source_mapped_not_field_verified"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/6945764972",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.9282839,
+          15.1552599
+        ]
+      },
+      "properties": {
+        "name": "Sri Balaji Nursing Home, Ballari",
+        "group": "Healthcare",
+        "category": "clinic",
+        "amenity": "clinic",
+        "healthcare": null,
+        "osm_type": "node",
+        "osm_id": 6945764972,
+        "osm_url": "https://www.openstreetmap.org/node/6945764972",
+        "coordinate_method": "mapped_node",
+        "verification_status": "source_mapped_not_field_verified"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/6945766365",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.9378164,
+          15.1587885
+        ]
+      },
+      "properties": {
+        "name": "Sree Thirumala Hospital",
+        "group": "Healthcare",
+        "category": "hospital",
+        "amenity": "hospital",
+        "healthcare": null,
+        "osm_type": "node",
+        "osm_id": 6945766365,
+        "osm_url": "https://www.openstreetmap.org/node/6945766365",
+        "coordinate_method": "mapped_node",
+        "verification_status": "source_mapped_not_field_verified"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/6945806143",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.9292977,
+          15.1454813
+        ]
+      },
+      "properties": {
+        "name": "Sri Danamma Super Speciality Hospital",
+        "group": "Healthcare",
+        "category": "hospital",
+        "amenity": "hospital",
+        "healthcare": null,
+        "osm_type": "node",
+        "osm_id": 6945806143,
+        "osm_url": "https://www.openstreetmap.org/node/6945806143",
+        "coordinate_method": "mapped_node",
+        "verification_status": "source_mapped_not_field_verified"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/6947247964",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.9352415,
+          15.1486852
+        ]
+      },
+      "properties": {
+        "name": "R K Hospital, Ballari",
+        "group": "Healthcare",
+        "category": "hospital",
+        "amenity": "hospital",
+        "healthcare": null,
+        "osm_type": "node",
+        "osm_id": 6947247964,
+        "osm_url": "https://www.openstreetmap.org/node/6947247964",
+        "coordinate_method": "mapped_node",
+        "verification_status": "source_mapped_not_field_verified"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/6947682076",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.9288243,
+          15.1464612
+        ]
+      },
+      "properties": {
+        "name": "Adarsh Heart Care Centre Pvt Ltd",
+        "group": "Healthcare",
+        "category": "hospital",
+        "amenity": "hospital",
+        "healthcare": null,
+        "osm_type": "node",
+        "osm_id": 6947682076,
+        "osm_url": "https://www.openstreetmap.org/node/6947682076",
+        "coordinate_method": "mapped_node",
+        "verification_status": "source_mapped_not_field_verified"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/6947707804",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.8999376,
+          15.154256
+        ]
+      },
+      "properties": {
+        "name": "Vijay Nagaraj Super Speciality Eye Hospital",
+        "group": "Healthcare",
+        "category": "hospital",
+        "amenity": "hospital",
+        "healthcare": null,
+        "osm_type": "node",
+        "osm_id": 6947707804,
+        "osm_url": "https://www.openstreetmap.org/node/6947707804",
+        "coordinate_method": "mapped_node",
+        "verification_status": "source_mapped_not_field_verified"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/6947765553",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.92797,
+          15.1531343
+        ]
+      },
+      "properties": {
+        "name": "L V Nursing Home",
+        "group": "Healthcare",
+        "category": "clinic",
+        "amenity": "clinic",
+        "healthcare": null,
+        "osm_type": "node",
+        "osm_id": 6947765553,
+        "osm_url": "https://www.openstreetmap.org/node/6947765553",
+        "coordinate_method": "mapped_node",
+        "verification_status": "source_mapped_not_field_verified"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/7205430849",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.9016016,
+          15.1410453
+        ]
+      },
+      "properties": {
+        "name": "Ufwc Hospital",
+        "group": "Healthcare",
+        "category": "hospital",
+        "amenity": "hospital",
+        "healthcare": null,
+        "osm_type": "node",
+        "osm_id": 7205430849,
+        "osm_url": "https://www.openstreetmap.org/node/7205430849",
+        "coordinate_method": "mapped_node",
+        "verification_status": "source_mapped_not_field_verified"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/7205430854",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.898437,
+          15.155818
+        ]
+      },
+      "properties": {
+        "name": "Vijaynagar Institute Of Medical Science Hospital, Ballari",
+        "group": "Healthcare",
+        "category": "hospital",
+        "amenity": "hospital",
+        "healthcare": null,
+        "osm_type": "node",
+        "osm_id": 7205430854,
+        "osm_url": "https://www.openstreetmap.org/node/7205430854",
+        "coordinate_method": "mapped_node",
+        "verification_status": "source_mapped_not_field_verified"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/7569754225",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.899461,
+          15.154727
+        ]
+      },
+      "properties": {
+        "name": "Asha Hospital",
+        "group": "Healthcare",
+        "category": "hospital",
+        "amenity": "hospital",
+        "healthcare": null,
+        "osm_type": "node",
+        "osm_id": 7569754225,
+        "osm_url": "https://www.openstreetmap.org/node/7569754225",
+        "coordinate_method": "mapped_node",
+        "verification_status": "source_mapped_not_field_verified"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/7569754230",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.9309177,
+          15.1533524
+        ]
+      },
+      "properties": {
+        "name": "Janani Hospital and Fetal Medical Centre",
+        "group": "Healthcare",
+        "category": "hospital",
+        "amenity": "hospital",
+        "healthcare": null,
+        "osm_type": "node",
+        "osm_id": 7569754230,
+        "osm_url": "https://www.openstreetmap.org/node/7569754230",
+        "coordinate_method": "mapped_node",
+        "verification_status": "source_mapped_not_field_verified"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/7569754231",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.928625,
+          15.154511
+        ]
+      },
+      "properties": {
+        "name": "A R Gastro and Liver Centre",
+        "group": "Healthcare",
+        "category": "hospital",
+        "amenity": "hospital",
+        "healthcare": null,
+        "osm_type": "node",
+        "osm_id": 7569754231,
+        "osm_url": "https://www.openstreetmap.org/node/7569754231",
+        "coordinate_method": "mapped_node",
+        "verification_status": "source_mapped_not_field_verified"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/7569754233",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.9290191,
+          15.1461941
+        ]
+      },
+      "properties": {
+        "name": "Srinivasa Child Care Centre",
+        "group": "Healthcare",
+        "category": "clinic",
+        "amenity": "clinic",
+        "healthcare": null,
+        "osm_type": "node",
+        "osm_id": 7569754233,
+        "osm_url": "https://www.openstreetmap.org/node/7569754233",
+        "coordinate_method": "mapped_node",
+        "verification_status": "source_mapped_not_field_verified"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/7569754235",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.8974469,
+          15.1589914
+        ]
+      },
+      "properties": {
+        "name": "R V G Health Care",
+        "group": "Healthcare",
+        "category": "clinic",
+        "amenity": "clinic",
+        "healthcare": null,
+        "osm_type": "node",
+        "osm_id": 7569754235,
+        "osm_url": "https://www.openstreetmap.org/node/7569754235",
+        "coordinate_method": "mapped_node",
+        "verification_status": "source_mapped_not_field_verified"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/7569754240",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.9244332,
+          15.1524354
+        ]
+      },
+      "properties": {
+        "name": "Sandhya Polyclinic",
+        "group": "Healthcare",
+        "category": "clinic",
+        "amenity": "clinic",
+        "healthcare": null,
+        "osm_type": "node",
+        "osm_id": 7569754240,
+        "osm_url": "https://www.openstreetmap.org/node/7569754240",
+        "coordinate_method": "mapped_node",
+        "verification_status": "source_mapped_not_field_verified"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/7569754241",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.9051998,
+          15.1449588
+        ]
+      },
+      "properties": {
+        "name": "Mata Super Speciality Dental Hospital",
+        "group": "Healthcare",
+        "category": "hospital",
+        "amenity": "hospital",
+        "healthcare": null,
+        "osm_type": "node",
+        "osm_id": 7569754241,
+        "osm_url": "https://www.openstreetmap.org/node/7569754241",
+        "coordinate_method": "mapped_node",
+        "verification_status": "source_mapped_not_field_verified"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/7569754242",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.9267854,
+          15.1540142
+        ]
+      },
+      "properties": {
+        "name": "Amogh Nursing Home",
+        "group": "Healthcare",
+        "category": "clinic",
+        "amenity": "clinic",
+        "healthcare": null,
+        "osm_type": "node",
+        "osm_id": 7569754242,
+        "osm_url": "https://www.openstreetmap.org/node/7569754242",
+        "coordinate_method": "mapped_node",
+        "verification_status": "source_mapped_not_field_verified"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/7569754244",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.929703,
+          15.152796
+        ]
+      },
+      "properties": {
+        "name": "Srihari Child Care Centre",
+        "group": "Healthcare",
+        "category": "clinic",
+        "amenity": "clinic",
+        "healthcare": null,
+        "osm_type": "node",
+        "osm_id": 7569754244,
+        "osm_url": "https://www.openstreetmap.org/node/7569754244",
+        "coordinate_method": "mapped_node",
+        "verification_status": "source_mapped_not_field_verified"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/7569754247",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.9156602,
+          15.1598506
+        ]
+      },
+      "properties": {
+        "name": "Arunodaya Hospital",
+        "group": "Healthcare",
+        "category": "hospital",
+        "amenity": "hospital",
+        "healthcare": null,
+        "osm_type": "node",
+        "osm_id": 7569754247,
+        "osm_url": "https://www.openstreetmap.org/node/7569754247",
+        "coordinate_method": "mapped_node",
+        "verification_status": "source_mapped_not_field_verified"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/7569754249",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.9258406,
+          15.139209
+        ]
+      },
+      "properties": {
+        "name": "Srinivas Clinic",
+        "group": "Healthcare",
+        "category": "clinic",
+        "amenity": "clinic",
+        "healthcare": null,
+        "osm_type": "node",
+        "osm_id": 7569754249,
+        "osm_url": "https://www.openstreetmap.org/node/7569754249",
+        "coordinate_method": "mapped_node",
+        "verification_status": "source_mapped_not_field_verified"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/7569754250",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.931238,
+          15.140189
+        ]
+      },
+      "properties": {
+        "name": "Pristine Hearing Clinic",
+        "group": "Healthcare",
+        "category": "clinic",
+        "amenity": "clinic",
+        "healthcare": null,
+        "osm_type": "node",
+        "osm_id": 7569754250,
+        "osm_url": "https://www.openstreetmap.org/node/7569754250",
+        "coordinate_method": "mapped_node",
+        "verification_status": "source_mapped_not_field_verified"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/7569754253",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.9186108,
+          15.1580688
+        ]
+      },
+      "properties": {
+        "name": "SM Nursing Home",
+        "group": "Healthcare",
+        "category": "clinic",
+        "amenity": "clinic",
+        "healthcare": null,
+        "osm_type": "node",
+        "osm_id": 7569754253,
+        "osm_url": "https://www.openstreetmap.org/node/7569754253",
+        "coordinate_method": "mapped_node",
+        "verification_status": "source_mapped_not_field_verified"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/7569754254",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.897154,
+          15.159221
+        ]
+      },
+      "properties": {
+        "name": "Mithil Clinic",
+        "group": "Healthcare",
+        "category": "clinic",
+        "amenity": "clinic",
+        "healthcare": null,
+        "osm_type": "node",
+        "osm_id": 7569754254,
+        "osm_url": "https://www.openstreetmap.org/node/7569754254",
+        "coordinate_method": "mapped_node",
+        "verification_status": "source_mapped_not_field_verified"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/7569754258",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.927232,
+          15.153661
+        ]
+      },
+      "properties": {
+        "name": "K S M Hospital",
+        "group": "Healthcare",
+        "category": "hospital",
+        "amenity": "hospital",
+        "healthcare": null,
+        "osm_type": "node",
+        "osm_id": 7569754258,
+        "osm_url": "https://www.openstreetmap.org/node/7569754258",
+        "coordinate_method": "mapped_node",
+        "verification_status": "source_mapped_not_field_verified"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/7569754259",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.8973,
+          15.138151
+        ]
+      },
+      "properties": {
+        "name": "Sai Health Care",
+        "group": "Healthcare",
+        "category": "clinic",
+        "amenity": "clinic",
+        "healthcare": null,
+        "osm_type": "node",
+        "osm_id": 7569754259,
+        "osm_url": "https://www.openstreetmap.org/node/7569754259",
+        "coordinate_method": "mapped_node",
+        "verification_status": "source_mapped_not_field_verified"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/7569754260",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.934366,
+          15.152907
+        ]
+      },
+      "properties": {
+        "name": "Sri Venkateswara Nursing Home",
+        "group": "Healthcare",
+        "category": "clinic",
+        "amenity": "clinic",
+        "healthcare": null,
+        "osm_type": "node",
+        "osm_id": 7569754260,
+        "osm_url": "https://www.openstreetmap.org/node/7569754260",
+        "coordinate_method": "mapped_node",
+        "verification_status": "source_mapped_not_field_verified"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/7569754262",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.9356396,
+          15.1537248
+        ]
+      },
+      "properties": {
+        "name": "Sri Daruka Clinic",
+        "group": "Healthcare",
+        "category": "clinic",
+        "amenity": "clinic",
+        "healthcare": null,
+        "osm_type": "node",
+        "osm_id": 7569754262,
+        "osm_url": "https://www.openstreetmap.org/node/7569754262",
+        "coordinate_method": "mapped_node",
+        "verification_status": "source_mapped_not_field_verified"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/7569754263",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.9177188,
+          15.1397969
+        ]
+      },
+      "properties": {
+        "name": "Navodaya Hospital",
+        "group": "Healthcare",
+        "category": "hospital",
+        "amenity": "hospital",
+        "healthcare": null,
+        "osm_type": "node",
+        "osm_id": 7569754263,
+        "osm_url": "https://www.openstreetmap.org/node/7569754263",
+        "coordinate_method": "mapped_node",
+        "verification_status": "source_mapped_not_field_verified"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/7569754264",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.943797,
+          15.157484
+        ]
+      },
+      "properties": {
+        "name": "Desai Clinic",
+        "group": "Healthcare",
+        "category": "clinic",
+        "amenity": "clinic",
+        "healthcare": null,
+        "osm_type": "node",
+        "osm_id": 7569754264,
+        "osm_url": "https://www.openstreetmap.org/node/7569754264",
+        "coordinate_method": "mapped_node",
+        "verification_status": "source_mapped_not_field_verified"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/7569754266",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.899763,
+          15.1581958
+        ]
+      },
+      "properties": {
+        "name": "Gastro Clinic and Surgical Centre",
+        "group": "Healthcare",
+        "category": "clinic",
+        "amenity": "clinic",
+        "healthcare": null,
+        "osm_type": "node",
+        "osm_id": 7569754266,
+        "osm_url": "https://www.openstreetmap.org/node/7569754266",
+        "coordinate_method": "mapped_node",
+        "verification_status": "source_mapped_not_field_verified"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/7569754268",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.926456,
+          15.152258
+        ]
+      },
+      "properties": {
+        "name": "Srinivasa Nursing Home",
+        "group": "Healthcare",
+        "category": "clinic",
+        "amenity": "clinic",
+        "healthcare": null,
+        "osm_type": "node",
+        "osm_id": 7569754268,
+        "osm_url": "https://www.openstreetmap.org/node/7569754268",
+        "coordinate_method": "mapped_node",
+        "verification_status": "source_mapped_not_field_verified"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/7569754269",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.9328804,
+          15.156732
+        ]
+      },
+      "properties": {
+        "name": "Bharath Health Centre",
+        "group": "Healthcare",
+        "category": "clinic",
+        "amenity": "clinic",
+        "healthcare": null,
+        "osm_type": "node",
+        "osm_id": 7569754269,
+        "osm_url": "https://www.openstreetmap.org/node/7569754269",
+        "coordinate_method": "mapped_node",
+        "verification_status": "source_mapped_not_field_verified"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/7569754271",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.934889,
+          15.152424
+        ]
+      },
+      "properties": {
+        "name": "Sai City Hospital",
+        "group": "Healthcare",
+        "category": "hospital",
+        "amenity": "hospital",
+        "healthcare": null,
+        "osm_type": "node",
+        "osm_id": 7569754271,
+        "osm_url": "https://www.openstreetmap.org/node/7569754271",
+        "coordinate_method": "mapped_node",
+        "verification_status": "source_mapped_not_field_verified"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/7569754272",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.8993898,
+          15.1544077
+        ]
+      },
+      "properties": {
+        "name": "Anuradha Heart Care Center",
+        "group": "Healthcare",
+        "category": "clinic",
+        "amenity": "clinic",
+        "healthcare": null,
+        "osm_type": "node",
+        "osm_id": 7569754272,
+        "osm_url": "https://www.openstreetmap.org/node/7569754272",
+        "coordinate_method": "mapped_node",
+        "verification_status": "source_mapped_not_field_verified"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/7569754274",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.9246465,
+          15.1337895
+        ]
+      },
+      "properties": {
+        "name": "Urban Health Centre",
+        "group": "Healthcare",
+        "category": "clinic",
+        "amenity": "clinic",
+        "healthcare": null,
+        "osm_type": "node",
+        "osm_id": 7569754274,
+        "osm_url": "https://www.openstreetmap.org/node/7569754274",
+        "coordinate_method": "mapped_node",
+        "verification_status": "source_mapped_not_field_verified"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/7569754275",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.905185,
+          15.138624
+        ]
+      },
+      "properties": {
+        "name": "Dr. Nagaraj clinic",
+        "group": "Healthcare",
+        "category": "clinic",
+        "amenity": "clinic",
+        "healthcare": null,
+        "osm_type": "node",
+        "osm_id": 7569754275,
+        "osm_url": "https://www.openstreetmap.org/node/7569754275",
+        "coordinate_method": "mapped_node",
+        "verification_status": "source_mapped_not_field_verified"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/7569754276",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.9042199,
+          15.137845
+        ]
+      },
+      "properties": {
+        "name": "Swetha ENT Clinic",
+        "group": "Healthcare",
+        "category": "clinic",
+        "amenity": "clinic",
+        "healthcare": null,
+        "osm_type": "node",
+        "osm_id": 7569754276,
+        "osm_url": "https://www.openstreetmap.org/node/7569754276",
+        "coordinate_method": "mapped_node",
+        "verification_status": "source_mapped_not_field_verified"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/7569754277",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.9294946,
+          15.1423332
+        ]
+      },
+      "properties": {
+        "name": "Geetha Nursing Home",
+        "group": "Healthcare",
+        "category": "clinic",
+        "amenity": "clinic",
+        "healthcare": null,
+        "osm_type": "node",
+        "osm_id": 7569754277,
+        "osm_url": "https://www.openstreetmap.org/node/7569754277",
+        "coordinate_method": "mapped_node",
+        "verification_status": "source_mapped_not_field_verified"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/7569754279",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.9024459,
+          15.1374394
+        ]
+      },
+      "properties": {
+        "name": "Usha Hospital",
+        "group": "Healthcare",
+        "category": "hospital",
+        "amenity": "hospital",
+        "healthcare": null,
+        "osm_type": "node",
+        "osm_id": 7569754279,
+        "osm_url": "https://www.openstreetmap.org/node/7569754279",
+        "coordinate_method": "mapped_node",
+        "verification_status": "source_mapped_not_field_verified"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/7569754281",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.934942,
+          15.154359
+        ]
+      },
+      "properties": {
+        "name": "Kulkarni Eye Hospital",
+        "group": "Healthcare",
+        "category": "hospital",
+        "amenity": "hospital",
+        "healthcare": null,
+        "osm_type": "node",
+        "osm_id": 7569754281,
+        "osm_url": "https://www.openstreetmap.org/node/7569754281",
+        "coordinate_method": "mapped_node",
+        "verification_status": "source_mapped_not_field_verified"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/7569754282",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.9219059,
+          15.1353004
+        ]
+      },
+      "properties": {
+        "name": "Sri Manjunath Nursing Home",
+        "group": "Healthcare",
+        "category": "clinic",
+        "amenity": "clinic",
+        "healthcare": null,
+        "osm_type": "node",
+        "osm_id": 7569754282,
+        "osm_url": "https://www.openstreetmap.org/node/7569754282",
+        "coordinate_method": "mapped_node",
+        "verification_status": "source_mapped_not_field_verified"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/7569754283",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.922092,
+          15.15156
+        ]
+      },
+      "properties": {
+        "name": "Abhi Health Care Centre",
+        "group": "Healthcare",
+        "category": "clinic",
+        "amenity": "clinic",
+        "healthcare": null,
+        "osm_type": "node",
+        "osm_id": 7569754283,
+        "osm_url": "https://www.openstreetmap.org/node/7569754283",
+        "coordinate_method": "mapped_node",
+        "verification_status": "source_mapped_not_field_verified"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/7569754284",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.9252722,
+          15.1532729
+        ]
+      },
+      "properties": {
+        "name": "Government Hospital",
+        "group": "Healthcare",
+        "category": "hospital",
+        "amenity": "hospital",
+        "healthcare": null,
+        "osm_type": "node",
+        "osm_id": 7569754284,
+        "osm_url": "https://www.openstreetmap.org/node/7569754284",
+        "coordinate_method": "mapped_node",
+        "verification_status": "source_mapped_not_field_verified"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/7569754285",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.9307021,
+          15.1553529
+        ]
+      },
+      "properties": {
+        "name": "Shashidar Reddy Children Hospital",
+        "group": "Healthcare",
+        "category": "hospital",
+        "amenity": "hospital",
+        "healthcare": "hospital",
+        "osm_type": "node",
+        "osm_id": 7569754285,
+        "osm_url": "https://www.openstreetmap.org/node/7569754285",
+        "coordinate_method": "mapped_node",
+        "verification_status": "source_mapped_not_field_verified"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/7569754287",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.9001627,
+          15.1549476
+        ]
+      },
+      "properties": {
+        "name": "Dr. Vijay Nagraj Eye Hospital",
+        "group": "Healthcare",
+        "category": "hospital",
+        "amenity": "hospital",
+        "healthcare": null,
+        "osm_type": "node",
+        "osm_id": 7569754287,
+        "osm_url": "https://www.openstreetmap.org/node/7569754287",
+        "coordinate_method": "mapped_node",
+        "verification_status": "source_mapped_not_field_verified"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/7569754291",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.9025903,
+          15.1377994
+        ]
+      },
+      "properties": {
+        "name": "Dr. Mohammed Mazher Ali",
+        "group": "Healthcare",
+        "category": "doctors",
+        "amenity": "doctors",
+        "healthcare": null,
+        "osm_type": "node",
+        "osm_id": 7569754291,
+        "osm_url": "https://www.openstreetmap.org/node/7569754291",
+        "coordinate_method": "mapped_node",
+        "verification_status": "source_mapped_not_field_verified"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/7569754292",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.935449,
+          15.149046
+        ]
+      },
+      "properties": {
+        "name": "Chiranjeevi Newborn and Child Health Centre",
+        "group": "Healthcare",
+        "category": "hospital",
+        "amenity": "hospital",
+        "healthcare": null,
+        "osm_type": "node",
+        "osm_id": 7569754292,
+        "osm_url": "https://www.openstreetmap.org/node/7569754292",
+        "coordinate_method": "mapped_node",
+        "verification_status": "source_mapped_not_field_verified"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/7569754296",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.907426,
+          15.139285
+        ]
+      },
+      "properties": {
+        "name": "Rahat Children Clinic",
+        "group": "Healthcare",
+        "category": "clinic",
+        "amenity": "clinic",
+        "healthcare": null,
+        "osm_type": "node",
+        "osm_id": 7569754296,
+        "osm_url": "https://www.openstreetmap.org/node/7569754296",
+        "coordinate_method": "mapped_node",
+        "verification_status": "source_mapped_not_field_verified"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/7569754298",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.9313011,
+          15.1538952
+        ]
+      },
+      "properties": {
+        "name": "Pawan Health Centre",
+        "group": "Healthcare",
+        "category": "clinic",
+        "amenity": "clinic",
+        "healthcare": null,
+        "osm_type": "node",
+        "osm_id": 7569754298,
+        "osm_url": "https://www.openstreetmap.org/node/7569754298",
+        "coordinate_method": "mapped_node",
+        "verification_status": "source_mapped_not_field_verified"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/7569754299",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.9210396,
+          15.1400842
+        ]
+      },
+      "properties": {
+        "name": "Government Hospital",
+        "group": "Healthcare",
+        "category": "hospital",
+        "amenity": "hospital",
+        "healthcare": "hospital",
+        "osm_type": "node",
+        "osm_id": 7569754299,
+        "osm_url": "https://www.openstreetmap.org/node/7569754299",
+        "coordinate_method": "mapped_node",
+        "verification_status": "source_mapped_not_field_verified"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/7569754300",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.9279089,
+          15.1564795
+        ]
+      },
+      "properties": {
+        "name": "Ballari Hrudayal & Superspeciality Hospital",
+        "group": "Healthcare",
+        "category": "hospital",
+        "amenity": "hospital",
+        "healthcare": null,
+        "osm_type": "node",
+        "osm_id": 7569754300,
+        "osm_url": "https://www.openstreetmap.org/node/7569754300",
+        "coordinate_method": "mapped_node",
+        "verification_status": "source_mapped_not_field_verified"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/7569754301",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.9041473,
+          15.146718
+        ]
+      },
+      "properties": {
+        "name": "S. R. Multi Speciality Hospital",
+        "group": "Healthcare",
+        "category": "hospital",
+        "amenity": "hospital",
+        "healthcare": null,
+        "osm_type": "node",
+        "osm_id": 7569754301,
+        "osm_url": "https://www.openstreetmap.org/node/7569754301",
+        "coordinate_method": "mapped_node",
+        "verification_status": "source_mapped_not_field_verified"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/7569754302",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.9276788,
+          15.1579435
+        ]
+      },
+      "properties": {
+        "name": "Shiva Clinic",
+        "group": "Healthcare",
+        "category": "clinic",
+        "amenity": "clinic",
+        "healthcare": null,
+        "osm_type": "node",
+        "osm_id": 7569754302,
+        "osm_url": "https://www.openstreetmap.org/node/7569754302",
+        "coordinate_method": "mapped_node",
+        "verification_status": "source_mapped_not_field_verified"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/7569754304",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.922169,
+          15.134276
+        ]
+      },
+      "properties": {
+        "name": "Spoorthy Poly Clinic",
+        "group": "Healthcare",
+        "category": "clinic",
+        "amenity": "clinic",
+        "healthcare": null,
+        "osm_type": "node",
+        "osm_id": 7569754304,
+        "osm_url": "https://www.openstreetmap.org/node/7569754304",
+        "coordinate_method": "mapped_node",
+        "verification_status": "source_mapped_not_field_verified"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/7569754306",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.931718,
+          15.153405
+        ]
+      },
+      "properties": {
+        "name": "Shavi Hospital",
+        "group": "Healthcare",
+        "category": "hospital",
+        "amenity": "hospital",
+        "healthcare": null,
+        "osm_type": "node",
+        "osm_id": 7569754306,
+        "osm_url": "https://www.openstreetmap.org/node/7569754306",
+        "coordinate_method": "mapped_node",
+        "verification_status": "source_mapped_not_field_verified"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/7569754307",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.937255,
+          15.1558816
+        ]
+      },
+      "properties": {
+        "name": "Ballari Neuro Centre",
+        "group": "Healthcare",
+        "category": "hospital",
+        "amenity": "hospital",
+        "healthcare": null,
+        "osm_type": "node",
+        "osm_id": 7569754307,
+        "osm_url": "https://www.openstreetmap.org/node/7569754307",
+        "coordinate_method": "mapped_node",
+        "verification_status": "source_mapped_not_field_verified"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/7569754308",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.927743,
+          15.154513
+        ]
+      },
+      "properties": {
+        "name": "Sarvodaya Urocare and Pediatric Centre",
+        "group": "Healthcare",
+        "category": "hospital",
+        "amenity": "hospital",
+        "healthcare": null,
+        "osm_type": "node",
+        "osm_id": 7569754308,
+        "osm_url": "https://www.openstreetmap.org/node/7569754308",
+        "coordinate_method": "mapped_node",
+        "verification_status": "source_mapped_not_field_verified"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/7569754309",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.9231783,
+          15.135352
+        ]
+      },
+      "properties": {
+        "name": "Jahnavi Maternity Clinic",
+        "group": "Healthcare",
+        "category": "clinic",
+        "amenity": "clinic",
+        "healthcare": null,
+        "osm_type": "node",
+        "osm_id": 7569754309,
+        "osm_url": "https://www.openstreetmap.org/node/7569754309",
+        "coordinate_method": "mapped_node",
+        "verification_status": "source_mapped_not_field_verified"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/7569754311",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.933,
+          15.14425
+        ]
+      },
+      "properties": {
+        "name": "Gouse Women Hospital",
+        "group": "Healthcare",
+        "category": "hospital",
+        "amenity": "hospital",
+        "healthcare": null,
+        "osm_type": "node",
+        "osm_id": 7569754311,
+        "osm_url": "https://www.openstreetmap.org/node/7569754311",
+        "coordinate_method": "mapped_node",
+        "verification_status": "source_mapped_not_field_verified"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/7569754312",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.9361638,
+          15.1489145
+        ]
+      },
+      "properties": {
+        "name": "Leela ENT Care",
+        "group": "Healthcare",
+        "category": "clinic",
+        "amenity": "clinic",
+        "healthcare": null,
+        "osm_type": "node",
+        "osm_id": 7569754312,
+        "osm_url": "https://www.openstreetmap.org/node/7569754312",
+        "coordinate_method": "mapped_node",
+        "verification_status": "source_mapped_not_field_verified"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/7569754313",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.8998565,
+          15.1581878
+        ]
+      },
+      "properties": {
+        "name": "Sunshine Hospital",
+        "group": "Healthcare",
+        "category": "hospital",
+        "amenity": "hospital",
+        "healthcare": null,
+        "osm_type": "node",
+        "osm_id": 7569754313,
+        "osm_url": "https://www.openstreetmap.org/node/7569754313",
+        "coordinate_method": "mapped_node",
+        "verification_status": "source_mapped_not_field_verified"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/7569754314",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.93635,
+          15.155536
+        ]
+      },
+      "properties": {
+        "name": "Sanjana Eye Diabetes Hospital",
+        "group": "Healthcare",
+        "category": "hospital",
+        "amenity": "hospital",
+        "healthcare": null,
+        "osm_type": "node",
+        "osm_id": 7569754314,
+        "osm_url": "https://www.openstreetmap.org/node/7569754314",
+        "coordinate_method": "mapped_node",
+        "verification_status": "source_mapped_not_field_verified"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/7569754315",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.8979413,
+          15.1375425
+        ]
+      },
+      "properties": {
+        "name": "Yashfeen Hospital",
+        "group": "Healthcare",
+        "category": "hospital",
+        "amenity": "hospital",
+        "healthcare": null,
+        "osm_type": "node",
+        "osm_id": 7569754315,
+        "osm_url": "https://www.openstreetmap.org/node/7569754315",
+        "coordinate_method": "mapped_node",
+        "verification_status": "source_mapped_not_field_verified"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/7569754316",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.927086,
+          15.159182
+        ]
+      },
+      "properties": {
+        "name": "Pavan Hospital",
+        "group": "Healthcare",
+        "category": "hospital",
+        "amenity": "hospital",
+        "healthcare": null,
+        "osm_type": "node",
+        "osm_id": 7569754316,
+        "osm_url": "https://www.openstreetmap.org/node/7569754316",
+        "coordinate_method": "mapped_node",
+        "verification_status": "source_mapped_not_field_verified"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/7569754317",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.929613,
+          15.15327
+        ]
+      },
+      "properties": {
+        "name": "Sri Sai Health Centre",
+        "group": "Healthcare",
+        "category": "clinic",
+        "amenity": "clinic",
+        "healthcare": null,
+        "osm_type": "node",
+        "osm_id": 7569754317,
+        "osm_url": "https://www.openstreetmap.org/node/7569754317",
+        "coordinate_method": "mapped_node",
+        "verification_status": "source_mapped_not_field_verified"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/7569754318",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.8965716,
+          15.1389106
+        ]
+      },
+      "properties": {
+        "name": "Mother's Hospital",
+        "group": "Healthcare",
+        "category": "hospital",
+        "amenity": "hospital",
+        "healthcare": null,
+        "osm_type": "node",
+        "osm_id": 7569754318,
+        "osm_url": "https://www.openstreetmap.org/node/7569754318",
+        "coordinate_method": "mapped_node",
+        "verification_status": "source_mapped_not_field_verified"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/7569754319",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.9296609,
+          15.1484802
+        ]
+      },
+      "properties": {
+        "name": "Indira Hospital",
+        "group": "Healthcare",
+        "category": "hospital",
+        "amenity": "hospital",
+        "healthcare": null,
+        "osm_type": "node",
+        "osm_id": 7569754319,
+        "osm_url": "https://www.openstreetmap.org/node/7569754319",
+        "coordinate_method": "mapped_node",
+        "verification_status": "source_mapped_not_field_verified"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/7569754322",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.9023841,
+          15.1512902
+        ]
+      },
+      "properties": {
+        "name": "BMC Hospital",
+        "group": "Healthcare",
+        "category": "hospital",
+        "amenity": "hospital",
+        "healthcare": null,
+        "osm_type": "node",
+        "osm_id": 7569754322,
+        "osm_url": "https://www.openstreetmap.org/node/7569754322",
+        "coordinate_method": "mapped_node",
+        "verification_status": "source_mapped_not_field_verified"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/8188037407",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.9018748,
+          15.157596
+        ]
+      },
+      "properties": {
+        "name": "Vishwa Health Care",
+        "group": "Healthcare",
+        "category": "clinic",
+        "amenity": "clinic",
+        "healthcare": null,
+        "osm_type": "node",
+        "osm_id": 8188037407,
+        "osm_url": "https://www.openstreetmap.org/node/8188037407",
+        "coordinate_method": "mapped_node",
+        "verification_status": "source_mapped_not_field_verified"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/8188037412",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.9388303,
+          15.154497
+        ]
+      },
+      "properties": {
+        "name": "Ballari Hrudayalaya & Superspciality Hospital",
+        "group": "Healthcare",
+        "category": "hospital",
+        "amenity": "hospital",
+        "healthcare": "hospital",
+        "osm_type": "node",
+        "osm_id": 8188037412,
+        "osm_url": "https://www.openstreetmap.org/node/8188037412",
+        "coordinate_method": "mapped_node",
+        "verification_status": "source_mapped_not_field_verified"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/8188037420",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.9289443,
+          15.1458395
+        ]
+      },
+      "properties": {
+        "name": "Thyrocare Kolachalam Compound",
+        "group": "Healthcare",
+        "category": "hospital",
+        "amenity": "hospital",
+        "healthcare": null,
+        "osm_type": "node",
+        "osm_id": 8188037420,
+        "osm_url": "https://www.openstreetmap.org/node/8188037420",
+        "coordinate_method": "mapped_node",
+        "verification_status": "source_mapped_not_field_verified"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/8196771202",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.9224923,
+          15.151512
+        ]
+      },
+      "properties": {
+        "name": "Nalanda Pu College",
+        "group": "Education",
+        "category": "college",
+        "amenity": "college",
+        "healthcare": null,
+        "osm_type": "node",
+        "osm_id": 8196771202,
+        "osm_url": "https://www.openstreetmap.org/node/8196771202",
+        "coordinate_method": "mapped_node",
+        "verification_status": "source_mapped_not_field_verified"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/8196771208",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.9178053,
+          15.1423947
+        ]
+      },
+      "properties": {
+        "name": "St. Johns PU College",
+        "group": "Education",
+        "category": "college",
+        "amenity": "college",
+        "healthcare": null,
+        "osm_type": "node",
+        "osm_id": 8196771208,
+        "osm_url": "https://www.openstreetmap.org/node/8196771208",
+        "coordinate_method": "mapped_node",
+        "verification_status": "source_mapped_not_field_verified"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/8196771209",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.8980198,
+          15.1441395
+        ]
+      },
+      "properties": {
+        "name": "Nalanda PU College",
+        "group": "Education",
+        "category": "college",
+        "amenity": "college",
+        "healthcare": null,
+        "osm_type": "node",
+        "osm_id": 8196771209,
+        "osm_url": "https://www.openstreetmap.org/node/8196771209",
+        "coordinate_method": "mapped_node",
+        "verification_status": "source_mapped_not_field_verified"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/8196771211",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.9184176,
+          15.1435719
+        ]
+      },
+      "properties": {
+        "name": "Shree Medha Degree College &Pre-university College",
+        "group": "Education",
+        "category": "college",
+        "amenity": "college",
+        "healthcare": null,
+        "osm_type": "node",
+        "osm_id": 8196771211,
+        "osm_url": "https://www.openstreetmap.org/node/8196771211",
+        "coordinate_method": "mapped_node",
+        "verification_status": "source_mapped_not_field_verified"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/8196771212",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.9122996,
+          15.1424857
+        ]
+      },
+      "properties": {
+        "name": "Government Polytechnic College",
+        "group": "Education",
+        "category": "college",
+        "amenity": "college",
+        "healthcare": null,
+        "osm_type": "node",
+        "osm_id": 8196771212,
+        "osm_url": "https://www.openstreetmap.org/node/8196771212",
+        "coordinate_method": "mapped_node",
+        "verification_status": "source_mapped_not_field_verified"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/8196805944",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.930556,
+          15.1516935
+        ]
+      },
+      "properties": {
+        "name": "Ekta Institute of Fire & Safety Engg. Ballari",
+        "group": "Education",
+        "category": "college",
+        "amenity": "college",
+        "healthcare": null,
+        "osm_type": "node",
+        "osm_id": 8196805944,
+        "osm_url": "https://www.openstreetmap.org/node/8196805944",
+        "coordinate_method": "mapped_node",
+        "verification_status": "source_mapped_not_field_verified"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/8196806725",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.9102852,
+          15.1214639
+        ]
+      },
+      "properties": {
+        "name": "Sujs Pu College",
+        "group": "Education",
+        "category": "college",
+        "amenity": "college",
+        "healthcare": null,
+        "osm_type": "node",
+        "osm_id": 8196806725,
+        "osm_url": "https://www.openstreetmap.org/node/8196806725",
+        "coordinate_method": "mapped_node",
+        "verification_status": "source_mapped_not_field_verified"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/8400963256",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.8996944,
+          15.1419012
+        ]
+      },
+      "properties": {
+        "name": "St. Joseph's Boys' School",
+        "group": "Education",
+        "category": "school",
+        "amenity": "school",
+        "healthcare": null,
+        "osm_type": "node",
+        "osm_id": 8400963256,
+        "osm_url": "https://www.openstreetmap.org/node/8400963256",
+        "coordinate_method": "mapped_node",
+        "verification_status": "source_mapped_not_field_verified"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/10244277062",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.9316338,
+          15.1203983
+        ]
+      },
+      "properties": {
+        "name": "MPS",
+        "group": "Education",
+        "category": "school",
+        "amenity": "school",
+        "healthcare": null,
+        "osm_type": "node",
+        "osm_id": 10244277062,
+        "osm_url": "https://www.openstreetmap.org/node/10244277062",
+        "coordinate_method": "mapped_node",
+        "verification_status": "source_mapped_not_field_verified"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "way/310117675",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.9493482,
+          15.1406066
+        ]
+      },
+      "properties": {
+        "name": "Taranath Hospital",
+        "group": "Healthcare",
+        "category": "hospital",
+        "amenity": "hospital",
+        "healthcare": null,
+        "osm_type": "way",
+        "osm_id": 310117675,
+        "osm_url": "https://www.openstreetmap.org/way/310117675",
+        "coordinate_method": "osm_object_bounding_box_centre",
+        "verification_status": "source_mapped_not_field_verified"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "way/310123677",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.9459838,
+          15.1412318
+        ]
+      },
+      "properties": {
+        "name": "Basavarajeshwari Public School and College",
+        "group": "Education",
+        "category": "college",
+        "amenity": "college",
+        "healthcare": null,
+        "osm_type": "way",
+        "osm_id": 310123677,
+        "osm_url": "https://www.openstreetmap.org/way/310123677",
+        "coordinate_method": "osm_object_bounding_box_centre",
+        "verification_status": "source_mapped_not_field_verified"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "way/310123683",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.9419649,
+          15.1439447
+        ]
+      },
+      "properties": {
+        "name": "Patel Nagar Government School",
+        "group": "Education",
+        "category": "school",
+        "amenity": "school",
+        "healthcare": null,
+        "osm_type": "way",
+        "osm_id": 310123683,
+        "osm_url": "https://www.openstreetmap.org/way/310123683",
+        "coordinate_method": "osm_object_bounding_box_centre",
+        "verification_status": "source_mapped_not_field_verified"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "way/310175283",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.8956259,
+          15.1478722
+        ]
+      },
+      "properties": {
+        "name": "Nandi High School",
+        "group": "Education",
+        "category": "school",
+        "amenity": "school",
+        "healthcare": null,
+        "osm_type": "way",
+        "osm_id": 310175283,
+        "osm_url": "https://www.openstreetmap.org/way/310175283",
+        "coordinate_method": "osm_object_bounding_box_centre",
+        "verification_status": "source_mapped_not_field_verified"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "way/349620044",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.9422537,
+          15.154437
+        ]
+      },
+      "properties": {
+        "name": "Vunki Marisiddamma School",
+        "group": "Education",
+        "category": "school",
+        "amenity": "school",
+        "healthcare": null,
+        "osm_type": "way",
+        "osm_id": 349620044,
+        "osm_url": "https://www.openstreetmap.org/way/349620044",
+        "coordinate_method": "osm_object_bounding_box_centre",
+        "verification_status": "source_mapped_not_field_verified"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "way/349764799",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.9476806,
+          15.1585105
+        ]
+      },
+      "properties": {
+        "name": "Nalanda Vidyanikethana",
+        "group": "Education",
+        "category": "school",
+        "amenity": "school",
+        "healthcare": null,
+        "osm_type": "way",
+        "osm_id": 349764799,
+        "osm_url": "https://www.openstreetmap.org/way/349764799",
+        "coordinate_method": "osm_object_bounding_box_centre",
+        "verification_status": "source_mapped_not_field_verified"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "way/349859984",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.876351,
+          15.151181
+        ]
+      },
+      "properties": {
+        "name": "Vijayanagara Sri Krishnadevaraya University",
+        "group": "Education",
+        "category": "university",
+        "amenity": "university",
+        "healthcare": null,
+        "osm_type": "way",
+        "osm_id": 349859984,
+        "osm_url": "https://www.openstreetmap.org/way/349859984",
+        "coordinate_method": "osm_object_bounding_box_centre",
+        "verification_status": "source_mapped_not_field_verified"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "way/349860348",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.9324263,
+          15.1524199
+        ]
+      },
+      "properties": {
+        "name": "Government Maternity Hospital",
+        "group": "Healthcare",
+        "category": "hospital",
+        "amenity": "hospital",
+        "healthcare": null,
+        "osm_type": "way",
+        "osm_id": 349860348,
+        "osm_url": "https://www.openstreetmap.org/way/349860348",
+        "coordinate_method": "osm_object_bounding_box_centre",
+        "verification_status": "source_mapped_not_field_verified"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "way/349861425",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.9348346,
+          15.1541137
+        ]
+      },
+      "properties": {
+        "name": "Anjana Diagnostic Centre",
+        "group": "Healthcare",
+        "category": "doctors",
+        "amenity": "doctors",
+        "healthcare": "doctor",
+        "osm_type": "way",
+        "osm_id": 349861425,
+        "osm_url": "https://www.openstreetmap.org/way/349861425",
+        "coordinate_method": "osm_object_bounding_box_centre",
+        "verification_status": "source_mapped_not_field_verified"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "way/349861478",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.9349933,
+          15.1543485
+        ]
+      },
+      "properties": {
+        "name": "Dr Kulkarni Eye Hospital",
+        "group": "Healthcare",
+        "category": "hospital",
+        "amenity": "hospital",
+        "healthcare": null,
+        "osm_type": "way",
+        "osm_id": 349861478,
+        "osm_url": "https://www.openstreetmap.org/way/349861478",
+        "coordinate_method": "osm_object_bounding_box_centre",
+        "verification_status": "source_mapped_not_field_verified"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "way/349861543",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.935126,
+          15.1541153
+        ]
+      },
+      "properties": {
+        "name": "Vadiraj Skin Care",
+        "group": "Healthcare",
+        "category": "doctors",
+        "amenity": "doctors",
+        "healthcare": null,
+        "osm_type": "way",
+        "osm_id": 349861543,
+        "osm_url": "https://www.openstreetmap.org/way/349861543",
+        "coordinate_method": "osm_object_bounding_box_centre",
+        "verification_status": "source_mapped_not_field_verified"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "way/349861598",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.9334608,
+          15.1537247
+        ]
+      },
+      "properties": {
+        "name": "Adarsh Nursing Home",
+        "group": "Healthcare",
+        "category": "hospital",
+        "amenity": "hospital",
+        "healthcare": null,
+        "osm_type": "way",
+        "osm_id": 349861598,
+        "osm_url": "https://www.openstreetmap.org/way/349861598",
+        "coordinate_method": "osm_object_bounding_box_centre",
+        "verification_status": "source_mapped_not_field_verified"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "way/349861621",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.9330283,
+          15.1533659
+        ]
+      },
+      "properties": {
+        "name": "Sukrutha Nursing Home",
+        "group": "Healthcare",
+        "category": "clinic",
+        "amenity": "clinic",
+        "healthcare": null,
+        "osm_type": "way",
+        "osm_id": 349861621,
+        "osm_url": "https://www.openstreetmap.org/way/349861621",
+        "coordinate_method": "osm_object_bounding_box_centre",
+        "verification_status": "source_mapped_not_field_verified"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "way/349861689",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.9360966,
+          15.1525138
+        ]
+      },
+      "properties": {
+        "name": "Murthy Nursing Home",
+        "group": "Healthcare",
+        "category": "clinic",
+        "amenity": "clinic",
+        "healthcare": null,
+        "osm_type": "way",
+        "osm_id": 349861689,
+        "osm_url": "https://www.openstreetmap.org/way/349861689",
+        "coordinate_method": "osm_object_bounding_box_centre",
+        "verification_status": "source_mapped_not_field_verified"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "way/349861712",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.9374219,
+          15.155221
+        ]
+      },
+      "properties": {
+        "name": "Maddikeri Bhimaiah and Sonta Linganashetty Government School",
+        "group": "Education",
+        "category": "school",
+        "amenity": "school",
+        "healthcare": null,
+        "osm_type": "way",
+        "osm_id": 349861712,
+        "osm_url": "https://www.openstreetmap.org/way/349861712",
+        "coordinate_method": "osm_object_bounding_box_centre",
+        "verification_status": "source_mapped_not_field_verified"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "way/349861726",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.9394616,
+          15.1566471
+        ]
+      },
+      "properties": {
+        "name": "Anupam Nursing Home",
+        "group": "Healthcare",
+        "category": "hospital",
+        "amenity": "hospital",
+        "healthcare": null,
+        "osm_type": "way",
+        "osm_id": 349861726,
+        "osm_url": "https://www.openstreetmap.org/way/349861726",
+        "coordinate_method": "osm_object_bounding_box_centre",
+        "verification_status": "source_mapped_not_field_verified"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "way/349862108",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.9397475,
+          15.1547519
+        ]
+      },
+      "properties": {
+        "name": "Balabharathi Vivekananda High School",
+        "group": "Education",
+        "category": "school",
+        "amenity": "school",
+        "healthcare": null,
+        "osm_type": "way",
+        "osm_id": 349862108,
+        "osm_url": "https://www.openstreetmap.org/way/349862108",
+        "coordinate_method": "osm_object_bounding_box_centre",
+        "verification_status": "source_mapped_not_field_verified"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "way/350535977",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.8957889,
+          15.1549069
+        ]
+      },
+      "properties": {
+        "name": "Vijayanagar Institute of Medical Science Ballari",
+        "group": "Education",
+        "category": "college",
+        "amenity": "college",
+        "healthcare": null,
+        "osm_type": "way",
+        "osm_id": 350535977,
+        "osm_url": "https://www.openstreetmap.org/way/350535977",
+        "coordinate_method": "osm_object_bounding_box_centre",
+        "verification_status": "source_mapped_not_field_verified"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "way/350550852",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.8905126,
+          15.1415767
+        ]
+      },
+      "properties": {
+        "name": "Wellesley Tuberculosis Hospital.",
+        "group": "Healthcare",
+        "category": "hospital",
+        "amenity": "hospital",
+        "healthcare": "hospital",
+        "osm_type": "way",
+        "osm_id": 350550852,
+        "osm_url": "https://www.openstreetmap.org/way/350550852",
+        "coordinate_method": "osm_object_bounding_box_centre",
+        "verification_status": "source_mapped_not_field_verified"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "way/350563170",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.939148,
+          15.1561692
+        ]
+      },
+      "properties": {
+        "name": "Bagrecha Eye Clinic",
+        "group": "Healthcare",
+        "category": "clinic",
+        "amenity": "clinic",
+        "healthcare": null,
+        "osm_type": "way",
+        "osm_id": 350563170,
+        "osm_url": "https://www.openstreetmap.org/way/350563170",
+        "coordinate_method": "osm_object_bounding_box_centre",
+        "verification_status": "source_mapped_not_field_verified"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "way/350563356",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.9396972,
+          15.156615
+        ]
+      },
+      "properties": {
+        "name": "Dr. Tekur Ramnath Physician",
+        "group": "Healthcare",
+        "category": "clinic",
+        "amenity": "clinic",
+        "healthcare": null,
+        "osm_type": "way",
+        "osm_id": 350563356,
+        "osm_url": "https://www.openstreetmap.org/way/350563356",
+        "coordinate_method": "osm_object_bounding_box_centre",
+        "verification_status": "source_mapped_not_field_verified"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "way/350771261",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.9185738,
+          15.1383743
+        ]
+      },
+      "properties": {
+        "name": "FPAI",
+        "group": "Healthcare",
+        "category": "hospital",
+        "amenity": "hospital",
+        "healthcare": null,
+        "osm_type": "way",
+        "osm_id": 350771261,
+        "osm_url": "https://www.openstreetmap.org/way/350771261",
+        "coordinate_method": "osm_object_bounding_box_centre",
+        "verification_status": "source_mapped_not_field_verified"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "way/350795717",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.9142681,
+          15.1535434
+        ]
+      },
+      "properties": {
+        "name": "Unnamed mapped facility",
+        "group": "Education",
+        "category": "school",
+        "amenity": "school",
+        "healthcare": null,
+        "osm_type": "way",
+        "osm_id": 350795717,
+        "osm_url": "https://www.openstreetmap.org/way/350795717",
+        "coordinate_method": "osm_object_bounding_box_centre",
+        "verification_status": "source_mapped_not_field_verified"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "way/351490494",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.9413374,
+          15.1599682
+        ]
+      },
+      "properties": {
+        "name": "Chaitanya College",
+        "group": "Education",
+        "category": "college",
+        "amenity": "college",
+        "healthcare": null,
+        "osm_type": "way",
+        "osm_id": 351490494,
+        "osm_url": "https://www.openstreetmap.org/way/351490494",
+        "coordinate_method": "osm_object_bounding_box_centre",
+        "verification_status": "source_mapped_not_field_verified"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "way/351497817",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.9013664,
+          15.1441035
+        ]
+      },
+      "properties": {
+        "name": "Govt Industrial Training Institute (ITI)",
+        "group": "Education",
+        "category": "college",
+        "amenity": "college",
+        "healthcare": null,
+        "osm_type": "way",
+        "osm_id": 351497817,
+        "osm_url": "https://www.openstreetmap.org/way/351497817",
+        "coordinate_method": "osm_object_bounding_box_centre",
+        "verification_status": "source_mapped_not_field_verified"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "way/351497949",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.8991079,
+          15.1464167
+        ]
+      },
+      "properties": {
+        "name": "Ashirvad School",
+        "group": "Education",
+        "category": "school",
+        "amenity": "school",
+        "healthcare": null,
+        "osm_type": "way",
+        "osm_id": 351497949,
+        "osm_url": "https://www.openstreetmap.org/way/351497949",
+        "coordinate_method": "osm_object_bounding_box_centre",
+        "verification_status": "source_mapped_not_field_verified"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "way/351498042",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.9052463,
+          15.1525676
+        ]
+      },
+      "properties": {
+        "name": "Vasavi School",
+        "group": "Education",
+        "category": "school",
+        "amenity": "school",
+        "healthcare": null,
+        "osm_type": "way",
+        "osm_id": 351498042,
+        "osm_url": "https://www.openstreetmap.org/way/351498042",
+        "coordinate_method": "osm_object_bounding_box_centre",
+        "verification_status": "source_mapped_not_field_verified"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "way/351498045",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.9030078,
+          15.1549862
+        ]
+      },
+      "properties": {
+        "name": "Vianney Vidyalaya",
+        "group": "Education",
+        "category": "school",
+        "amenity": "school",
+        "healthcare": null,
+        "osm_type": "way",
+        "osm_id": 351498045,
+        "osm_url": "https://www.openstreetmap.org/way/351498045",
+        "coordinate_method": "osm_object_bounding_box_centre",
+        "verification_status": "source_mapped_not_field_verified"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "way/354327048",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.9110702,
+          15.139424
+        ]
+      },
+      "properties": {
+        "name": "Ballari Tailoring College",
+        "group": "Education",
+        "category": "college",
+        "amenity": "college",
+        "healthcare": null,
+        "osm_type": "way",
+        "osm_id": 354327048,
+        "osm_url": "https://www.openstreetmap.org/way/354327048",
+        "coordinate_method": "osm_object_bounding_box_centre",
+        "verification_status": "source_mapped_not_field_verified"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "way/354327525",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.9233409,
+          15.140862
+        ]
+      },
+      "properties": {
+        "name": "Wardlaw College",
+        "group": "Education",
+        "category": "college",
+        "amenity": "college",
+        "healthcare": null,
+        "osm_type": "way",
+        "osm_id": 354327525,
+        "osm_url": "https://www.openstreetmap.org/way/354327525",
+        "coordinate_method": "osm_object_bounding_box_centre",
+        "verification_status": "source_mapped_not_field_verified"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "way/359609719",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.9320134,
+          15.1459946
+        ]
+      },
+      "properties": {
+        "name": "Government Ex-Municipal College",
+        "group": "Education",
+        "category": "college",
+        "amenity": "college",
+        "healthcare": null,
+        "osm_type": "way",
+        "osm_id": 359609719,
+        "osm_url": "https://www.openstreetmap.org/way/359609719",
+        "coordinate_method": "osm_object_bounding_box_centre",
+        "verification_status": "source_mapped_not_field_verified"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "way/359609798",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.9331218,
+          15.1465242
+        ]
+      },
+      "properties": {
+        "name": "SSA First Grade College",
+        "group": "Education",
+        "category": "college",
+        "amenity": "college",
+        "healthcare": null,
+        "osm_type": "way",
+        "osm_id": 359609798,
+        "osm_url": "https://www.openstreetmap.org/way/359609798",
+        "coordinate_method": "osm_object_bounding_box_centre",
+        "verification_status": "source_mapped_not_field_verified"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "way/359609799",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.9325587,
+          15.1474298
+        ]
+      },
+      "properties": {
+        "name": "MGM School",
+        "group": "Education",
+        "category": "school",
+        "amenity": "school",
+        "healthcare": null,
+        "osm_type": "way",
+        "osm_id": 359609799,
+        "osm_url": "https://www.openstreetmap.org/way/359609799",
+        "coordinate_method": "osm_object_bounding_box_centre",
+        "verification_status": "source_mapped_not_field_verified"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "way/361921030",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.8987638,
+          15.1514902
+        ]
+      },
+      "properties": {
+        "name": "St. Philomenas School",
+        "group": "Education",
+        "category": "school",
+        "amenity": "school",
+        "healthcare": null,
+        "osm_type": "way",
+        "osm_id": 361921030,
+        "osm_url": "https://www.openstreetmap.org/way/361921030",
+        "coordinate_method": "osm_object_bounding_box_centre",
+        "verification_status": "source_mapped_not_field_verified"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "way/362044975",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.8906036,
+          15.1602448
+        ]
+      },
+      "properties": {
+        "name": "Vijayanagar Institute Of Management",
+        "group": "Education",
+        "category": "college",
+        "amenity": "college",
+        "healthcare": null,
+        "osm_type": "way",
+        "osm_id": 362044975,
+        "osm_url": "https://www.openstreetmap.org/way/362044975",
+        "coordinate_method": "osm_object_bounding_box_centre",
+        "verification_status": "source_mapped_not_field_verified"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "way/362081431",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.8899505,
+          15.1572479
+        ]
+      },
+      "properties": {
+        "name": "Vijayanagar Engineering College",
+        "group": "Education",
+        "category": "college",
+        "amenity": "college",
+        "healthcare": null,
+        "osm_type": "way",
+        "osm_id": 362081431,
+        "osm_url": "https://www.openstreetmap.org/way/362081431",
+        "coordinate_method": "osm_object_bounding_box_centre",
+        "verification_status": "source_mapped_not_field_verified"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "way/362081449",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.8892515,
+          15.1586151
+        ]
+      },
+      "properties": {
+        "name": "VV Sanghas Polytechnic College",
+        "group": "Education",
+        "category": "college",
+        "amenity": "college",
+        "healthcare": null,
+        "osm_type": "way",
+        "osm_id": 362081449,
+        "osm_url": "https://www.openstreetmap.org/way/362081449",
+        "coordinate_method": "osm_object_bounding_box_centre",
+        "verification_status": "source_mapped_not_field_verified"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "way/362081578",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.8904805,
+          15.1591519
+        ]
+      },
+      "properties": {
+        "name": "Independent PU College",
+        "group": "Education",
+        "category": "college",
+        "amenity": "college",
+        "healthcare": null,
+        "osm_type": "way",
+        "osm_id": 362081578,
+        "osm_url": "https://www.openstreetmap.org/way/362081578",
+        "coordinate_method": "osm_object_bounding_box_centre",
+        "verification_status": "source_mapped_not_field_verified"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "way/362081683",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.8914003,
+          15.1540075
+        ]
+      },
+      "properties": {
+        "name": "Veerashaiva College for Science and Arts",
+        "group": "Education",
+        "category": "college",
+        "amenity": "college",
+        "healthcare": null,
+        "osm_type": "way",
+        "osm_id": 362081683,
+        "osm_url": "https://www.openstreetmap.org/way/362081683",
+        "coordinate_method": "osm_object_bounding_box_centre",
+        "verification_status": "source_mapped_not_field_verified"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "way/362279883",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.893056,
+          15.1349659
+        ]
+      },
+      "properties": {
+        "name": "Kendriya Vidyalaya",
+        "group": "Education",
+        "category": "school",
+        "amenity": "school",
+        "healthcare": null,
+        "osm_type": "way",
+        "osm_id": 362279883,
+        "osm_url": "https://www.openstreetmap.org/way/362279883",
+        "coordinate_method": "osm_object_bounding_box_centre",
+        "verification_status": "source_mapped_not_field_verified"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "way/363293420",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.9012579,
+          15.1461122
+        ]
+      },
+      "properties": {
+        "name": "JTC College",
+        "group": "Education",
+        "category": "college",
+        "amenity": "college",
+        "healthcare": null,
+        "osm_type": "way",
+        "osm_id": 363293420,
+        "osm_url": "https://www.openstreetmap.org/way/363293420",
+        "coordinate_method": "osm_object_bounding_box_centre",
+        "verification_status": "source_mapped_not_field_verified"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "way/363295142",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.9346441,
+          15.1450181
+        ]
+      },
+      "properties": {
+        "name": "District Hospital, Ballari",
+        "group": "Healthcare",
+        "category": "hospital",
+        "amenity": "hospital",
+        "healthcare": null,
+        "osm_type": "way",
+        "osm_id": 363295142,
+        "osm_url": "https://www.openstreetmap.org/way/363295142",
+        "coordinate_method": "osm_object_bounding_box_centre",
+        "verification_status": "source_mapped_not_field_verified"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "way/363771187",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.8648518,
+          15.1587493
+        ]
+      },
+      "properties": {
+        "name": "BEST College",
+        "group": "Education",
+        "category": "college",
+        "amenity": "college",
+        "healthcare": null,
+        "osm_type": "way",
+        "osm_id": 363771187,
+        "osm_url": "https://www.openstreetmap.org/way/363771187",
+        "coordinate_method": "osm_object_bounding_box_centre",
+        "verification_status": "source_mapped_not_field_verified"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "way/904590858",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.8977239,
+          15.139165
+        ]
+      },
+      "properties": {
+        "name": "St. Joseph's High School",
+        "group": "Education",
+        "category": "school",
+        "amenity": "school",
+        "healthcare": null,
+        "osm_type": "way",
+        "osm_id": 904590858,
+        "osm_url": "https://www.openstreetmap.org/way/904590858",
+        "coordinate_method": "osm_object_bounding_box_centre",
+        "verification_status": "source_mapped_not_field_verified"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "way/943141884",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.9314208,
+          15.1560288
+        ]
+      },
+      "properties": {
+        "name": "Kittur Rani Chennamma School",
+        "group": "Education",
+        "category": "school",
+        "amenity": "school",
+        "healthcare": null,
+        "osm_type": "way",
+        "osm_id": 943141884,
+        "osm_url": "https://www.openstreetmap.org/way/943141884",
+        "coordinate_method": "osm_object_bounding_box_centre",
+        "verification_status": "source_mapped_not_field_verified"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "way/1120077172",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.9316169,
+          15.1203376
+        ]
+      },
+      "properties": {
+        "name": "Unnamed mapped facility",
+        "group": "Education",
+        "category": "school",
+        "amenity": "school",
+        "healthcare": null,
+        "osm_type": "way",
+        "osm_id": 1120077172,
+        "osm_url": "https://www.openstreetmap.org/way/1120077172",
+        "coordinate_method": "osm_object_bounding_box_centre",
+        "verification_status": "source_mapped_not_field_verified"
+      }
+    }
+  ],
+  "metadata": {
+    "status": "source_mapped_not_field_verified",
+    "source": "OpenStreetMap contributors",
+    "copyright_and_licence_url": "https://www.openstreetmap.org/copyright",
+    "retrieved_at_utc": "2026-11-03T17:52:28.058673+00:00",
+    "endpoint": "https://overpass-api.de/api/interpreter",
+    "query": "\n[out:json][timeout:25];\n(\n  nwr[\"amenity\"~\"^(hospital|clinic|doctors|school|college|university)$\"](15.0768118,76.8522401,15.1868439,76.9887535);\n  nwr[\"healthcare\"~\"^(hospital|clinic|doctor)$\"](15.0768118,76.8522401,15.1868439,76.9887535);\n);\nout center;\n",
+    "osm_base_timestamp": "2026-11-03T17:50:51Z",
+    "raw_source": "data/raw/infrastructure/osm_facilities_20261103T175228056695Z/overpass_response.json",
+    "raw_source_sha256": "2e74bb8645593a0bde933dbc9541770355df3fb5b319c062b92d8b5f2870fad0",
+    "boundary_source": "data/processed/ballari_municipal_boundary_2d.geojson",
+    "boundary_sha256": "c4693f1a02fcfdba2432d0fbd73b8d21a097bddd97e1dbfb38250a70816ecdca",
+    "output_sha256": "2b50d6ea76e75a2b11ee8ca8834cb4ca9ae702da570ffd38aaa725f66d4454f7",
+    "returned_osm_objects": 139,
+    "retained_point_count": 138,
+    "outside_boundary": 1,
+    "missing_or_invalid_coordinates": 0,
+    "duplicate_osm_objects_removed": 0,
+    "group_counts": {
+      "Healthcare": 96,
+      "Education": 42
+    },
+    "category_counts": {
+      "hospital": 54,
+      "school": 19,
+      "clinic": 39,
+      "doctors": 3,
+      "college": 22,
+      "university": 1
+    },
+    "limitations": [
+      "Coverage, current operation and positional accuracy are not verified.",
+      "Ways and relations use bounding-box centres, not entrances.",
+      "Municipal inclusion uses the display point, not the full footprint.",
+      "Different OSM objects may represent the same real-world facility.",
+      "Counts describe mapped objects, not a verified facility census.",
+      "These locations do not establish flood exposure or flood damage."
+    ]
+  }
+}
