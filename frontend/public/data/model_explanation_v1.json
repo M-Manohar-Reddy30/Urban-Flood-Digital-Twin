@@ -1,0 +1,93 @@
+{
+  "schema_version": 1,
+  "status": "experimental_rainfall_model_explanation",
+  "model": "RandomForestRegressor",
+  "target": "precipitation_mm_per_day",
+  "method": "mean_decrease_in_impurity",
+  "scope": "Global training-based feature importance",
+  "training_years": [
+    2001,
+    2002
+  ],
+  "training_rows": 723,
+  "model_sha256": "7ee3f2b65ca9232f40f7bae74f753b76de43f5c21ae7808cc46f75a4cf662064",
+  "sklearn_version": "1.9.1",
+  "features": [
+    {
+      "feature": "lag_2",
+      "label": "Rainfall 2 day(s) earlier",
+      "importance": 0.40712814295586347,
+      "importance_percent": 40.71281429558635
+    },
+    {
+      "feature": "lag_1",
+      "label": "Rainfall 1 day(s) earlier",
+      "importance": 0.20517328026202766,
+      "importance_percent": 20.517328026202765
+    },
+    {
+      "feature": "previous_7day_mean",
+      "label": "Previous seven-day mean rainfall",
+      "importance": 0.09035828393524194,
+      "importance_percent": 9.035828393524193
+    },
+    {
+      "feature": "lag_5",
+      "label": "Rainfall 5 day(s) earlier",
+      "importance": 0.06697075746883865,
+      "importance_percent": 6.697075746883866
+    },
+    {
+      "feature": "month_sin",
+      "label": "Seasonal month encoding: sine",
+      "importance": 0.05404869384428419,
+      "importance_percent": 5.4048693844284195
+    },
+    {
+      "feature": "lag_7",
+      "label": "Rainfall 7 day(s) earlier",
+      "importance": 0.053891834695399425,
+      "importance_percent": 5.389183469539942
+    },
+    {
+      "feature": "lag_4",
+      "label": "Rainfall 4 day(s) earlier",
+      "importance": 0.034331355623243756,
+      "importance_percent": 3.4331355623243756
+    },
+    {
+      "feature": "previous_7day_max",
+      "label": "Previous seven-day maximum rainfall",
+      "importance": 0.025325457663650672,
+      "importance_percent": 2.5325457663650672
+    },
+    {
+      "feature": "lag_3",
+      "label": "Rainfall 3 day(s) earlier",
+      "importance": 0.025217556095090164,
+      "importance_percent": 2.5217556095090163
+    },
+    {
+      "feature": "lag_6",
+      "label": "Rainfall 6 day(s) earlier",
+      "importance": 0.02437244459292713,
+      "importance_percent": 2.437244459292713
+    },
+    {
+      "feature": "month_cos",
+      "label": "Seasonal month encoding: cosine",
+      "importance": 0.013182192863433006,
+      "importance_percent": 1.3182192863433007
+    }
+  ],
+  "interpretation": "Importance represents each feature's normalized contribution to reducing the trees' training splitting criterion.",
+  "limitations": [
+    "Importance is not prediction accuracy or a probability.",
+    "Importance does not establish a causal effect.",
+    "These values do not explain an individual day's prediction.",
+    "Correlated rainfall lags and their summaries can share importance.",
+    "Impurity importance can favor features with more possible split values.",
+    "This explains the rainfall model, not a flood prediction model.",
+    "The model did not beat the zero-rainfall baseline on MAE in any evaluated period."
+  ]
+}

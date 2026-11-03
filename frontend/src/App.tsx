@@ -1,3 +1,4 @@
+import RainfallExplanation from './components/RainfallExplanation'
 import RainfallScenarios from './components/RainfallScenarios'
 import { lazy, Suspense, useEffect, useState } from 'react'
 import {
@@ -989,6 +990,8 @@ function App() {
           <RainfallEvaluation api={API} />
         </Suspense>
 
+
+        <RainfallExplanation />
 
         <RainfallScenarios api={API} />
 
