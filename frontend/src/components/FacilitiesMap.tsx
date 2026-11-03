@@ -1,3 +1,4 @@
+import FacilityTerrain from './FacilityTerrain'
 import { useEffect, useState } from 'react'
 import { CircleMarker, MapContainer, Popup, TileLayer } from 'react-leaflet'
 
@@ -56,7 +57,7 @@ function valid(value: unknown): value is Dataset {
   }) && new Set(data.features.map((item) => item.id)).size === data.features.length
 }
 
-export default function FacilitiesMap() {
+export default function FacilitiesMap({ api }: { api: string }) {
   const [data, setData] = useState<Dataset | null>(null)
   const [category, setCategory] = useState('all')
   const [error, setError] = useState('')
@@ -184,6 +185,9 @@ export default function FacilitiesMap() {
                         View original OpenStreetMap record
                       </a>
                       <p>Source-mapped location; not field verified.</p>
+                      <FacilityTerrain
+                        api={api} latitude={lat} longitude={lon}
+                      />
                     </Popup>
                   </CircleMarker>
                 )

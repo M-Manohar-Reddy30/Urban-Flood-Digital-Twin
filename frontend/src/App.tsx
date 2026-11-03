@@ -1006,7 +1006,7 @@ function App() {
 
         <SpatialRainfallScenario api={API} />
 
-        <FacilitiesMap />
+        <FacilitiesMap api={API} />
 
         <section className="section-block" id="terrain-overview">
           <div className="section-heading">
