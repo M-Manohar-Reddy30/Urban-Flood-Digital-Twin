@@ -63,3 +63,6 @@ app.include_router(model_evaluation_router)
 
 from backend.app.api.terrain_inspection import router as terrain_inspection_router
 app.include_router(terrain_inspection_router)
+
+from backend.app.api.rainfall_scenarios import router as rainfall_scenarios_router
+app.include_router(rainfall_scenarios_router)

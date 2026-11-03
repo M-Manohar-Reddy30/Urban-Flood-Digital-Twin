@@ -1,3 +1,4 @@
+import RainfallScenarios from './components/RainfallScenarios'
 import { lazy, Suspense, useEffect, useState } from 'react'
 import {
   Activity, AlertTriangle, ArrowDownRight, CloudRain,
@@ -988,6 +989,8 @@ function App() {
           <RainfallEvaluation api={API} />
         </Suspense>
 
+
+        <RainfallScenarios api={API} />
 
         <section className="section-block" id="terrain-overview">
           <div className="section-heading">
