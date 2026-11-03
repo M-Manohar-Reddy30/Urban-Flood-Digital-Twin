@@ -589,6 +589,9 @@ function App() {
         <a className="nav-item" href="#map-section"><MapPin size={18} /> GIS Explorer</a>
         <a className="nav-item" href="#rainfall"><CloudRain size={18} /> Rainfall Data</a>
         <a className="nav-item" href="#evidence"><Database size={18} /> Flood Evidence</a>
+        <a className="nav-item" href="#rainfall-evaluation"><Activity size={18} /> Model Evaluation</a>
+        <a className="nav-item" href="#rainfall-explanation"><Activity size={18} /> Model Explanation</a>
+        <a className="nav-item" href="#rainfall-scenarios"><CloudRain size={18} /> Rainfall Scenarios</a>
 
         <div className="sidebar-bottom">
           <div className="side-label">STUDY AREA</div>
