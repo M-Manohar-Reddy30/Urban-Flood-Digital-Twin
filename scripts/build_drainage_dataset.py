@@ -20,7 +20,7 @@ from shapely.ops import unary_union
 
 ROOT = Path(__file__).resolve().parents[1]
 SOURCE_KML = ROOT / "data/raw/drainage/ballari_drainage_source.kml"
-BOUNDARY_FILE = ROOT / "data/processed/ballari_municipal_boundary.geojson"
+BOUNDARY_FILE = ROOT / "data/processed/ballari_municipal_boundary_2d.geojson"
 OUTPUT_DIR = ROOT / "data/processed/drainage"
 OUTPUT_GEOJSON = OUTPUT_DIR / "ballari_drainage_clipped.geojson"
 OUTPUT_CSV = OUTPUT_DIR / "ballari_drainage_feature_audit.csv"

@@ -38,3 +38,12 @@ This assessment follows the uploaded synopsis, *AI-Based Urban Flood Digital Twi
 - The rainfall model did not beat the zero-rainfall baseline on MAE in the reported evaluation periods.
 
 These blockers require real inputs or an explicitly revised project scope. Adding coloured maps, arbitrary scores or synthetic flood labels would not complete the promised validated model.
+
+
+## Uploaded-source verification update
+
+The original drainage KML and full hydrology bundle were supplied on 4 November 2026 and restored locally. They remain outside Git. The drainage builder now uses the tracked 2D municipal boundary filename.
+
+Run `python scripts/audit_d8_routing.py --output docs/D8_ROUTING_AUDIT.json` after restoring the uploaded hydrology folder beneath `data/processed/`. The committed report records source hashes. All 926,604 valid flow cells satisfy accumulation = one cell + incoming accumulation under the Whitebox convention, and terminal accumulation totals 926,604 cells across 339 terminals. The ESRI candidate fails these checks. This establishes internal consistency of the paired grids, while DEM conditioning, physical drainage accuracy and flood validation remain pending.
+
+The full hydrology bundle is now available for further local work. The historical rainfall model/training bundle and verified flood-event observations are still needed for the remaining modelling objectives.

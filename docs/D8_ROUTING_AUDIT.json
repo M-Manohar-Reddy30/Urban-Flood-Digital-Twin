@@ -1,0 +1,54 @@
+{
+  "status": "internal_routing_audit_only",
+  "sources": {
+    "ballari_d8_pointer.tif": "9ce86b5411e16cb5b61566c5907e149b3c6c11ed6cd530243c5de7e2a9f7c0f6",
+    "ballari_d8_accumulation_cells.tif": "ce97c32b1fa1e9b008ad97179f97fe4a0c3a9a9acccc4707cabfea31c15228a0"
+  },
+  "crs": "EPSG:32643",
+  "shape": [
+    1085,
+    1166
+  ],
+  "transform": [
+    30.0,
+    0.0,
+    688888.3848188922,
+    0.0,
+    -30.0,
+    1690074.2461442112,
+    0.0,
+    0.0,
+    1.0
+  ],
+  "cell_area_m2": 900.0,
+  "consistent_direction_conventions": [
+    "whitebox"
+  ],
+  "convention_results": {
+    "whitebox": {
+      "valid_cells": 926604,
+      "local_balance_mismatch_cells": 0,
+      "maximum_absolute_balance_residual_cells": 0.0,
+      "terminal_cells": 339,
+      "nonzero_pointers_leaving_valid_domain": 0,
+      "terminal_accumulation_sum_cells": 926604.0,
+      "terminal_mass_balance_matches": true,
+      "internally_consistent": true
+    },
+    "esri": {
+      "valid_cells": 926604,
+      "local_balance_mismatch_cells": 758209,
+      "maximum_absolute_balance_residual_cells": 803921.0,
+      "terminal_cells": 1588,
+      "nonzero_pointers_leaving_valid_domain": 1249,
+      "terminal_accumulation_sum_cells": 1012232.0,
+      "terminal_mass_balance_matches": false,
+      "internally_consistent": false
+    }
+  },
+  "limitations": [
+    "Internal consistency does not establish drainage positional accuracy or flood-prediction skill.",
+    "Direction convention is inferred from consistency with the paired accumulation, not generation logs.",
+    "DEM conditioning, upstream domain completeness and physical drainage capacity require independent review."
+  ]
+}
