@@ -4,6 +4,7 @@ from contextlib import closing
 from datetime import datetime, timezone
 from pathlib import Path
 import json
+import os
 import sqlite3
 from uuid import uuid4
 
@@ -13,7 +14,14 @@ from pydantic import BaseModel, ConfigDict, Field, field_validator
 from backend.app.api.rainfall_scenarios import ScenarioInput, rainfall_scenario
 
 router = APIRouter(prefix="/api/v1/scenarios", tags=["Scenario history"])
-DB_PATH = Path(__file__).resolve().parents[3] / "data/scenario_history.db"
+DEFAULT_DB_PATH = Path(__file__).resolve().parents[3] / "data/scenario_history.db"
+DB_PATH = DEFAULT_DB_PATH
+
+
+def database_path():
+    """Allow a host-mounted persistent volume without changing local defaults."""
+    configured = os.environ.get("SCENARIO_DB_PATH", "").strip()
+    return Path(configured).expanduser() if configured else DB_PATH
 
 
 class ComparisonInput(BaseModel):
@@ -32,8 +40,9 @@ class ComparisonInput(BaseModel):
 
 
 def connect():
-    DB_PATH.parent.mkdir(parents=True, exist_ok=True)
-    connection = sqlite3.connect(DB_PATH, timeout=10)
+    path = database_path()
+    path.parent.mkdir(parents=True, exist_ok=True)
+    connection = sqlite3.connect(path, timeout=10)
     try:
         connection.row_factory = sqlite3.Row
         connection.execute("""

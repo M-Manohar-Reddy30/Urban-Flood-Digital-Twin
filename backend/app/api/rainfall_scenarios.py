@@ -15,7 +15,7 @@ class ScenarioInput(BaseModel):
     model_config = ConfigDict(extra="forbid", allow_inf_nan=False)
 
     rainfall_depth_mm: float = Field(ge=0, le=1000)
-    duration_hours: float = Field(gt=0, le=168)
+    duration_hours: float = Field(ge=0.01, le=168)
     runoff_fraction: float = Field(ge=0, le=1)
 
 

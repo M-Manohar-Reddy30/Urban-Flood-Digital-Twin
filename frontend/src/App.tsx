@@ -231,6 +231,13 @@ function evidenceDate(item: Evidence): string {
 }
 
 function App() {
+  const [activeSection, setActiveSection] = useState(() => window.location.hash || '#overview')
+  useEffect(() => {
+    const updateSection = () => setActiveSection(window.location.hash || '#overview')
+    window.addEventListener('hashchange', updateSection)
+    return () => window.removeEventListener('hashchange', updateSection)
+  }, [])
+
   const [gis, setGis] = useState<GisSummary | null>(null)
   const [evidence, setEvidence] = useState<EvidenceResponse | null>(null)
   const [boundary, setBoundary] = useState<GeoJSONType | null>(null)
@@ -587,17 +594,17 @@ function App() {
         </a>
 
         <div className="side-label">WORKSPACE</div>
-        <a className="nav-item selected" href="#overview"><Activity size={18} /> Overview</a>
-        <a className="nav-item" href="#map-section"><MapPin size={18} /> GIS Explorer</a>
-        <a className="nav-item" href="#rainfall"><CloudRain size={18} /> Rainfall Data</a>
-        <a className="nav-item" href="#evidence"><Database size={18} /> Flood Evidence</a>
-        <a className="nav-item" href="#rainfall-evaluation"><Activity size={18} /> Model Evaluation</a>
-        <a className="nav-item" href="#rainfall-explanation"><Activity size={18} /> Model Explanation</a>
-        <a className="nav-item" href="#rainfall-scenarios"><CloudRain size={18} /> Rainfall Scenarios</a>
+        <a className={activeSection === "#overview" ? "nav-item selected" : "nav-item"} aria-current={activeSection === "#overview" ? "location" : undefined} href="#overview"><Activity size={18} /> Overview</a>
+        <a className={activeSection === "#map-section" ? "nav-item selected" : "nav-item"} aria-current={activeSection === "#map-section" ? "location" : undefined} href="#map-section"><MapPin size={18} /> GIS Explorer</a>
+        <a className={activeSection === "#rainfall" ? "nav-item selected" : "nav-item"} aria-current={activeSection === "#rainfall" ? "location" : undefined} href="#rainfall"><CloudRain size={18} /> Rainfall Data</a>
+        <a className={activeSection === "#evidence" ? "nav-item selected" : "nav-item"} aria-current={activeSection === "#evidence" ? "location" : undefined} href="#evidence"><Database size={18} /> Flood Evidence</a>
+        <a className={activeSection === "#rainfall-evaluation" ? "nav-item selected" : "nav-item"} aria-current={activeSection === "#rainfall-evaluation" ? "location" : undefined} href="#rainfall-evaluation"><Activity size={18} /> Model Evaluation</a>
+        <a className={activeSection === "#rainfall-explanation" ? "nav-item selected" : "nav-item"} aria-current={activeSection === "#rainfall-explanation" ? "location" : undefined} href="#rainfall-explanation"><Activity size={18} /> Model Explanation</a>
+        <a className={activeSection === "#rainfall-scenarios" ? "nav-item selected" : "nav-item"} aria-current={activeSection === "#rainfall-scenarios" ? "location" : undefined} href="#rainfall-scenarios"><CloudRain size={18} /> Rainfall Scenarios</a>
 
-        <a className="nav-item" href="#spatial-scenario"><CloudRain size={18} /> Spatial Scenario</a>
+        <a className={activeSection === "#spatial-scenario" ? "nav-item selected" : "nav-item"} aria-current={activeSection === "#spatial-scenario" ? "location" : undefined} href="#spatial-scenario"><CloudRain size={18} /> Spatial Scenario</a>
 
-        <a className="nav-item" href="#facilities"><MapPin size={18} /> Facilities</a>
+        <a className={activeSection === "#facilities" ? "nav-item selected" : "nav-item"} aria-current={activeSection === "#facilities" ? "location" : undefined} href="#facilities"><MapPin size={18} /> Facilities</a>
 
         <div className="sidebar-bottom">
           <div className="side-label">STUDY AREA</div>

@@ -54,3 +54,14 @@ def test_storage_failure_returns_503(tmp_path, monkeypatch):
     monkeypatch.setattr(history, "DB_PATH", blocked / "scenarios.db")
     with TestClient(app) as client:
         assert client.get("/api/v1/scenarios/saved").status_code == 503
+
+
+def test_configured_storage_is_used(tmp_path, monkeypatch):
+    configured = tmp_path / 'mounted' / 'history.db'
+    fallback = tmp_path / 'fallback.db'
+    monkeypatch.setenv('SCENARIO_DB_PATH', str(configured))
+    monkeypatch.setattr(history, 'DB_PATH', fallback)
+    with TestClient(app) as client:
+        assert client.get('/api/v1/scenarios/saved').status_code == 200
+    assert configured.is_file()
+    assert not fallback.exists()
