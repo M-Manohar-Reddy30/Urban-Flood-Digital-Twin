@@ -1,0 +1,39 @@
+{
+  "description": "Reported locations; not verified training labels",
+  "note": "These records may describe the same rainfall event.",
+  "records": [
+    {
+      "location": "BMCRC / VIMS hospital",
+      "reported_impact": "Rainwater entered hospital wards",
+      "reported_period": "June 2026",
+      "exact_event_date": null,
+      "latitude": null,
+      "longitude": null,
+      "source_url": "https://www.deccanherald.com/amp/story/india/karnataka/rain-exposes-civic-body-s-shoddy-infra-in-ballari-4030856",
+      "verification_status": "reported_location_requires_verification",
+      "approved_for_training": false
+    },
+    {
+      "location": "Kolmi Chowk",
+      "reported_impact": "Flooded area identified in a photograph caption",
+      "reported_period": "June 2026",
+      "exact_event_date": null,
+      "latitude": null,
+      "longitude": null,
+      "source_url": "https://www.deccanherald.com/amp/story/india/karnataka/rain-exposes-civic-body-s-shoddy-infra-in-ballari-4030856",
+      "verification_status": "reported_location_requires_verification",
+      "approved_for_training": false
+    },
+    {
+      "location": "Underpass near Kanaka Durgamma temple",
+      "reported_impact": "Water stagnation disrupted vehicle movement",
+      "reported_period": "June 2026",
+      "exact_event_date": null,
+      "latitude": null,
+      "longitude": null,
+      "source_url": "https://www.deccanherald.com/amp/story/india/karnataka/rain-exposes-civic-body-s-shoddy-infra-in-ballari-4030856",
+      "verification_status": "reported_location_requires_verification",
+      "approved_for_training": false
+    }
+  ]
+}

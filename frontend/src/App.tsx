@@ -1,3 +1,4 @@
+import CityFloodReports from './components/CityFloodReports'
 import FacilitiesMap from './components/FacilitiesMap'
 import SpatialRainfallScenario from './components/SpatialRainfallScenario'
 import RainfallExplanation from './components/RainfallExplanation'
@@ -606,6 +607,8 @@ function App() {
 
         <a className={activeSection === "#facilities" ? "nav-item selected" : "nav-item"} aria-current={activeSection === "#facilities" ? "location" : undefined} href="#facilities"><MapPin size={18} /> Facilities</a>
 
+        <a className="nav-item" href="#city-flood-reports"><Database size={18} /> City Flood Reports</a>
+
         <div className="sidebar-bottom">
           <div className="side-label">STUDY AREA</div>
           <div className="study-card">
@@ -1014,6 +1017,8 @@ function App() {
         <SpatialRainfallScenario api={API} />
 
         <FacilitiesMap api={API} />
+
+        <CityFloodReports />
 
         <section className="section-block" id="terrain-overview">
           <div className="section-heading">
