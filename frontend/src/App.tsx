@@ -1,3 +1,4 @@
+import RainfallPrediction from './components/RainfallPrediction'
 import CityFloodReports from './components/CityFloodReports'
 import FacilitiesMap from './components/FacilitiesMap'
 import SpatialRainfallScenario from './components/SpatialRainfallScenario'
@@ -609,6 +610,8 @@ function App() {
 
         <a className="nav-item" href="#city-flood-reports"><Database size={18} /> City Flood Reports</a>
 
+        <a className={activeSection === "#rainfall-prediction" ? "nav-item selected" : "nav-item"} aria-current={activeSection === "#rainfall-prediction" ? "location" : undefined} href="#rainfall-prediction"><CloudRain size={18} /> Rainfall Estimate</a>
+
         <div className="sidebar-bottom">
           <div className="side-label">STUDY AREA</div>
           <div className="study-card">
@@ -1009,6 +1012,8 @@ function App() {
           <RainfallEvaluation api={API} />
         </Suspense>
 
+
+        <RainfallPrediction api={API} />
 
         <RainfallExplanation />
 

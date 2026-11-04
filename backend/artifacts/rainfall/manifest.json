@@ -1,0 +1,19 @@
+{
+  "model_sha256": "7ee3f2b65ca9232f40f7bae74f753b76de43f5c21ae7808cc46f75a4cf662064",
+  "sklearn_version": "1.9.1",
+  "features": [
+    "lag_1",
+    "lag_2",
+    "lag_3",
+    "lag_4",
+    "lag_5",
+    "lag_6",
+    "lag_7",
+    "previous_7day_mean",
+    "previous_7day_max",
+    "month_sin",
+    "month_cos"
+  ],
+  "month_encoding_offset": 1,
+  "status": "experimental_retrospective_only"
+}
