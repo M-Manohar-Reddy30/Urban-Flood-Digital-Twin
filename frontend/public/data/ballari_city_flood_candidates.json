@@ -11,7 +11,16 @@
       "longitude": null,
       "source_url": "https://www.deccanherald.com/amp/story/india/karnataka/rain-exposes-civic-body-s-shoddy-infra-in-ballari-4030856",
       "verification_status": "reported_location_requires_verification",
-      "approved_for_training": false
+      "approved_for_training": false,
+      "reported_event_date": "2026-06-07",
+      "date_verification_status": "reported_by_news_source",
+      "date_basis": "The source article explicitly refers to rain on June 7. Exact incident timing at each listed location remains unverified.",
+      "remaining_verification": [
+        "Confirm incident timing at this specific location.",
+        "Locate the affected area, not merely the named landmark.",
+        "Record coordinate uncertainty and supporting evidence.",
+        "Check whether reports refer to the same event."
+      ]
     },
     {
       "location": "Kolmi Chowk",
@@ -22,7 +31,16 @@
       "longitude": null,
       "source_url": "https://www.deccanherald.com/amp/story/india/karnataka/rain-exposes-civic-body-s-shoddy-infra-in-ballari-4030856",
       "verification_status": "reported_location_requires_verification",
-      "approved_for_training": false
+      "approved_for_training": false,
+      "reported_event_date": "2026-06-07",
+      "date_verification_status": "reported_by_news_source",
+      "date_basis": "The source article explicitly refers to rain on June 7. Exact incident timing at each listed location remains unverified.",
+      "remaining_verification": [
+        "Confirm incident timing at this specific location.",
+        "Locate the affected area, not merely the named landmark.",
+        "Record coordinate uncertainty and supporting evidence.",
+        "Check whether reports refer to the same event."
+      ]
     },
     {
       "location": "Underpass near Kanaka Durgamma temple",
@@ -33,7 +51,16 @@
       "longitude": null,
       "source_url": "https://www.deccanherald.com/amp/story/india/karnataka/rain-exposes-civic-body-s-shoddy-infra-in-ballari-4030856",
       "verification_status": "reported_location_requires_verification",
-      "approved_for_training": false
+      "approved_for_training": false,
+      "reported_event_date": "2026-06-07",
+      "date_verification_status": "reported_by_news_source",
+      "date_basis": "The source article explicitly refers to rain on June 7. Exact incident timing at each listed location remains unverified.",
+      "remaining_verification": [
+        "Confirm incident timing at this specific location.",
+        "Locate the affected area, not merely the named landmark.",
+        "Record coordinate uncertainty and supporting evidence.",
+        "Check whether reports refer to the same event."
+      ]
     }
   ]
 }
