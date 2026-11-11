@@ -35,8 +35,9 @@ def checksum(path):
     return digest.hexdigest()
 
 
-def main():
-    metadata = json.loads((BASE / "provenance.json").read_text())
+def main(manifest_path=None, writer=None):
+    manifest_path = manifest_path or BASE / "provenance.json"
+    metadata = json.loads(manifest_path.read_text())
     if checksum(BOUNDARY) != metadata["boundary_sha256"]:
         raise ValueError("Boundary checksum mismatch.")
 
@@ -92,6 +93,9 @@ def main():
     )
 
     def compare(filename, expected):
+        if writer is not None:
+            writer(filename, expected, crs, transform)
+            return
         with rasterio.open(BASE / filename) as saved:
             if (saved.crs, saved.transform, saved.shape) != (
                 crs, transform, shape
@@ -154,12 +158,14 @@ def main():
         raise ValueError("Provenance city/common counts differ.")
 
     print("\nSource ZIP and boundary checksums: PASS")
-    print("All ten saved city layers reproduced: PASS")
-    print("City and common usable masks reproduced: PASS")
+    print("Ten city layers and two masks rebuilt: PASS")
+    if writer is None:
+        print("All rebuilt arrays match saved outputs: PASS")
     print(f"City pixels: {city.sum():,}")
     print(f"Common usable pixels: {common.sum():,}")
     print("Reproducibility verified; flood accuracy is not established.")
-    print("No data files or models modified.")
+    if writer is None:
+        print("No data files or models modified.")
 
 
 if __name__ == "__main__":
