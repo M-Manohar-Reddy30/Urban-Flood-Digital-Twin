@@ -1,0 +1,49 @@
+{
+  "status": "aligned_radar_inputs_not_flood_labels",
+  "approved_for_training": false,
+  "boundary_file": "data/processed/ballari_municipal_boundary_2d.geojson",
+  "boundary_sha256": "c4693f1a02fcfdba2432d0fbd73b8d21a097bddd97e1dbfb38250a70816ecdca",
+  "boundary_area_km2": 87.71883519131524,
+  "crs": "EPSG:32643",
+  "pixel_spacing_m": 30,
+  "transform": [
+    30.0,
+    0.0,
+    699000.0,
+    0.0,
+    -30.0,
+    1679880.0,
+    0.0,
+    0.0,
+    1.0
+  ],
+  "shape_rows_columns": [
+    406,
+    490
+  ],
+  "city_mask_rule": "pixel centre inside municipal polygon",
+  "city_pixels": 97459,
+  "common_usable_pixels": 97385,
+  "common_usable_percent": 99.92407063483105,
+  "common_mask_rule": "both dates: positive finite VV/VH and layover_shadow=1",
+  "radar_units": "gamma0 linear power",
+  "sources": {
+    "20260528": {
+      "filename": "S1A_IW_20260528T004752_DVP_RTC30_G_gpuned_E7E6.zip",
+      "sha256": "04d0f647fd47019228f6495b2d338de8f08e9d53374fb743de53c87c83b03289",
+      "usable_city_pixels": 97402
+    },
+    "20260609": {
+      "filename": "S1A_IW_20260609T004752_DVP_RTC30_G_gpuned_ED59.zip",
+      "sha256": "4a1df76c7ce3f945dddc2e2d32f2cc5b385eb021e762f0a25d1d0d67e158f168",
+      "usable_city_pixels": 97400
+    }
+  },
+  "limitations": [
+    "Grid alignment does not independently verify feature coregistration.",
+    "The terrain mask does not exclude every urban radar distortion.",
+    "May 28 is not independently verified as a dry reference.",
+    "June 9 imagery may miss temporary waterlogging reported on June 7.",
+    "These outputs are radar inputs, not verified flood observations."
+  ]
+}

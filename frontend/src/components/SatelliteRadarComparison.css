@@ -1,0 +1,104 @@
+.radar-comparison {
+  scroll-margin-top: 90px;
+}
+.radar-comparison .panel-card {
+  min-width: 0;
+}
+.radar-comparison p,
+.radar-comparison li {
+  line-height: 1.7;
+}
+.radar-comparison .radar-notice {
+  padding: 14px 16px;
+  background: #fff8e6;
+  color: #754b00;
+  border: 1px solid #efd28b;
+  border-radius: 10px;
+}
+.radar-comparison .radar-metrics {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+  margin: 22px 0;
+}
+.radar-comparison .radar-metrics > div {
+  padding: 18px;
+  background: #f3f8fc;
+  border: 1px solid #dce8f2;
+  border-radius: 12px;
+  min-width: 0;
+}
+.radar-comparison dt {
+  font-size: 13px;
+  color: #475569;
+}
+.radar-comparison dd {
+  margin: 10px 0;
+  font-size: clamp(20px, 2vw, 28px);
+  font-weight: 700;
+  color: #075985;
+  overflow-wrap: anywhere;
+}
+.radar-comparison small {
+  color: #475569;
+  line-height: 1.6;
+}
+.radar-comparison .radar-figure {
+  margin: 24px 0;
+}
+.radar-comparison .radar-figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid #dce8f2;
+  border-radius: 10px;
+}
+.radar-comparison figcaption {
+  margin-top: 12px;
+  font-size: 13px;
+  line-height: 1.7;
+  color: #475569;
+}
+.radar-comparison details {
+  margin: 18px 0;
+  padding: 16px;
+  border: 1px solid #dce8f2;
+  border-radius: 10px;
+}
+.radar-comparison summary {
+  cursor: pointer;
+  font-weight: 600;
+}
+.radar-comparison .radar-table-scroll {
+  overflow-x: auto;
+}
+.radar-comparison table {
+  width: 100%;
+  min-width: 560px;
+  border-collapse: collapse;
+  text-align: left;
+}
+.radar-comparison caption {
+  text-align: left;
+  padding: 12px 0;
+}
+.radar-comparison th,
+.radar-comparison td {
+  padding: 12px;
+  border-bottom: 1px solid #dce8f2;
+}
+.radar-comparison a:not(.radar-figure a) {
+  color: #0369a1;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.radar-comparison summary:focus-visible,
+.radar-comparison .radar-table-scroll:focus-visible {
+  outline: 2px solid #0284c7;
+  outline-offset: 3px;
+}
+@media (max-width: 800px) {
+  .radar-comparison .radar-metrics {
+    grid-template-columns: 1fr;
+  }
+}

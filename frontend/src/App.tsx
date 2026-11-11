@@ -1,5 +1,6 @@
 import RainfallPrediction from './components/RainfallPrediction'
 import CityFloodReports from './components/CityFloodReports'
+import SatelliteRadarComparison from './components/SatelliteRadarComparison'
 import FacilitiesMap from './components/FacilitiesMap'
 import SpatialRainfallScenario from './components/SpatialRainfallScenario'
 import RainfallExplanation from './components/RainfallExplanation'
@@ -609,6 +610,7 @@ function App() {
         <a className={activeSection === "#facilities" ? "nav-item selected" : "nav-item"} aria-current={activeSection === "#facilities" ? "location" : undefined} href="#facilities"><MapPin size={18} /> Facilities</a>
 
         <a className="nav-item" href="#city-flood-reports"><Database size={18} /> City Flood Reports</a>
+        <a className={activeSection === "#satellite-radar" ? "nav-item selected" : "nav-item"} aria-current={activeSection === "#satellite-radar" ? "location" : undefined} href="#satellite-radar"><Layers3 size={18} /> Satellite Radar</a>
 
         <a className={activeSection === "#rainfall-prediction" ? "nav-item selected" : "nav-item"} aria-current={activeSection === "#rainfall-prediction" ? "location" : undefined} href="#rainfall-prediction"><CloudRain size={18} /> Rainfall Estimate</a>
 
@@ -1024,6 +1026,7 @@ function App() {
         <FacilitiesMap api={API} />
 
         <CityFloodReports />
+        <SatelliteRadarComparison />
 
         <section className="section-block" id="terrain-overview">
           <div className="section-heading">
