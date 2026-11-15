@@ -648,7 +648,7 @@ function App() {
         <section className="hero">
           <div className="hero-copy">
             <div className="eyebrow"><span className="eyebrow-line" /> GEOSPATIAL MONITORING PLATFORM</div>
-            <h1>Urban Flood <span>Digital Twin</span></h1>
+            <h1>AI-Based Urban Flood Digital Twin <span>With Predictive Climate Analysis</span></h1>
             <p>
               A data-driven view of Ballari’s terrain, land cover and documented flood events.
               Built to support transparent urban flood research and planning.
@@ -691,6 +691,41 @@ function App() {
             <StatCard label="MEAN ELEVATION" value={formatNumber(elevation.mean)} unit="m" icon={Mountain} detail="Above sea level · DEM/DSM" />
             <StatCard label="MEAN SLOPE" value={formatNumber(slope.mean)} unit="°" icon={ArrowDownRight} detail="Terrain gradient" />
             <StatCard label="FLOOD EVIDENCE" value={formatNumber(evidence?.total_records, 0)} icon={Database} detail="Documented records · not model labels" />
+          </div>
+        </section>
+
+        <section className="section-block" aria-labelledby="synopsis-modules">
+          <div className="section-heading">
+            <h2 id="synopsis-modules">Project modules</h2>
+          </div>
+          <div className="panel-card">
+            <ol className="synopsis-modules">
+              <li>
+                <strong>Data Collection and Preprocessing</strong>
+                <p>Review historical rainfall, terrain and documented flood evidence.</p>
+                <a href="#rainfall">Rainfall data</a> · <a href="#evidence">Flood evidence</a>
+              </li>
+              <li>
+                <strong>AI-Based Prediction</strong>
+                <p>Review the rainfall model against baselines. A Ballari flood prediction model still needs verified event data.</p>
+                <a href="#rainfall-prediction">Run rainfall estimate</a> · <a href="#rainfall-evaluation">Model evaluation</a>
+              </li>
+              <li>
+                <strong>GIS Mapping</strong>
+                <p>Inspect elevation, slope and drainage within the Ballari municipal boundary.</p>
+                <a href="#map-section">Open GIS explorer</a>
+              </li>
+              <li>
+                <strong>Digital Twin and Simulation</strong>
+                <p>Compare estimated runoff volumes under different rainfall assumptions.</p>
+                <a href="#rainfall-scenarios">Rainfall scenarios</a> · <a href="#spatial-scenario">Spatial scenario</a>
+              </li>
+              <li>
+                <strong>Explainable AI and Decision Support</strong>
+                <p>Review which inputs the rainfall model used most. Flood-model explanations depend on a trained flood model.</p>
+                <a href="#rainfall-explanation">Model explanation</a>
+              </li>
+            </ol>
           </div>
         </section>
 

@@ -42,6 +42,9 @@ function precedingDate(target: string, days: number) {
   return date.toISOString().slice(0, 10)
 }
 
+const demoTarget = '2024-08-15'
+const demoRainfall = [0, 0.2, 1, 4, 2, 8, 12]
+
 export default function RainfallPrediction({ api }: { api: string }) {
   const [target, setTarget] = useState('')
   const [days, setDays] = useState<string[]>(Array(7).fill(''))
@@ -64,6 +67,16 @@ export default function RainfallPrediction({ api }: { api: string }) {
       return
     }
 
+    await requestEstimate(target, rainfall)
+  }
+
+  function runExample() {
+    setTarget(demoTarget)
+    setDays(demoRainfall.map(String))
+    void requestEstimate(demoTarget, demoRainfall)
+  }
+
+  async function requestEstimate(target: string, rainfall: number[]) {
     active.current?.abort()
     const controller = new AbortController()
     active.current = controller
@@ -129,6 +142,13 @@ export default function RainfallPrediction({ api }: { api: string }) {
           </strong>
           {' '}This feature does not predict flooding.
         </p>
+
+        <div>
+          <button type="button" className="map-control-button" disabled={loading} onClick={runExample}>
+            Run demo example
+          </button>
+          <p className="small-note">Uses seven example rainfall inputs to run the saved model.</p>
+        </div>
 
         <form onSubmit={estimate}>
           <fieldset disabled={loading} style={{ border: 0, padding: 0, margin: 0 }}>

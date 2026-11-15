@@ -1172,3 +1172,18 @@ body,
     grid-template-columns: 1fr;
   }
 }
+
+.synopsis-modules {
+  margin: 0;
+  padding-inline-start: 1.5rem;
+  display: grid;
+  gap: 1rem;
+}
+
+.synopsis-modules p {
+  margin: 0.2rem 0;
+}
+
+.synopsis-modules a {
+  text-decoration: underline;
+}
