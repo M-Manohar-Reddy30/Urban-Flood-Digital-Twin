@@ -4,7 +4,18 @@ type Report = {
   location: string
   reported_impact: string
   reported_period: string
+  reported_event_date?: string | null
   source_url: string
+}
+
+const reportedDateFormat = new Intl.DateTimeFormat('en-GB', {
+  day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC',
+})
+
+function isIsoDate(value: unknown): value is string {
+  if (typeof value !== 'string' || !/^\d{4}-\d{2}-\d{2}$/.test(value)) return false
+  const date = new Date(value)
+  return Number.isFinite(date.getTime()) && date.toISOString().slice(0, 10) === value
 }
 
 function valid(value: unknown): value is { records: Report[] } {
@@ -17,7 +28,8 @@ function valid(value: unknown): value is { records: Report[] } {
       .every((key) => typeof row[key] === 'string') &&
       typeof row.source_url === 'string' &&
       row.source_url.startsWith('https://www.deccanherald.com/') &&
-      row.approved_for_training === false
+      row.approved_for_training === false &&
+      (row.reported_event_date == null || isIsoDate(row.reported_event_date))
   })
 }
 
@@ -57,9 +69,9 @@ export default function CityFloodReports() {
       </div>
       <div className="panel-card">
         <p>
-          News reports identify these locations for further investigation.
-          Exact incident dates and coordinates require verification.
-          Multiple locations may describe the same rainfall event.
+          The source reports three affected locations in Ballari during the
+          7 June 2026 rainfall event. Exact timing and coordinates for each
+          location still require verification.
         </p>
         <p className="small-note">
           These records are not approved training labels or predicted flood locations.
@@ -77,7 +89,7 @@ export default function CityFloodReports() {
               </caption>
               <thead>
                 <tr>
-                  {['Location', 'Reported impact', 'Period', 'Source'].map((label) =>
+                  {['Location', 'Reported impact', 'Reported event date', 'Source'].map((label) =>
                     <th key={label} scope="col" style={{ padding: 12 }}>{label}</th>
                   )}
                 </tr>
@@ -87,7 +99,13 @@ export default function CityFloodReports() {
                   <tr key={report.location} style={{ borderTop: '1px solid #e2e8f0' }}>
                     <th scope="row" style={{ padding: 12 }}>{report.location}</th>
                     <td style={{ padding: 12 }}>{report.reported_impact}</td>
-                    <td style={{ padding: 12 }}>{report.reported_period}</td>
+                    <td style={{ padding: 12 }}>
+                      {report.reported_event_date ? (
+                        <time dateTime={report.reported_event_date}>
+                          {reportedDateFormat.format(new Date(report.reported_event_date))}
+                        </time>
+                      ) : report.reported_period}
+                    </td>
                     <td style={{ padding: 12 }}>
                       <a href={report.source_url} target="_blank" rel="noopener noreferrer">
                         Read report
