@@ -1,0 +1,71 @@
+diff --git a/docs/FACULTY_DEMO.md b/docs/FACULTY_DEMO.md
+index ff9a007..295d01f 100644
+--- a/docs/FACULTY_DEMO.md
++++ b/docs/FACULTY_DEMO.md
+@@ -5,7 +5,7 @@ Open the dashboard and use **Project modules** on the overview page to walk thro
+ | Module | Show this in the demo |
+ | --- | --- |
+ | Data Collection and Preprocessing | Open **Rainfall data** and **Flood evidence**. Show the June 2026 city reports and explain that their exact incident locations and times still need verification. |
+-| AI-Based Prediction | Open **Model evaluation**. Show the Random Forest rainfall evaluation alongside the baselines. Explain that the zero-rainfall baseline had lower mean absolute error in the reported periods. |
++| AI-Based Prediction | Open **Run rainfall estimate** and click **Run demo example** to run the saved model with example inputs. Then open **Model evaluation**. Show the Random Forest rainfall evaluation alongside the baselines. Explain that the zero-rainfall baseline had lower mean absolute error in the reported periods. |
+ | GIS Mapping | Open **GIS Explorer**, click inside Ballari, and inspect the terrain and drainage values for that location. |
+ | Digital Twin and Simulation | Open **Rainfall Scenarios**. Compare 50 mm and 100 mm over 2 hours with the same runoff fraction of 0.5 in both scenarios. The estimated runoff volume doubles under the formula. Then open **Spatial Scenario** to show how the dashboard displays estimated upstream runoff volume. |
+ | Explainable AI and Decision Support | Open **Model explanation**. Show the rainfall model's global feature importance and explain what it says about that model's inputs. |
+diff --git a/frontend/src/App.tsx b/frontend/src/App.tsx
+index 1fc5a4a..b8730b6 100644
+--- a/frontend/src/App.tsx
++++ b/frontend/src/App.tsx
+@@ -708,7 +708,7 @@ function App() {
+               <li>
+                 <strong>AI-Based Prediction</strong>
+                 <p>Review the rainfall model against baselines. A Ballari flood prediction model still needs verified event data.</p>
+-                <a href="#rainfall-evaluation">Model evaluation</a>
++                <a href="#rainfall-prediction">Run rainfall estimate</a> · <a href="#rainfall-evaluation">Model evaluation</a>
+               </li>
+               <li>
+                 <strong>GIS Mapping</strong>
+diff --git a/frontend/src/components/RainfallPrediction.tsx b/frontend/src/components/RainfallPrediction.tsx
+index eead076..4c13a89 100644
+--- a/frontend/src/components/RainfallPrediction.tsx
++++ b/frontend/src/components/RainfallPrediction.tsx
+@@ -42,6 +42,9 @@ function precedingDate(target: string, days: number) {
+   return date.toISOString().slice(0, 10)
+ }
+ 
++const demoTarget = '2024-08-15'
++const demoRainfall = [0, 0.2, 1, 4, 2, 8, 12]
++
+ export default function RainfallPrediction({ api }: { api: string }) {
+   const [target, setTarget] = useState('')
+   const [days, setDays] = useState<string[]>(Array(7).fill(''))
+@@ -64,6 +67,16 @@ export default function RainfallPrediction({ api }: { api: string }) {
+       return
+     }
+ 
++    await requestEstimate(target, rainfall)
++  }
++
++  function runExample() {
++    setTarget(demoTarget)
++    setDays(demoRainfall.map(String))
++    void requestEstimate(demoTarget, demoRainfall)
++  }
++
++  async function requestEstimate(target: string, rainfall: number[]) {
+     active.current?.abort()
+     const controller = new AbortController()
+     active.current = controller
+@@ -130,6 +143,13 @@ export default function RainfallPrediction({ api }: { api: string }) {
+           {' '}This feature does not predict flooding.
+         </p>
+ 
++        <div>
++          <button type="button" className="map-control-button" disabled={loading} onClick={runExample}>
++            Run demo example
++          </button>
++          <p className="small-note">Uses seven example rainfall inputs to run the saved model.</p>
++        </div>
++
+         <form onSubmit={estimate}>
+           <fieldset disabled={loading} style={{ border: 0, padding: 0, margin: 0 }}>
+             <legend>Rainfall history</legend>

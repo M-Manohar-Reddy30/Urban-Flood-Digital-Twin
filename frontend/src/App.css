@@ -18,6 +18,7 @@
   width: 238px; position: fixed; inset: 0 auto 0 0; z-index: 1000;
   background: var(--sidebar); border-right: 1px solid var(--border);
   display: flex; flex-direction: column; padding: 25px 17px 19px;
+  overflow-y: auto;
 }
 .brand { display: flex; align-items: center; gap: 11px; padding: 0 8px 35px; }
 .brand-mark {
@@ -260,7 +261,7 @@
   .lower-grid { grid-template-columns: 1fr; gap: 0; }
 }
 @media (max-width: 760px) {
-  .sidebar { position: relative; width: 100%; height: auto; padding: 13px 15px; border-right: 0; border-bottom: 1px solid var(--border); }
+  .sidebar { position: relative; width: 100%; height: auto; padding: 13px 15px; border-right: 0; border-bottom: 1px solid var(--border); overflow-y: visible; }
   .brand { padding: 0 3px 12px; }.brand-mark { width: 36px; height: 36px; }
   .side-label, .sidebar-bottom { display: none; }
   .sidebar > .nav-item { display: inline-flex; padding: 8px 9px; margin: 0 3px 0 0; font-size: 11px; }
@@ -770,6 +771,24 @@ body,
 .map-control-button:hover {
   border-color: #0284c7;
   background: var(--surface-hover, #f0f9ff);
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 18px;
+}
+
+.hero-actions .hero-primary-action {
+  background: #0369a1;
+  border-color: #0369a1;
+  color: #fff;
+}
+
+.hero-actions .hero-primary-action:hover {
+  background: #075985;
+  border-color: #075985;
 }
 
 .map-control-button:focus-visible {

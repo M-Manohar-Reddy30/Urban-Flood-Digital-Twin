@@ -1,0 +1,110 @@
+diff --git a/docs/FACULTY_DEMO.md b/docs/FACULTY_DEMO.md
+new file mode 100644
+index 0000000..ff9a007
+--- /dev/null
++++ b/docs/FACULTY_DEMO.md
+@@ -0,0 +1,13 @@
++# AI-Based Urban Flood Digital Twin With Predictive Climate Analysis
++
++Open the dashboard and use **Project modules** on the overview page to walk through the five sections.
++
++| Module | Show this in the demo |
++| --- | --- |
++| Data Collection and Preprocessing | Open **Rainfall data** and **Flood evidence**. Show the June 2026 city reports and explain that their exact incident locations and times still need verification. |
++| AI-Based Prediction | Open **Model evaluation**. Show the Random Forest rainfall evaluation alongside the baselines. Explain that the zero-rainfall baseline had lower mean absolute error in the reported periods. |
++| GIS Mapping | Open **GIS Explorer**, click inside Ballari, and inspect the terrain and drainage values for that location. |
++| Digital Twin and Simulation | Open **Rainfall Scenarios**. Compare 50 mm and 100 mm over 2 hours with the same runoff fraction of 0.5 in both scenarios. The estimated runoff volume doubles under the formula. Then open **Spatial Scenario** to show how the dashboard displays estimated upstream runoff volume. |
++| Explainable AI and Decision Support | Open **Model explanation**. Show the rainfall model's global feature importance and explain what it says about that model's inputs. |
++
++The current release implements a research prototype for Ballari. Flood occurrence and severity prediction, calibrated inundation and depth, and SHAP explanations of a trained flood model remain pending. The scenario comparison illustrates the effect of its input assumptions.
+diff --git a/frontend/index.html b/frontend/index.html
+index 0fca6f0..2a5ea66 100644
+--- a/frontend/index.html
++++ b/frontend/index.html
+@@ -4,7 +4,7 @@
+     <meta charset="UTF-8" />
+     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+-    <title>frontend</title>
++    <title>AI-Based Urban Flood Digital Twin With Predictive Climate Analysis</title>
+   </head>
+   <body>
+     <div id="root"></div>
+diff --git a/frontend/src/App.css b/frontend/src/App.css
+index da09cf3..efcff8b 100644
+--- a/frontend/src/App.css
++++ b/frontend/src/App.css
+@@ -1172,3 +1172,18 @@ body,
+     grid-template-columns: 1fr;
+   }
+ }
++
++.synopsis-modules {
++  margin: 0;
++  padding-inline-start: 1.5rem;
++  display: grid;
++  gap: 1rem;
++}
++
++.synopsis-modules p {
++  margin: 0.2rem 0;
++}
++
++.synopsis-modules a {
++  text-decoration: underline;
++}
+diff --git a/frontend/src/App.tsx b/frontend/src/App.tsx
+index 8e6b929..1fc5a4a 100644
+--- a/frontend/src/App.tsx
++++ b/frontend/src/App.tsx
+@@ -648,7 +648,7 @@ function App() {
+         <section className="hero">
+           <div className="hero-copy">
+             <div className="eyebrow"><span className="eyebrow-line" /> GEOSPATIAL MONITORING PLATFORM</div>
+-            <h1>Urban Flood <span>Digital Twin</span></h1>
++            <h1>AI-Based Urban Flood Digital Twin <span>With Predictive Climate Analysis</span></h1>
+             <p>
+               A data-driven view of Ballari’s terrain, land cover and documented flood events.
+               Built to support transparent urban flood research and planning.
+@@ -694,6 +694,41 @@ function App() {
+           </div>
+         </section>
+ 
++        <section className="section-block" aria-labelledby="synopsis-modules">
++          <div className="section-heading">
++            <h2 id="synopsis-modules">Project modules</h2>
++          </div>
++          <div className="panel-card">
++            <ol className="synopsis-modules">
++              <li>
++                <strong>Data Collection and Preprocessing</strong>
++                <p>Review historical rainfall, terrain and documented flood evidence.</p>
++                <a href="#rainfall">Rainfall data</a> · <a href="#evidence">Flood evidence</a>
++              </li>
++              <li>
++                <strong>AI-Based Prediction</strong>
++                <p>Review the rainfall model against baselines. A Ballari flood prediction model still needs verified event data.</p>
++                <a href="#rainfall-evaluation">Model evaluation</a>
++              </li>
++              <li>
++                <strong>GIS Mapping</strong>
++                <p>Inspect elevation, slope and drainage within the Ballari municipal boundary.</p>
++                <a href="#map-section">Open GIS explorer</a>
++              </li>
++              <li>
++                <strong>Digital Twin and Simulation</strong>
++                <p>Compare estimated runoff volumes under different rainfall assumptions.</p>
++                <a href="#rainfall-scenarios">Rainfall scenarios</a> · <a href="#spatial-scenario">Spatial scenario</a>
++              </li>
++              <li>
++                <strong>Explainable AI and Decision Support</strong>
++                <p>Review which inputs the rainfall model used most. Flood-model explanations depend on a trained flood model.</p>
++                <a href="#rainfall-explanation">Model explanation</a>
++              </li>
++            </ol>
++          </div>
++        </section>
++
+         <section className="section-block" id="map-section">
+           <div className="section-heading">
+             <div>

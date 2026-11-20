@@ -35,9 +35,9 @@ function valid(value: unknown): value is Result {
 }
 
 function precedingDate(target: string, days: number) {
-  if (!/^\d{4}-\d{2}-\d{2}$/.test(target)) return `D-${days}`
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(target)) return ''
   const date = new Date(`${target}T00:00:00Z`)
-  if (!Number.isFinite(date.getTime())) return `D-${days}`
+  if (!Number.isFinite(date.getTime())) return ''
   date.setUTCDate(date.getUTCDate() - days)
   return date.toISOString().slice(0, 10)
 }
@@ -173,8 +173,8 @@ export default function RainfallPrediction({ api }: { api: string }) {
             }}>
               {days.map((value, index) => (
                 <label key={index}>
-                  {precedingDate(target, 7 - index)}
-                  {' '}(D-{7 - index})
+                  {[precedingDate(target, 7 - index), `Day −${7 - index}`]
+                    .filter(Boolean).join(' · ')}
                   <input
                     type="number" min="0" max="1000" step="any" required
                     aria-label={`Rainfall ${7 - index} days before target, mm/day`}

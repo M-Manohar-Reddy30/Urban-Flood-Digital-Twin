@@ -143,6 +143,7 @@ type ReadinessSummary = {
 
 type Evidence = {
   event_date?: string
+  year?: string
   date?: string
   location?: string
   place?: string
@@ -230,8 +231,23 @@ function evidenceTitle(item: Evidence): string {
 }
 
 function evidenceDate(item: Evidence): string {
-  return String(item.event_date ?? item.date ?? 'Date not specified')
+  return item.event_date?.trim() || item.date?.trim() || item.year?.trim() || 'Unspecified'
 }
+
+const workspaceLinks = [
+  { href: '#overview', label: 'Overview', icon: Activity },
+  { href: '#map-section', label: 'GIS Explorer', icon: MapPin },
+  { href: '#rainfall', label: 'Rainfall Data', icon: CloudRain },
+  { href: '#evidence', label: 'Flood Evidence', icon: Database },
+  { href: '#rainfall-evaluation', label: 'Model Evaluation', icon: Activity },
+  { href: '#rainfall-explanation', label: 'Model Explanation', icon: Activity },
+  { href: '#rainfall-scenarios', label: 'Rainfall Scenarios', icon: CloudRain },
+  { href: '#spatial-scenario', label: 'Digital Twin', icon: CloudRain },
+  { href: '#facilities', label: 'Facilities', icon: MapPin },
+  { href: '#city-flood-reports', label: 'City Flood Reports', icon: Database },
+  { href: '#satellite-radar', label: 'Satellite Radar', icon: Layers3 },
+  { href: '#rainfall-prediction', label: 'Rainfall Estimate', icon: CloudRain },
+]
 
 function App() {
   const [activeSection, setActiveSection] = useState(() => window.location.hash || '#overview')
@@ -240,6 +256,8 @@ function App() {
     window.addEventListener('hashchange', updateSection)
     return () => window.removeEventListener('hashchange', updateSection)
   }, [])
+
+  const sectionLabel = workspaceLinks.find(({ href }) => href === activeSection)?.label ?? 'Overview'
 
   const [gis, setGis] = useState<GisSummary | null>(null)
   const [evidence, setEvidence] = useState<EvidenceResponse | null>(null)
@@ -597,22 +615,16 @@ function App() {
         </a>
 
         <div className="side-label">WORKSPACE</div>
-        <a className={activeSection === "#overview" ? "nav-item selected" : "nav-item"} aria-current={activeSection === "#overview" ? "location" : undefined} href="#overview"><Activity size={18} /> Overview</a>
-        <a className={activeSection === "#map-section" ? "nav-item selected" : "nav-item"} aria-current={activeSection === "#map-section" ? "location" : undefined} href="#map-section"><MapPin size={18} /> GIS Explorer</a>
-        <a className={activeSection === "#rainfall" ? "nav-item selected" : "nav-item"} aria-current={activeSection === "#rainfall" ? "location" : undefined} href="#rainfall"><CloudRain size={18} /> Rainfall Data</a>
-        <a className={activeSection === "#evidence" ? "nav-item selected" : "nav-item"} aria-current={activeSection === "#evidence" ? "location" : undefined} href="#evidence"><Database size={18} /> Flood Evidence</a>
-        <a className={activeSection === "#rainfall-evaluation" ? "nav-item selected" : "nav-item"} aria-current={activeSection === "#rainfall-evaluation" ? "location" : undefined} href="#rainfall-evaluation"><Activity size={18} /> Model Evaluation</a>
-        <a className={activeSection === "#rainfall-explanation" ? "nav-item selected" : "nav-item"} aria-current={activeSection === "#rainfall-explanation" ? "location" : undefined} href="#rainfall-explanation"><Activity size={18} /> Model Explanation</a>
-        <a className={activeSection === "#rainfall-scenarios" ? "nav-item selected" : "nav-item"} aria-current={activeSection === "#rainfall-scenarios" ? "location" : undefined} href="#rainfall-scenarios"><CloudRain size={18} /> Rainfall Scenarios</a>
-
-        <a className={activeSection === "#spatial-scenario" ? "nav-item selected" : "nav-item"} aria-current={activeSection === "#spatial-scenario" ? "location" : undefined} href="#spatial-scenario"><CloudRain size={18} /> Spatial Scenario</a>
-
-        <a className={activeSection === "#facilities" ? "nav-item selected" : "nav-item"} aria-current={activeSection === "#facilities" ? "location" : undefined} href="#facilities"><MapPin size={18} /> Facilities</a>
-
-        <a className="nav-item" href="#city-flood-reports"><Database size={18} /> City Flood Reports</a>
-        <a className={activeSection === "#satellite-radar" ? "nav-item selected" : "nav-item"} aria-current={activeSection === "#satellite-radar" ? "location" : undefined} href="#satellite-radar"><Layers3 size={18} /> Satellite Radar</a>
-
-        <a className={activeSection === "#rainfall-prediction" ? "nav-item selected" : "nav-item"} aria-current={activeSection === "#rainfall-prediction" ? "location" : undefined} href="#rainfall-prediction"><CloudRain size={18} /> Rainfall Estimate</a>
+        {workspaceLinks.map(({ href, label, icon: Icon }) => (
+          <a
+            key={href}
+            className={activeSection === href ? 'nav-item selected' : 'nav-item'}
+            aria-current={activeSection === href ? 'location' : undefined}
+            href={href}
+          >
+            <Icon size={18} /> {label}
+          </a>
+        ))}
 
         <div className="sidebar-bottom">
           <div className="side-label">STUDY AREA</div>
@@ -633,7 +645,7 @@ function App() {
 
       <main className="main-content" id="overview">
         <header className="topbar">
-          <div className="breadcrumb">Workspace <span>/</span> <strong>Overview</strong></div>
+          <div className="breadcrumb">Workspace <span>/</span> <strong>{sectionLabel}</strong></div>
           <div className="top-actions">
             <span className={`status-pill ${apiStatus}`}>
               <span className="status-dot" />
@@ -650,9 +662,17 @@ function App() {
             <div className="eyebrow"><span className="eyebrow-line" /> GEOSPATIAL MONITORING PLATFORM</div>
             <h1>AI-Based Urban Flood Digital Twin <span>With Predictive Climate Analysis</span></h1>
             <p>
-              A data-driven view of Ballari’s terrain, land cover and documented flood events.
-              Built to support transparent urban flood research and planning.
+              Explore Ballari’s terrain and drainage, simulate runoff for a storm you choose,
+              and try an experimental AI model for next-day rainfall.
             </p>
+            <div className="hero-actions">
+              <a className="map-control-button hero-primary-action" href="#spatial-scenario">
+                <Layers3 size={16} /> Open Digital Twin
+              </a>
+              <a className="map-control-button" href="#rainfall-prediction">
+                <CloudRain size={16} /> Try AI Rainfall Estimate
+              </a>
+            </div>
             <div className="hero-meta">
               <span><MapPin size={15} /> BALLARI, INDIA</span>
               <span><Layers3 size={15} /> GIS DATA LAYERS</span>
@@ -718,7 +738,7 @@ function App() {
               <li>
                 <strong>Digital Twin and Simulation</strong>
                 <p>Compare estimated runoff volumes under different rainfall assumptions.</p>
-                <a href="#rainfall-scenarios">Rainfall scenarios</a> · <a href="#spatial-scenario">Spatial scenario</a>
+                <a href="#rainfall-scenarios">Rainfall scenarios</a> · <a href="#spatial-scenario">Open Digital Twin</a>
               </li>
               <li>
                 <strong>Explainable AI and Decision Support</strong>
@@ -1434,7 +1454,7 @@ function App() {
             <div>
               <div className="eyebrow">DOCUMENTED INCIDENTS</div>
               <h2>Flood evidence register</h2>
-              <p className="section-subtitle">Reported events collected from available disaster-management and news sources.</p>
+              <p className="section-subtitle">Dates and periods come from disaster-management and news reports. The June 2026 date refers to the reported rainfall event.</p>
             </div>
             <span className="evidence-count">{records.length} records loaded</span>
           </div>
@@ -1442,7 +1462,7 @@ function App() {
           <div className="evidence-panel">
             <div className="evidence-header">
               <span>REPORTED EVENT / SOURCE</span>
-              <span>DATE</span>
+              <span>DATE / PERIOD</span>
               <span>LOCATION STATUS</span>
             </div>
             {records.length ? records.slice(0, 10).map((item, index) => {

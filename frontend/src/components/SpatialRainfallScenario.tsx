@@ -157,7 +157,7 @@ export default function SpatialRainfallScenario({ api }: { api: string }) {
       <div className="section-heading">
         <div>
           <div className="eyebrow">SPATIAL WHAT-IF EXPLORATION</div>
-          <h2>Upstream runoff-volume scenario</h2>
+          <h2>Ballari Digital Twin</h2>
         </div>
       </div>
       <div className="panel-card">
@@ -171,9 +171,15 @@ export default function SpatialRainfallScenario({ api }: { api: string }) {
           flood depth, inundation or drainage overflow.
         </p>
 
+        <p className="small-note">
+          <a href="#rainfall-prediction">Open the experimental rainfall estimate</a>.
+          Set the storm depth for this simulation separately.
+        </p>
+
         <form onSubmit={calculate}>
           <fieldset disabled={loading} style={{ border: 0, padding: 0, margin: 0 }}>
             <legend>Scenario assumptions</legend>
+            <p className="small-note">Use the example values below to generate the runoff map.</p>
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: 16, margin: '12px 0' }}>
               <label>
                 Rainfall depth (mm)
@@ -204,7 +210,7 @@ export default function SpatialRainfallScenario({ api }: { api: string }) {
               </label>
             </div>
             <button type="submit" className="map-control-button">
-              {loading ? 'Calculating…' : 'Calculate spatial scenario'}
+              {loading ? 'Calculating…' : 'Generate runoff map'}
             </button>
           </fieldset>
         </form>
